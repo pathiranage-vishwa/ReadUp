@@ -5,6 +5,9 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 dotenv.config();
 
+const orderRoute = require("./routes/order");
+//const categoryRoute = require("./routes/category");
+
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => console.log("DB Connection Successfull!"))
@@ -14,6 +17,9 @@ mongoose
 
 app.use(cors());
 app.use(express.json());
+
+app.use("/api/orders", orderRoute);
+//app.use("/api/category", categoryRoute);
 
 app.listen(process.env.PORT || 5000, () => {
     console.log("Backend server is running!");
