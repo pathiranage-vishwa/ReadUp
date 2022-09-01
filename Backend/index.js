@@ -16,6 +16,9 @@ mongoose
 app.use(cors());
 app.use(express.json());
 
+//category route
+app.use("/category", categoryRoute);
+
 app.listen(process.env.PORT || 5000, () => {
   console.log("Backend server is running!");
 });
