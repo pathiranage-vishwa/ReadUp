@@ -1,3 +1,0 @@
-MONGO_URL = mongodb+srv://MovieUser:Movie123@cluster0.ag6o3.mongodb.net/BookStore?retryWrites=true&w=majority
-PASS_SEC = secret
-JWT_SEC = secret
