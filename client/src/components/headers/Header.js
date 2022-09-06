@@ -49,6 +49,9 @@ function Header() {
     return (
       <>
         <li>
+          <Link to="/request">Request Books</Link>
+        </li>
+        <li>
           <Link to="/history">History</Link>
         </li>
         <li>

@@ -19,6 +19,8 @@ const Wrapper = styled.div`
 const Title = styled.h1`
   font-weight: 300;
   text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 `;
 
 const Top = styled.div`
@@ -139,6 +141,8 @@ const Summary = styled.div`
 
 const SummaryTitle = styled.h1`
   font-weight: 200;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 `;
 
 const SummaryItem = styled.div`
@@ -157,7 +161,7 @@ const Button = styled.button`
   width: 100%;
   height: 50px;
   padding: 10px;
-  background-color: black;
+  background-color: #100360;
   color: white;
   font-weight: 600;
   font-size: 20px;
