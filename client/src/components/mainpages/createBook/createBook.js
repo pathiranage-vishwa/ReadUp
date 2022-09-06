@@ -114,13 +114,31 @@ function CreateBook() {
       if (!images) return alert("No Image Upload");
 
       if (onEdit) {
-        await axios.put(
-          `/api/book/${book._id}`,
-          { ...book, images },
-          {
-            headers: { Authorization: token },
+        swal({
+          title: "Are you sure?",
+          text: "if may affect other book details",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        }).then((willUpdate) => {
+          if (willUpdate) {
+            axios.put(
+              `/api/book/${book._id}`,
+              { ...book, images },
+              {
+                headers: { Authorization: token },
+              }
+            );
+            swal("Book is update successfully !", {
+              icon: "success",
+            });
+            window.location.reload(false);
+          } else {
+            swal("Update process canceled!");
           }
-        );
+
+          //  history.push("/");
+        });
       } else {
         await axios.post(
           "/api/book",
@@ -130,9 +148,11 @@ function CreateBook() {
           }
         );
         swal("Done!", " Book Added Successfully", "success");
+
+        // history.push("/");
       }
       setCallback(!callback);
-      history.push("/");
+      // history.push("/");
     } catch (err) {
       alert(err.response.data.msg);
     }
@@ -145,7 +165,7 @@ function CreateBook() {
     <div>
       <center className="header21">
         <h2 className="register-heading1">
-          {onEdit ? "Update Book" : "Add New Book"}
+          {onEdit ? "Edit Book Details" : "Add New Book"}
         </h2>
       </center>
       <div className="create_book">
@@ -168,7 +188,7 @@ function CreateBook() {
             ) : (
               <div id="file_img" style={styleUpload}>
                 <img src={images ? images.url : ""} alt="" />
-                <span onClick={handleDestroy}>X</span>book_id
+                <span onClick={handleDestroy}>X</span>
               </div>
             )}
           </div>
@@ -216,7 +236,7 @@ function CreateBook() {
                 <input
                   type="text"
                   name="author"
-                  placeholder="ex:-Mr: J.K Rowling"
+                  placeholder="E.g.:-Mr: J.K Rowling"
                   className="form-control form-control-lg"
                   id="author"
                   required
@@ -229,7 +249,7 @@ function CreateBook() {
                 <input
                   type="number"
                   name="price"
-                  placeholder="ex:- 1000.00"
+                  placeholder="E.g.:- 1000.00"
                   id="price"
                   className="form-control form-control-lg"
                   required
@@ -244,7 +264,7 @@ function CreateBook() {
               <textarea
                 type="text"
                 name="description"
-                placeholder="ex:- Harry Potter is a series of fantasy novels."
+                placeholder="E.g.:- Harry Potter is a series of fantasy novels."
                 id="description"
                 className="form-control form-control-lg"
                 required
@@ -260,7 +280,7 @@ function CreateBook() {
                 type="text"
                 name="content"
                 id="content"
-                placeholder="ex:- The novels chronicle the life of a young wizard, Harry Potter, and his friends Hermione Granger and Ron Weasley, all of whom are students at Hogwarts School of Witchcraft and Wizardry."
+                placeholder="E.g.:- The novels chronicle the life of a young wizard, Harry Potter, and his friends Hermione Granger and Ron Weasley, all of whom are students at Hogwarts School of Witchcraft and Wizardry."
                 className="form-control form-control-lg"
                 required
                 value={book.content}
