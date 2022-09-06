@@ -47,66 +47,67 @@ function Categories() {
           <div className="col-md-8 col-lg-6">
             <div className="login d-flex align-items-center py-5">
               <div className="card-body p-md-5 text-black">
-                <form onSubmit={createCategory}>
-                  <h3 className="category-heading mb-6">Create Category</h3>
-                  <hr className="hr1" />
-                  <br />
-                  <div className="col-md-6 mb-4">
-                    <div className="form-outline">
-                      <label className="form-label" for="form3Example1m">
-                        Category Name
-                      </label>
-                      <input
-                        type="text"
-                        name="categoryName"
-                        value={category.categoryName}
-                        className="form-control form-control-lg"
-                        onChange={onChangeInput}
-                        required
-                      />
+                <h3 className="category-heading mb-6">Add New Book Category</h3>
+                <hr className="hr1" />
+                <br />
+                <div className="borderCat">
+                  <form onSubmit={createCategory}>
+                    <div className="ms-4 col-md-6 mb-4 mt-5">
+                      <div className="form-outline">
+                        <label className="form-label" for="form3Example1m">
+                          <b>Category Name</b>
+                        </label>
+                        <input
+                          type="text"
+                          name="categoryName"
+                          placeholder="E.g.: History"
+                          value={category.categoryName}
+                          className="form-control form-control-lg"
+                          onChange={onChangeInput}
+                          required
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="col-md-6 mb-4">
-                    <div className="form-outline">
-                      <label className="form-label" for="form3Example1m">
-                        Date
-                      </label>
-                      <input
-                        type="date"
-                        name="date"
-                        value={category.date}
-                        className="form-control form-control-lg"
-                        onChange={onChangeInput}
-                        required
-                      />
+                    <div className="ms-4 col-md-6 mb-4">
+                      <div className="form-outline">
+                        <label className="form-label" for="form3Example1m">
+                          <b>Date</b>
+                        </label>
+                        <input
+                          type="date"
+                          name="date"
+                          value={category.date}
+                          className="form-control form-control-lg"
+                          onChange={onChangeInput}
+                          required
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="col-md-6 mb-4">
-                    <div className="form-outline">
-                      <label className="form-label" for="form3Example1m">
-                        Description
-                      </label>
-                      <input
-                        type="text"
-                        name="description"
-                        value={category.description}
-                        className="form-control form-control-lg"
-                        onChange={onChangeInput}
-                        required
-                      />
+                    <div className="ms-4 col-md-6 mb-4 w-75">
+                      <div className="form-outline">
+                        <label className="form-label" for="form3Example1m">
+                          <b>Description</b>
+                        </label>
+                        <textarea
+                          style={{ height: "120px" }}
+                          type="text"
+                          name="description"
+                          placeholder="E.g.:- History category lay out the known facts about a particular, time, culture, or event in history. "
+                          value={category.description}
+                          className="form-control form-control-lg"
+                          onChange={onChangeInput}
+                          required
+                        />
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="d-flex justify-content-end pt-3">
-                    <button
-                      className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
-                      type="submit"
-                      style={{ height: "50px" }}
-                    >
-                      Create
-                    </button>
-                  </div>
-                </form>
+                    <div className="d-flex justify-content-center pt-3">
+                      <button className="buttonCat mb-5" type="submit">
+                        Submit
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
