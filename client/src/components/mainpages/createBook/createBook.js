@@ -3,6 +3,7 @@ import axios from "axios";
 import { GlobalState } from "../../../GlobalState";
 import Loading from "../utils/loading/Loading";
 import { useHistory, useParams } from "react-router-dom";
+import swal from "sweetalert";
 
 const initialState = {
   book_id: "",
@@ -128,6 +129,7 @@ function CreateBook() {
             headers: { Authorization: token },
           }
         );
+        swal("Done!", " Book Added Successfully", "success");
       }
       setCallback(!callback);
       history.push("/");
@@ -178,7 +180,7 @@ function CreateBook() {
                 <input
                   type="text"
                   name="title"
-                  placeholder="ex:- Harry Potter"
+                  placeholder="E.g.:- Harry Potter"
                   className="form-control form-control-lg"
                   id="title"
                   required
