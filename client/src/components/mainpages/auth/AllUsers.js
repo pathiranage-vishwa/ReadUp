@@ -155,8 +155,8 @@ export default function AllUsers() {
       <br />
 
       <ReactPaginate
-        previousLabel={"-Previous"}
-        nextLabel={"Next-"}
+        previousLabel={"< previous"}
+        nextLabel={"next >"}
         pageCount={pageCount}
         onPageChange={handlePageClick}
         containerClassName={"pagination"}
