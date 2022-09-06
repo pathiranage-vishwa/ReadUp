@@ -27,7 +27,7 @@ function DetailBook() {
         <div className="box-detail">
           <div className="row">
             <h2>{detailBook.title}</h2>
-            <h6>#id: {detailBook.product_id}</h6>
+            <h6> {detailBook.product_id}</h6>
           </div>
           <span>$ {detailBook.price}</span>
           <p>{detailBook.description}</p>

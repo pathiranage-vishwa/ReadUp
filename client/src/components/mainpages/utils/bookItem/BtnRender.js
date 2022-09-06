@@ -18,14 +18,14 @@ function BtnRender({ book, deleteBook }) {
             id="btn_buy"
             to="#!"
             onClick={() => deleteBook(book._id, book.images.public_id)}
-            className="btn btn-lg text-uppercase fw-bold mb-5"
+            className="btn btn-lg text-uppercase  mb-5"
           >
             Delete
           </Link>
           <Link
             id="btn_view"
             to={`/edit_product/${book._id}`}
-            className="btn btn-lg  text-uppercase fw-bold mb-5"
+            className="btn btn-lg  text-uppercase  mb-5"
           >
             Edit
           </Link>
@@ -36,14 +36,14 @@ function BtnRender({ book, deleteBook }) {
             id="btn_buy"
             to="#!"
             onClick={() => addCart(book)}
-            className="btn btn-lg  text-uppercase fw-bold mb-5"
+            className="btn btn-lg  text-uppercase  mb-5"
           >
             Buy
           </Link>
           <Link
             id="btn_view"
             to={`/detail/${book._id}`}
-            className="btn btn-lg  text-uppercase fw-bold mb-5"
+            className="btn btn-lg  text-uppercase  mb-5"
           >
             View
           </Link>
