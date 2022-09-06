@@ -6,7 +6,6 @@ import { useHistory, useParams } from "react-router-dom";
 import swal from "sweetalert";
 
 const initialState = {
-  book_id: "",
   title: "",
   author: "",
   price: 0,
