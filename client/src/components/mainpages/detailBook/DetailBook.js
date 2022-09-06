@@ -32,12 +32,17 @@ function DetailBook() {
           <span>LKR {detailBook.price}</span>
           <p>{detailBook.description}</p>
           <p>{detailBook.content}</p>
-          <p>Sold: {detailBook.sold}</p>
-          <Link to="/cart" className="cart" onClick={() => addCart(detailBook)}>
-            Add to Cart
-          </Link>
+          {/* <p>Sold: {detailBook.sold}</p> */}
+
           <Link to="/cart" className="cart" onClick={() => addCart(detailBook)}>
             Buy Now
+          </Link>
+          <Link
+            to="/cart"
+            className="btnDetail"
+            onClick={() => addCart(detailBook)}
+          >
+            Add to Cart
           </Link>
         </div>
       </div>

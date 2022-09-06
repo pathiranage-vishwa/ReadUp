@@ -45,11 +45,27 @@
   margin-left: 5px;
 }
 .box-detail .cart {
-  background: #333;
+  background: rgb(11, 20, 116);
   color: white;
   margin-top: 10px;
+  margin-right: 40px;
   padding: 10px 25px;
   display: inline-block;
+  text-transform: uppercase;
+  border-radius: 5px;
+  letter-spacing: 2px;
+}
+
+.box-detail .btnDetail {
+  background: rgb(255, 255, 255);
+  color: rgb(7, 12, 86);
+  margin-top: 10px;
+  border: 2px solid rgb(11, 4, 83);
+  padding: 10px 10px;
+  display: inline-block;
+  width: 200px;
+  height: 55px;
+  border-radius: 5px;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
