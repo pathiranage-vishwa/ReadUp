@@ -72,10 +72,10 @@ export default function AllUsers() {
     setprofile(result);
   };
 
-  function hancdleSearchArea(e) {
+  async function hancdleSearchArea(e) {
     const searchkey = e.currentTarget.value;
 
-    axios.get("/user/allUsers").then((res) => {
+    const res = await axios.get("/user/allUsers").then((res) => {
       if (res.data.success) {
         filterData(res.data.existingUsers, searchkey);
       }
@@ -152,8 +152,8 @@ export default function AllUsers() {
       <br />
 
       <ReactPaginate
-        previousLabel={"«"}
-        nextLabel={"»"}
+        previousLabel={"« previous"}
+        nextLabel={"next »"}
         pageCount={pageCount}
         onPageChange={handlePageClick}
         containerClassName={"pagination"}
