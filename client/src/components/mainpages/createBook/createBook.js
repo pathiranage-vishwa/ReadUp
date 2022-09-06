@@ -95,7 +95,10 @@ function CreateBook() {
 
   const handleDestroy = async () => {
     try {
-      if (!(isAdmin || isSeller)) return alert("You're not an admin or seller");
+      if (!(isAdmin || isSeller))
+        return alert("You're not an admin or seller", {
+          icon: "warning",
+        });
       setLoading(true);
       await axios.post(
         "/api/destroy",
@@ -119,8 +122,14 @@ function CreateBook() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (!(isAdmin || isSeller)) return alert("You're not an admin or seller");
-      if (!images) return alert("No Image Upload");
+      if (!(isAdmin || isSeller))
+        return swal("You're not an admin or seller", {
+          icon: "warning",
+        });
+      if (!images)
+        return swal("No Image Upload", {
+          icon: "warning",
+        });
 
       if (onEdit) {
         swal({
