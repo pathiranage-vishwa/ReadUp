@@ -18,7 +18,7 @@
   display: block;
 }
 .box-detail {
-  max-width: 600px;
+  max-width: 650px;
   width: 100%;
   margin: 5px 20px;
 }
@@ -37,6 +37,12 @@
   line-height: 1.5;
   margin: 10px 0;
   opacity: 0.8;
+}
+
+.box-detail span {
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  margin-left: 5px;
 }
 .box-detail .cart {
   background: #333;

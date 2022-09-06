@@ -29,7 +29,7 @@ function DetailBook() {
             <h2>{detailBook.title}</h2>
             <h6> {detailBook.product_id}</h6>
           </div>
-          <span>$ {detailBook.price}</span>
+          <span>LKR {detailBook.price}</span>
           <p>{detailBook.description}</p>
           <p>{detailBook.content}</p>
           <p>Sold: {detailBook.sold}</p>
