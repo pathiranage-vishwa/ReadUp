@@ -119,12 +119,11 @@ textarea {
 .hr1 {
   color: #100360;
   border-top: 1vh solid;
-  width: 42%;
+  width: 22%;
 }
 
-.register-heading {
+.BookHeading1 {
   font-size: 5vh;
-  padding: 20px;
   color: rgb(62, 62, 62);
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;

@@ -164,14 +164,12 @@ function CreateBook() {
   return (
     <div>
       <center className="header21">
-        <h2 className="register-heading1">
+        <h2 className="BookHeading1">
           {onEdit ? "Edit Book Details" : "Add New Book"}
         </h2>
       </center>
       <div className="create_book">
         <div className="border">
-          {/* <hr className="hr11" /> */}
-
           <br />
           <div className="upload">
             <br />
