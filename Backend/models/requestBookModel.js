@@ -8,7 +8,7 @@ const categorySchema = new mongoose.Schema(
     },
     category: {
       type: String,
-      required: true,
+     
     },
     author: {
       type: String,
@@ -23,6 +23,7 @@ const categorySchema = new mongoose.Schema(
       default: "pending",
     },
   },
+
   {
     timestamps: true,
   }
