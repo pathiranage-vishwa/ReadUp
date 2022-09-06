@@ -133,17 +133,14 @@ export default function AllUsers() {
 
               <td>
                 <a
-                  className="btn btn-primary"
+                  className="btn-tbl"
                   href={`/updateuser/${data._id}`}
                   //   onClick={() => setData(data)}
                 >
                   &nbsp;Update
                 </a>
                 &nbsp;
-                <a
-                  className="btn btn-danger"
-                  onClick={() => handleDelete(data._id)}
-                >
+                <a className="btn-tb2" onClick={() => handleDelete(data._id)}>
                   &nbsp;Delete
                 </a>
               </td>
@@ -155,8 +152,8 @@ export default function AllUsers() {
       <br />
 
       <ReactPaginate
-        previousLabel={"< previous"}
-        nextLabel={"next >"}
+        previousLabel={"«"}
+        nextLabel={"»"}
         pageCount={pageCount}
         onPageChange={handlePageClick}
         containerClassName={"pagination"}

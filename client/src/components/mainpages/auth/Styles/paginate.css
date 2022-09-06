@@ -4,15 +4,19 @@
 
 .pagination {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   list-style: none;
   cursor: pointer;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: rgb(16, 26, 119);
 }
 
 .pagination a {
   padding: 10px;
   border: 1px solid #112083;
-  background-color: #d4d4d4;
+  background-color: #ffffff;
   padding: 15px;
   border-radius: 10px;
 }
