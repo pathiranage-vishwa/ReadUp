@@ -58,14 +58,18 @@
   background: rgb(12, 9, 104);
   margin-right: 10px;
   font-size: 17px;
-  height: 50px;
+  height: 40px;
+  width: 120px;
   margin-left: 10px;
 }
 #btn_view {
   background: #ffffff;
   outline: #100360;
   color: #100360;
+  height: 40px;
+  width: 120px;
   margin-left: 5px;
+  margin-right: 10px;
 }
 .product_card input {
   position: absolute;
