@@ -36,14 +36,17 @@ body {
   width: 100%;
   height: 100%;
   outline: none;
+  top: -18px;
 }
 #file_up::before {
-  content: "+";
+  content: url("./images/upload.png");
+  /* background-image: url("./images/upload.png"); */
   position: absolute;
   width: 100%;
   height: 100%;
   left: 0;
-  background: white;
+
+  background: rgb(255, 255, 255);
   color: rgb(48, 16, 207);
   font-size: 17rem;
   text-align: center;
