@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Styles/login.css";
 import axios from "axios";
+import swal from "sweetalert";
 
 function Login() {
   const [user, setUser] = useState({
@@ -18,12 +19,12 @@ function Login() {
     e.preventDefault();
     try {
       await axios.post("/user/login", { ...user });
-
+      swal("Logged In!", "You successfully logged in!", "success");
       localStorage.setItem("firstLogin", true);
 
       window.location.href = "/";
     } catch (err) {
-      alert(err.response.data.msg);
+      swal("ERROR!", err.response.data.msg, "error");
     }
   };
 
