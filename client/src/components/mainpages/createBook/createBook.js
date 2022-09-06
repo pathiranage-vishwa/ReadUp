@@ -196,7 +196,10 @@ function CreateBook() {
           <form onSubmit={handleSubmit}>
             <div className="row">
               <div className="col-md-6 mb-4">
-                <label htmlFor="title">Book Title</label>
+                <label htmlFor="title">
+                  {" "}
+                  <b>Book Title</b>
+                </label>
                 <input
                   type="text"
                   name="title"
@@ -210,7 +213,9 @@ function CreateBook() {
               </div>
               <div className="col-md-6 mb-4">
                 <div className="rowCat">
-                  <label htmlFor="categories">Categories: </label>
+                  <label htmlFor="categories">
+                    <b>Categories:</b>{" "}
+                  </label>
                   <br />
                   <select
                     className="form-select"
@@ -232,7 +237,9 @@ function CreateBook() {
 
             <div className="row">
               <div className="col-md-6 mb-4">
-                <label htmlFor="author">Author</label>
+                <label htmlFor="author">
+                  <b>Author</b>
+                </label>
                 <input
                   type="text"
                   name="author"
@@ -245,7 +252,10 @@ function CreateBook() {
                 />
               </div>
               <div className="col-md-6 mb-4">
-                <label htmlFor="price">Price (LKR)</label>
+                <label htmlFor="price">
+                  {" "}
+                  <b>Price (LKR)</b>
+                </label>
                 <input
                   type="number"
                   name="price"
@@ -260,7 +270,9 @@ function CreateBook() {
             </div>
 
             <div className="row">
-              <label htmlFor="description">Description</label>
+              <label htmlFor="description">
+                <b>Description</b>
+              </label>
               <textarea
                 type="text"
                 name="description"
@@ -275,7 +287,9 @@ function CreateBook() {
             </div>
 
             <div className="row">
-              <label htmlFor="content">Content</label>
+              <label htmlFor="content">
+                <b>Content</b>
+              </label>
               <textarea
                 type="text"
                 name="content"
