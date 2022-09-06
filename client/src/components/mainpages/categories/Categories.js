@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { GlobalState } from "../../../GlobalState";
 import "./Styles/categories.css";
 import axios from "axios";
+import swal from "sweetalert";
 
 function Categories() {
   const state = useContext(GlobalState);
@@ -31,7 +32,9 @@ function Categories() {
           headers: { Authorization: token },
         }
       );
-      alert(res.data.msg);
+      swal(res.data.msg, {
+        icon: "success",
+      });
       setCategory("");
       setCallback(!callback);
     } catch (err) {
