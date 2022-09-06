@@ -22,6 +22,14 @@ function DetailBook() {
 
   return (
     <>
+      <center>
+        <h3 className="bookDetails-heading mb-6">
+          {" "}
+          <b>Book Details </b>
+        </h3>
+
+        <br />
+      </center>
       <div className="detail">
         <img src={detailBook.images.url} alt="" />
         <div className="box-detail">

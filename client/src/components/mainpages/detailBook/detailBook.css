@@ -69,3 +69,11 @@
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+
+.bookDetails-heading {
+  font-size: 5vh;
+  margin-top: 15px;
+  color: rgb(62, 62, 62);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
