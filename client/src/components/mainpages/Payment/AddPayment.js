@@ -131,6 +131,7 @@ const AddPayment = () => {
           postalCode,
           phoneNumber,
           cart,
+          transfer_amount
         };
         try {
           axios.post("/api/order", reserDataAdd);

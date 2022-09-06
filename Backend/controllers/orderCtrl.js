@@ -26,8 +26,8 @@ const orderCtrl = {
         country,
         postalCode,
         phoneNumber,
+        transfer_amount
       } = req.body;
-
       //const {_id, name, email} = user;
 
       const newOrder = new Orders({
@@ -40,6 +40,7 @@ const orderCtrl = {
         country,
         postalCode,
         phoneNumber,
+        total:transfer_amount,
       });
 
       // cart.filter(item => {
