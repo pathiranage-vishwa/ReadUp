@@ -1,0 +1,44 @@
+/* html, body 
+{ 
+ height: 100%;
+ overflow: hidden
+} */
+
+.card-categories .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+.card-categories .select-arrow {
+  top: 13px;
+}
+
+.categoryimage {
+  background-image: url("../Styles/categories.svg");
+  background-size: 580px 580px;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 2;
+}
+
+.hr1 {
+  color: #100360;
+  border-top: 1vh solid;
+  width: 42%;
+}
+
+.category-heading {
+  font-size: 5vh;
+  color: rgb(62, 62, 62);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.categoryTop {
+  margin-top: -70px;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
