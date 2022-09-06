@@ -15,8 +15,8 @@
 }
 
 .categoryimage {
-  background-image: url("../Styles/categories.svg");
-  background-size: 580px 580px;
+  background-image: url("../Styles/category.svg");
+  background-size: 450px 450px;
   background-repeat: no-repeat;
   background-position: center;
   z-index: 2;
