@@ -141,10 +141,10 @@ function CreateBook() {
   };
   return (
     <div>
-      <center>
-        <h3 className="register-heading1">
+      <center className="header21">
+        <h2 className="register-heading1">
           {onEdit ? "Update Book" : "Add New Book"}
-        </h3>
+        </h2>
       </center>
       <div className="create_book">
         <div className="border">
@@ -174,29 +174,37 @@ function CreateBook() {
           <form onSubmit={handleSubmit}>
             <div className="row">
               <div className="col-md-6 mb-4">
-                <label htmlFor="book_id">Book ID</label>
-                <input
-                  type="text"
-                  name="book_id"
-                  className="form-control form-control-lg"
-                  id="book_id"
-                  required
-                  value={book.book_id}
-                  onChange={handleChangeInput}
-                  disabled={onEdit}
-                />
-              </div>
-              <div className="col-md-6 mb-4">
-                <label htmlFor="title">Title</label>
+                <label htmlFor="title">Book Title</label>
                 <input
                   type="text"
                   name="title"
+                  placeholder="ex:- Harry Potter"
                   className="form-control form-control-lg"
                   id="title"
                   required
                   value={book.title}
                   onChange={handleChangeInput}
                 />
+              </div>
+              <div className="col-md-6 mb-4">
+                <div className="rowCat">
+                  <label htmlFor="categories">Categories: </label>
+                  <br />
+                  <select
+                    className="form-select"
+                    id="inlineFormCustomSelectPref"
+                    name="category"
+                    value={book.category}
+                    onChange={handleChangeInput}
+                  >
+                    <option value="">Please select a category</option>
+                    {categories.map((category) => (
+                      <option value={category._id} key={category._id}>
+                        {category.categoryName}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
             </div>
 
@@ -206,6 +214,7 @@ function CreateBook() {
                 <input
                   type="text"
                   name="author"
+                  placeholder="ex:-Mr: J.K Rowling"
                   className="form-control form-control-lg"
                   id="author"
                   required
@@ -218,6 +227,7 @@ function CreateBook() {
                 <input
                   type="number"
                   name="price"
+                  placeholder="ex:- 1000.00"
                   id="price"
                   className="form-control form-control-lg"
                   required
@@ -232,6 +242,7 @@ function CreateBook() {
               <textarea
                 type="text"
                 name="description"
+                placeholder="ex:- Harry Potter is a series of fantasy novels."
                 id="description"
                 className="form-control form-control-lg"
                 required
@@ -247,31 +258,13 @@ function CreateBook() {
                 type="text"
                 name="content"
                 id="content"
+                placeholder="ex:- The novels chronicle the life of a young wizard, Harry Potter, and his friends Hermione Granger and Ron Weasley, all of whom are students at Hogwarts School of Witchcraft and Wizardry."
                 className="form-control form-control-lg"
                 required
                 value={book.content}
                 rows="7"
                 onChange={handleChangeInput}
               />
-            </div>
-
-            <div className="rowCat">
-              <label htmlFor="categories">Categories: </label>
-              <br />
-              <select
-                className="form-select"
-                id="inlineFormCustomSelectPref"
-                name="category"
-                value={book.category}
-                onChange={handleChangeInput}
-              >
-                <option value="">Please select a category</option>
-                {categories.map((category) => (
-                  <option value={category._id} key={category._id}>
-                    {category.categoryName}
-                  </option>
-                ))}
-              </select>
             </div>
 
             <button className="mt-5 mb-5" type="submit">
