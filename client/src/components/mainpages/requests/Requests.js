@@ -3,6 +3,7 @@ import { GlobalState } from "../../../GlobalState";
 import "./Styles/requests.css";
 import req from "./Styles/req.png"
 import axios from "axios";
+import swal from "sweetalert";
 
 function Requests() {
   const state = useContext(GlobalState);
@@ -33,7 +34,9 @@ function Requests() {
             headers: { Authorization: token },
           }
       );
-      alert(res.data.msg);
+      swal("Done!", "Request successfully!", "success");
+      // alert(res.data.msg);
+      //move to request home
       setRequest("");
       //   setCallback(!callback);
     } catch (err) {
@@ -67,6 +70,7 @@ function Requests() {
                 <div className="card">
                   <div className="card-body">
                     <form onSubmit={createRequest}>
+                      <br/>
                       <label>Book Name: </label>
                       <div className="form-group">
                         <input type="text" className="form-control"
@@ -75,6 +79,7 @@ function Requests() {
                                onChange={onChangeInput}
                                required/>
                       </div>
+                      <br/>
 
                       <label>Book Category : </label>
                       <div className="form-group">
@@ -84,6 +89,7 @@ function Requests() {
                                onChange={onChangeInput}
                                required/>
                       </div>
+                      <br/>
 
                       <label>Book Author : </label>
                       <div className="form-group">
@@ -93,6 +99,7 @@ function Requests() {
                                onChange={onChangeInput}
                                required/>
                       </div>
+                      <br/>
 
                       <label>ISBN Number: </label>
                       <div className="form-group">
@@ -102,6 +109,7 @@ function Requests() {
                                onChange={onChangeInput}
                                required/>
                       </div>
+                      <br/>
 
 
                       <div className="d-flex justify-content-end pt-3">

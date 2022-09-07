@@ -31,6 +31,9 @@ function Header() {
         <li>
           <Link to="/category">Categories</Link>
         </li>
+          <li>
+              <Link to="/managerequests">Manage Requests</Link>
+          </li>
       </>
     );
   };
@@ -41,13 +44,18 @@ function Header() {
         <li>
           <Link to="/create_book">Create Product</Link>
         </li>
+          <li>
+              <Link to="/managerequests">Manage Requests</Link>
+          </li>
       </>
     );
   };
 
   const loggedRouter = () => {
     return (
-      <>
+      <><li>
+          <Link to="/requestHome">Request Books</Link>
+      </li>
         <li>
           <Link to="/history">History</Link>
         </li>
