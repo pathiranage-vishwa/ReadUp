@@ -66,6 +66,14 @@ export default function Allrequests() {
 
   return (
     <div className="container " style={{ width: "100%" }}>
+      <br/>
+      <br/>
+      <div className="card">
+        <center>
+          <h1>DashBoard - Request Books </h1>
+        </center>
+      </div>
+
       <br />
       <div className="allusers">
         <div className="row">
@@ -80,10 +88,6 @@ export default function Allrequests() {
             ></input>
           </div>
         </div>
-      </div>
-
-      <div className="addform1">
-        <h1 className="tabl-heading mb-4">ALL REQUESTS </h1>
       </div>
 
       {/* <a className="btn btn-warning" 
@@ -133,6 +137,7 @@ export default function Allrequests() {
           ))}
         </tbody>
       </table>
+      <br/> <br/> <br/> <br/>
     </div>
   );
 }
