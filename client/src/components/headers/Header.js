@@ -26,7 +26,7 @@ function Header() {
     return (
       <>
         <li>
-          <Link to="/create_book">Create Product</Link>
+          <Link to="/create_book">Create Book</Link>
         </li>
         <li>
           <Link to="/category">Categories</Link>
@@ -39,7 +39,7 @@ function Header() {
     return (
       <>
         <li>
-          <Link to="/create_book">Create Product</Link>
+          <Link to="/create_book">Create Book</Link>
         </li>
       </>
     );
