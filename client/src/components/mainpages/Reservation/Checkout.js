@@ -157,7 +157,7 @@ export default function Checkout() {
                   <div className="d-flex justify-content-end pt-3">
                     <div class="amount">
                       <div class="inner">
-                        <span class="dollar">Total LKR.{transfer_amount}</span>
+                        <span class="dollar"><b>Total LKR.{transfer_amount}</b></span>
                       </div>
                     </div>
                     <button

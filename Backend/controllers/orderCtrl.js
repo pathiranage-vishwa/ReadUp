@@ -1,6 +1,7 @@
 const Orders = require("../models/orderModel");
 const Users = require("../models/userModel");
 const Products = require("../models/bookModel");
+const md5 = require("md5");
 
 const orderCtrl = {
   getOrders: async (req, res) => {
@@ -35,7 +36,11 @@ const orderCtrl = {
         name,
         email,
         cart,
+<<<<<<< Updated upstream
         paymentID,
+=======
+        paymentID:md5(`${user_id}${req.body.time}${req.body.date}`),
+>>>>>>> Stashed changes
         address,
         country,
         postalCode,

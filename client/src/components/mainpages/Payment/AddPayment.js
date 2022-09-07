@@ -34,8 +34,8 @@ const AddPayment = () => {
   const [mobileNumber, setmobileNumber] = useState();
   const [pin, setpin] = useState("");
   const [status, setStatus] = useState("");
-  //const [cart, setCart] = useState([JSON.parse(localStorage.getItem("Cart"))]);
-  const [token] = state.token;
+  const [cart, setCart] = useState([JSON.parse(localStorage.getItem("Cart"))]);
+    const [token] = state.token
 
   console.log(user);
 
@@ -44,7 +44,7 @@ const AddPayment = () => {
   const Username = user.Username;
   const user_id = user._id;
   const email = user.email;
-  const cart = user.cart;
+  
 
   const [PaymentType, setPaymentType] = useState("card");
 
@@ -55,11 +55,11 @@ const AddPayment = () => {
   const postalCode = localStorage.getItem("PCode");
   const transfer_amount = localStorage.getItem("Total");
 
-  // const addToCart = async (cart) =>{
-  //     await axios.patch('/user/addcart', {cart}, {
-  //         headers: {Authorization: token}
-  //     })
-  // }
+  const addToCart = async (cart) =>{
+      await axios.patch('/user/addcart', {cart}, {
+          headers: {Authorization: token}
+      })
+  }
 
   const cardPayment = async (e) => {
     e.preventDefault();
@@ -84,8 +84,8 @@ const AddPayment = () => {
       //         cart.splice(index, 1)
       //     }
       // })
-      // setCart([...cart])
-      // addToCart(cart)
+      setCart([]);
+      addToCart(cart);
 
       let ans = window.confirm("Do you want to save card details ?");
 
@@ -176,9 +176,9 @@ const AddPayment = () => {
                     </Box>
                     <div class="amount">
                       <div class="inner">
-                        <span class="dollar">TOTAL</span>
+                        <span class="dollar"><b>TOTAL</b></span>
                         {/* //need to change with session */}
-                        <span class="total">LKR.{transfer_amount}</span>
+                        <span class="total"><b>LKR.{transfer_amount}</b></span>
                       </div>
                     </div>
                   </div>
@@ -311,12 +311,18 @@ const AddPayment = () => {
         >
           <div class="amount">
             <div class="inner">
-              <span class="dollar">TOTAL LKR.{transfer_amount}</span>
+              <span class="dollar"><b>TOTAL LKR.{transfer_amount}</b></span>
             </div>
           </div>
           <div className="row" style={{ marginTop: "20px" }}>
             <center>
+<<<<<<< Updated upstream
               <PaypalButton />
+=======
+              <Paypal 
+              total={transfer_amount}
+              />
+>>>>>>> Stashed changes
             </center>
           </div>
         </div>
