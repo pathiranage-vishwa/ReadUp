@@ -5,7 +5,7 @@ import { Add, Remove, Delete } from "@material-ui/icons";
 import styled from "styled-components";
 import { useHistory } from "react-router";
 import { mobile } from "../../homepage/responsive";
-import StripeCheckout from "react-stripe-checkout";
+import swal from "sweetalert";
 
 const KEY = process.env.REACT_APP_STRIPE;
 
@@ -218,16 +218,26 @@ function Cart() {
   };
 
   const removeProduct = (id) => {
-    if (window.confirm("Do you want to delete this product?")) {
-      cart.forEach((item, index) => {
-        if (item._id === id) {
-          cart.splice(index, 1);
-        }
-      });
+    swal({
+      title: "Are you sure?",
+      text: "The selected book will be deleted from the cart!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        cart.forEach((item, index) => {
+          if (item._id === id) {
+            cart.splice(index, 1);
+          }
+        });
 
-      setCart([...cart]);
-      addToCart(cart);
-    }
+        setCart([...cart]);
+        addToCart(cart);
+      } else {
+        swal("Selected Book is safe!");
+      }
+    });
   };
 
   const tranSuccess = async (payment) => {

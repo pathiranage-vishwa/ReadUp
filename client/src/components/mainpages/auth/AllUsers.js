@@ -92,7 +92,7 @@ export default function AllUsers() {
             <input
               className="form-control"
               type="search"
-              placeholder="search...( name, registration no, role)"
+              placeholder="search...( name,email)"
               name="search"
               onChange={hancdleSearchArea}
             ></input>
