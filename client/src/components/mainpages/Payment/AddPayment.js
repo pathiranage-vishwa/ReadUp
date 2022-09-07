@@ -11,7 +11,7 @@ import { GlobalState } from "../../../GlobalState.js";
 import styled from "styled-components";
 import UserAPI from "../../../api/UserAPI.js";
 import uniqueRandom from "unique-random";
-import PaypalButton from "../cart/PaypalButton.js";
+import Paypal from "../cart/Paypal.js";
 import "./addPayment.css";
 import {
   Box,
@@ -316,7 +316,8 @@ const AddPayment = () => {
           </div>
           <div className="row" style={{ marginTop: "20px" }}>
             <center>
-              <PaypalButton />
+              <Paypal 
+              total={transfer_amount}/>
             </center>
           </div>
         </div>

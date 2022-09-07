@@ -35,7 +35,7 @@ const orderCtrl = {
         name,
         email,
         cart,
-        paymentID,
+        paymentID:md5(`${req.body.userId}${req.body.time}${req.body.date}`),
         address,
         country,
         postalCode,
