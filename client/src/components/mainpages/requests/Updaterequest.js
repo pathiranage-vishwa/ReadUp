@@ -7,9 +7,7 @@ import swal from "sweetalert";
 
 function Requests() {
   const state = useContext(GlobalState);
-  //   const [categories] = state.categoriesAPI.categories;
   const [token] = state.token;
-  //   const [callback, setCallback] = state.categoriesAPI.callback;
 
   const [id, setId] = useState();
   const [bookName, setBookName] = useState();
@@ -45,10 +43,6 @@ function Requests() {
   };
 
   return (
-
-
-
-
       <div className="container">
         <br/>
         <div className="card">
@@ -61,12 +55,7 @@ function Requests() {
 
             <div className="row">
               <div className="col-sm-6">
-                {/* <div className="card"> */}
-                {/* <div className="d-none d-md-flex col-md-4 col-lg-6 requestimage"></div> */}
                 <img className="card-img-top" src={UpdateReq}  alt="Card image cap"/>
-                {/* <div className="card-body">
-                                    </div> */}
-                {/* </div> */}
               </div>
 
               <div className="col-sm-6">
