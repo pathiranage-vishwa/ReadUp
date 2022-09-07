@@ -10,6 +10,7 @@ import Cart from "./cart/Cart";
 import NotFound from "./utils/not_found/NotFound";
 import Categories from "./categories/Categories";
 import CreateBook from "./createBook/createBook";
+import RequestHome from "./requests/RequestHome";
 import Allcategories from "./categories/Allcategories";
 import Requests from "./requests/Requests";
 import AllUsers from "./auth/AllUsers";
@@ -23,6 +24,7 @@ import ResetPassword from "./auth/ResetPassword";
 import Home from "../homepage/Home";
 
 import { GlobalState } from "../../GlobalState";
+
 
 function Pages() {
   const state = useContext(GlobalState);
@@ -61,6 +63,9 @@ function Pages() {
         component={isAdmin ? Allcategories : NotFound}
       />
       <Route path="/request" exact component={isLogged ? Requests : NotFound} />
+        <Route
+            path = "/requestHome"
+            exact component={isLogged ? RequestHome : NotFound}/>
       <Route
         path="/allrequest"
         exact
