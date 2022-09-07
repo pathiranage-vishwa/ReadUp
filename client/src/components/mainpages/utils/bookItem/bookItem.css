@@ -15,7 +15,7 @@
   height: 300px;
   display: block;
 }
-.product_box h2 {
+.product_box h5 {
   width: 100%;
   margin-left: 10px;
   text-overflow: ellipsis;

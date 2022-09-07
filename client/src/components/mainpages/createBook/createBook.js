@@ -53,18 +53,28 @@ function CreateBook() {
   const handleUpload = async (e) => {
     e.preventDefault();
     try {
-      if (!(isAdmin || isSeller)) return alert("You're not an admin or seller");
+      if (!(isAdmin || isSeller))
+        return swal("You're not an admin or seller", {
+          icon: "warning",
+        });
       const file = e.target.files[0];
 
-      if (!file) return alert("File not exist.");
+      if (!file)
+        return swal("File not exist.", {
+          icon: "warning",
+        });
 
       if (file.size > 1024 * 1024)
         // 1mb
-        return alert("Size too large!");
+        return swal("Size too large!", {
+          icon: "warning",
+        });
 
       if (file.type !== "image/jpeg" && file.type !== "image/png")
         // 1mb
-        return alert("File format is incorrect.");
+        return swal("File format is incorrect.", {
+          icon: "warning",
+        });
 
       let formData = new FormData();
       formData.append("file", file);
@@ -85,7 +95,10 @@ function CreateBook() {
 
   const handleDestroy = async () => {
     try {
-      if (!(isAdmin || isSeller)) return alert("You're not an admin or seller");
+      if (!(isAdmin || isSeller))
+        return alert("You're not an admin or seller", {
+          icon: "warning",
+        });
       setLoading(true);
       await axios.post(
         "/api/destroy",
@@ -109,8 +122,14 @@ function CreateBook() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (!(isAdmin || isSeller)) return alert("You're not an admin or seller");
-      if (!images) return alert("No Image Upload");
+      if (!(isAdmin || isSeller))
+        return swal("You're not an admin or seller", {
+          icon: "warning",
+        });
+      if (!images)
+        return swal("No Image Upload", {
+          icon: "warning",
+        });
 
       if (onEdit) {
         swal({

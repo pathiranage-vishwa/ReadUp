@@ -2,12 +2,15 @@ import React, { useState, useContext } from "react";
 import { GlobalState } from "../../../GlobalState";
 import "./Styles/categories.css";
 import axios from "axios";
+import swal from "sweetalert";
+import { useHistory } from "react-router-dom";
 
 function Categories() {
   const state = useContext(GlobalState);
   const [categories] = state.categoriesAPI.categories;
   const [token] = state.token;
   const [callback, setCallback] = state.categoriesAPI.callback;
+  const history = useHistory();
 
   const [category, setCategory] = useState({
     categoryName: "",
@@ -31,9 +34,12 @@ function Categories() {
           headers: { Authorization: token },
         }
       );
-      alert(res.data.msg);
+      swal(res.data.msg, {
+        icon: "success",
+      });
       setCategory("");
       setCallback(!callback);
+      history.push("/");
     } catch (err) {
       alert(err.response.data.msg);
     }

@@ -7,15 +7,18 @@
   font-size: 150%;
 }
 .detail img {
-  max-width: 400px;
+  max-width: 450px;
   width: 100%;
   margin: 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   height: 450px;
   object-fit: cover;
   display: block;
 }
 .box-detail {
-  max-width: 500px;
+  max-width: 650px;
   width: 100%;
   margin: 5px 20px;
 }
@@ -35,12 +38,42 @@
   margin: 10px 0;
   opacity: 0.8;
 }
+
+.box-detail span {
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  margin-left: 5px;
+}
 .box-detail .cart {
-  background: #333;
+  background: rgb(11, 20, 116);
   color: white;
   margin-top: 10px;
+  margin-right: 40px;
   padding: 10px 25px;
   display: inline-block;
   text-transform: uppercase;
+  border-radius: 5px;
   letter-spacing: 2px;
+}
+
+.box-detail .btnDetail {
+  background: rgb(255, 255, 255);
+  color: rgb(7, 12, 86);
+  margin-top: 10px;
+  border: 2px solid rgb(11, 4, 83);
+  padding: 10px 10px;
+  display: inline-block;
+  width: 200px;
+  height: 55px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.bookDetails-heading {
+  font-size: 5vh;
+  margin-top: 15px;
+  color: rgb(62, 62, 62);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }

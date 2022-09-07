@@ -16,7 +16,7 @@ function BookItem({ book, isAdmin, deleteBook, handleCheck }) {
       <img src={book.images.url} alt="" />
 
       <div className="product_box">
-        <h2 title={book.title}>{book.title}</h2>
+        <h5 title={book.title}>{book.title}</h5>
         <span>${book.price}</span>
         <p>{book.description}</p>
       </div>

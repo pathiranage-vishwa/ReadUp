@@ -22,6 +22,14 @@ function DetailBook() {
 
   return (
     <>
+      <center>
+        <h3 className="bookDetails-heading mb-6">
+          {" "}
+          <b>Book Details </b>
+        </h3>
+
+        <br />
+      </center>
       <div className="detail">
         <img src={detailBook.images.url} alt="" />
         <div className="box-detail">
@@ -29,15 +37,20 @@ function DetailBook() {
             <h2>{detailBook.title}</h2>
             <h6> {detailBook.product_id}</h6>
           </div>
-          <span>$ {detailBook.price}</span>
+          <span>LKR {detailBook.price}</span>
           <p>{detailBook.description}</p>
           <p>{detailBook.content}</p>
-          <p>Sold: {detailBook.sold}</p>
-          <Link to="/cart" className="cart" onClick={() => addCart(detailBook)}>
-            Add to Cart
-          </Link>
+          {/* <p>Sold: {detailBook.sold}</p> */}
+
           <Link to="/cart" className="cart" onClick={() => addCart(detailBook)}>
             Buy Now
+          </Link>
+          <Link
+            to="/cart"
+            className="btnDetail"
+            onClick={() => addCart(detailBook)}
+          >
+            Add to Cart
           </Link>
         </div>
       </div>
