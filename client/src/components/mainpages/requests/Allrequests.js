@@ -59,11 +59,22 @@ export default function Allrequests() {
   }
 
   return (
+
+
     <div className="container " style={{ width: "100%" }}>
+      <br/>
+      <br/>
+      <div className="card">
+        <center>
+          <h1>All Requests </h1>
+        </center>
+      </div>
       <br />
+
       <div className="allusers">
         <div className="row">
-          <h4> Search here </h4>
+
+          <h5> Search Here </h5>
           <div className="col-lg-12  mt-2 mb-2">
             <input
               className="form-control"
@@ -76,11 +87,18 @@ export default function Allrequests() {
         </div>
       </div>
 
-      <div className="addform1">
-        <h1 className="tabl-heading mb-4">ALL REQUESTS </h1>
+      {/*<div className="addform1">*/}
+      {/*  <center>*/}
+      {/*    <h1 className="tabl-heading mb-4">All Requests </h1>*/}
+      {/*  </center>*/}
+      {/*</div>*/}
+
+      <div >
+        <a className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5" href="/requestHome" role="button" >Back</a>
       </div>
 
-      {/* <a className="btn btn-warning" 
+
+      {/* <a className="btn btn-warning"
                             type="button"
                             href={`http://localhost:3000/report`}
                             style={{textDecoration:'none'}}>
@@ -128,6 +146,7 @@ export default function Allrequests() {
           ))}
         </tbody>
       </table>
+      <br/> <br/> <br/> <br/> <br/>
     </div>
   );
 }
