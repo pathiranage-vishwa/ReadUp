@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 
 const cardSchema = new Schema(
   {
-    // uid: {
-    //     type: String,
-    //     required : true
-    // },
+    uid: {
+        type: String,
+        required : true
+    },
 
     cardNumber: {
       type: String,
