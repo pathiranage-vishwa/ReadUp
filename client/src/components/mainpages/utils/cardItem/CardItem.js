@@ -1,27 +1,26 @@
 import React from "react";
 import BtnRender from "./BtnRender";
 
-function CardItem({ book, isAdmin, deleteBook, handleCheck }) {
-  console.log(book);
-  console.log(isAdmin);
+function CardItem({ card,deleteCard}) {
+  console.log(card);
+  //console.log(isAdmin);
   return (
     <div className="product_card">
-      {isAdmin && (
-        <input
+        {/* <input
           type="checkbox"
-          checked={book.checked}
-          onChange={() => handleCheck(book._id)}
-        />
-      )}
-      <img src={book.images.url} alt="" />
+          checked={card.checked}
+          onChange={() => handleCheck(card._id)}
+        /> */}
+      
+      {/* <img src={card.images.url} alt="" /> */}
 
       <div className="product_box">
-        <h5 title={book.title}>{book.title}</h5>
-        <span>${book.price}</span>
-        <p>{book.description}</p>
+        <h5 title={card.cardNumber}>{card.cardNumber}</h5>
+        <span>{card.ExDate}</span>
+        <p>{card.cardHolderName}</p>
       </div>
 
-      <BtnRender book={book} deleteBook={deleteBook} />
+      <BtnRender card={card} deleteCard={deleteCard} />
     </div>
   );
 }

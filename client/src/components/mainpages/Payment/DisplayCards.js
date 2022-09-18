@@ -1,26 +1,61 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState ,useEffect} from "react";
 import { GlobalState } from "../../../GlobalState";
 import CardItem from "../utils/cardItem/CardItem";
-//import Loading from "../utils/loading/Loading";
+import { useHistory } from "react-router-dom";
+import Loading from "../utils/loading/Loading";
 import axios from "axios";
 //import Filters from "./Filters";
 // import LoadMore from "./LoadMore";
 
 function DisplayCards() {
+
+  //const history = useHistory();
   const state = useContext(GlobalState);
-  const [books, setBooks] = state.booksAPI.books;
+  const [user] = state.userAPI.user;
+  
+  const [cards, setCards] = useState([]);
   const [isAdmin] = state.userAPI.isAdmin;
   const [token] = state.token;
-  const [callback, setCallback] = state.booksAPI.callback;
+  //const [callback, setCallback] = state.cardsAPI.callback;
   const [loading, setLoading] = useState(false);
   const [isCheck, setIsCheck] = useState(false);
+  const [userId,setUserID] = useState("");
+  const [status,setStatus]= useState(0);
+  //const handleCheck = (id) => {
+  //   cards.forEach((book) => {
+  //     if (book._id === id) book.checked = !book.checked;
+  //   });
+  //   setCards([...cards]);
+  // };
+  
+    //setUserID(user._id);
+    const id = user._id;
+  async function getDetails(){ 
+      
 
-  const handleCheck = (id) => {
-    books.forEach((book) => {
-      if (book._id === id) book.checked = !book.checked;
-    });
-    setBooks([...books]);
-  };
+    axios.get(`http://localhost:5000/card/getMyCard/${id}`).then((res)=>{ 
+
+      
+      console.log(res.data); 
+
+      
+      setCards(res.data)
+      
+      setStatus(1);
+    
+
+     
+    }).catch((err)=>{
+        alert(err.message);
+    })
+
+  }
+  if (cards === undefined || cards.length == 0){
+    getDetails();
+  }     
+  
+console.log(id);
+
 
   const deleteBook = async (id, public_id) => {
     try {
@@ -32,13 +67,13 @@ function DisplayCards() {
           headers: { Authorization: token },
         }
       );
-      const deleteBook = axios.delete(`/api/book/${id}`, {
+      const deleteBook = axios.delete(`http://localhost:5000/card/delete/${id}`, {
         headers: { Authorization: token },
       });
 
       await destroyImg;
       await deleteBook;
-      setCallback(!callback);
+      //setCallback(!callback);
       setLoading(false);
     } catch (err) {
       alert(err.response.data.msg);
@@ -46,15 +81,15 @@ function DisplayCards() {
   };
 
   const checkAll = () => {
-    books.forEach((book) => {
+    cards.forEach((book) => {
       book.checked = !isCheck;
     });
-    setBooks([...books]);
+    setCards([...cards]);
     setIsCheck(!isCheck);
   };
 
   const deleteAll = () => {
-    books.forEach((book) => {
+    cards.forEach((book) => {
       if (book.checked) deleteBook(book._id, book.images.public_id);
     });
   };
@@ -65,6 +100,11 @@ function DisplayCards() {
 //         <Loading />
 //       </div>
 //     );
+
+console.log(cards);
+console.log(user._id);
+console.log(status);
+
   return (
     <>
       {/* <Filters /> */}
@@ -78,21 +118,22 @@ function DisplayCards() {
       )}
 
       <div className="products">
-        {books.map((book) => {
+        {cards.map((card,key) => {
           return (
+            <div key={key}>
             <CardItem
-              key={book._id}
+              key={card._id}
               card={card}
-              isAdmin={isAdmin}
               deleteBook={deleteBook}
-              handleCheck={handleCheck}
+              // handleCheck={handleCheck}
             />
+            </div>
           );
         })}
       </div>
 
       {/* <LoadMore />
-      {books.length === 0 && <Loading />} */}
+      {cards.length === 0 && <Loading />} */}
     </>
   );
 }
