@@ -135,7 +135,7 @@ function Categories() {
                     <td>{category.categoryName}</td>
                     <td>
                       <button
-                        className="btn btn-warning"
+                        className="btn_edit"
                         onClick={() =>
                           editCategory(
                             category._id,
@@ -145,10 +145,10 @@ function Categories() {
                           )
                         }
                       >
-                        Edit
+                        Update
                       </button>
                       <button
-                        className="btn  btn-danger ms-2"
+                        className=" btn btn-danger btn_delete"
                         onClick={() => deleteCategory(category._id)}
                       >
                         Delete

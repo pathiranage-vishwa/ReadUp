@@ -90,3 +90,24 @@ body {
   border-top: 1vh solid;
   width: 50%;
 }
+
+.btn_edit {
+  background: rgb(12, 9, 104);
+  margin-right: 10px;
+  font-size: 17px;
+  height: 40px;
+  color: #ffffff;
+  border-radius: 5px;
+  width: 120px;
+  margin-left: 10px;
+}
+
+.btn_delete {
+  background: #ffffff;
+  outline: #bf0707;
+  color: #bf0707;
+  height: 40px;
+  width: 120px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
