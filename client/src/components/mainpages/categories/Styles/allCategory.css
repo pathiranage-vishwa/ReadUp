@@ -12,6 +12,7 @@ body {
 }
 .categories1 form {
   margin-bottom: 20px;
+  width: 100%;
 }
 .categories1 label {
   display: block;
@@ -23,12 +24,12 @@ body {
 }
 .categories1 input,
 .categories1 input {
-  width: 95%;
+  width: 65%;
   margin-left: 2vh;
 }
 
 .categories1 form button {
-  width: 100px;
+  width: 20%;
   height: 50px;
   background: rgb(35, 7, 155);
   color: white;
@@ -37,7 +38,7 @@ body {
   font-weight: 700;
   margin-top: 20px;
   margin-bottom: 5px;
-  margin-left: 25vh;
+  margin-left: 30vh;
   border-radius: 10px;
 }
 
@@ -55,7 +56,7 @@ body {
   border: rgb(48, 16, 207) 2px solid;
   padding: 10px;
   margin: 25px;
-  width: 43%;
+  width: 38%;
   height: 86%;
   /* display: flex;
   flex-wrap: wrap;
