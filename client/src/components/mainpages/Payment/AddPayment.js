@@ -11,7 +11,7 @@ import { GlobalState } from "../../../GlobalState.js";
 import styled from "styled-components";
 import UserAPI from "../../../api/UserAPI.js";
 import uniqueRandom from "unique-random";
-import PaypalButton from "../cart/PaypalButton.js";
+import Paypal from "../cart/Paypal.js";
 import "./addPayment.css";
 import {
   Box,
@@ -34,17 +34,17 @@ const AddPayment = () => {
   const [mobileNumber, setmobileNumber] = useState();
   const [pin, setpin] = useState("");
   const [status, setStatus] = useState("");
-  //const [cart, setCart] = useState([JSON.parse(localStorage.getItem("Cart"))]);
+  const [cart, setCart] = useState([JSON.parse(localStorage.getItem("Cart"))]);
   const [token] = state.token;
 
   console.log(user);
 
-  const order_id = "3 test";
+  const order_id = "4b054b40aa48e9922a6ee8cfaecc2ac2";
   const paymentID = "3 test";
   const Username = user.Username;
   const user_id = user._id;
   const email = user.email;
-  const cart = user.cart;
+  // const cart = user.cart;
 
   const [PaymentType, setPaymentType] = useState("card");
 
@@ -84,7 +84,7 @@ const AddPayment = () => {
       //         cart.splice(index, 1)
       //     }
       // })
-      // setCart([...cart])
+      // setCart({})
       // addToCart(cart)
 
       let ans = window.confirm("Do you want to save card details ?");
@@ -178,7 +178,7 @@ const AddPayment = () => {
                       <div class="inner">
                         <span class="dollar">TOTAL</span>
                         {/* //need to change with session */}
-                        <span class="total">LKR.{transfer_amount}</span>
+                        <span class="total"><b>LKR.{transfer_amount}</b></span>
                       </div>
                     </div>
                   </div>
@@ -311,12 +311,13 @@ const AddPayment = () => {
         >
           <div class="amount">
             <div class="inner">
-              <span class="dollar">TOTAL LKR.{transfer_amount}</span>
+              <span class="dollar"><b>TOTAL LKR.{transfer_amount}</b></span>
             </div>
           </div>
           <div className="row" style={{ marginTop: "20px" }}>
             <center>
-              <PaypalButton />
+              <Paypal 
+              total={transfer_amount}/>
             </center>
           </div>
         </div>

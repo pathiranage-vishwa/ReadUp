@@ -1,7 +1,9 @@
 import React, { useState, useContext } from "react";
 import { GlobalState } from "../../../GlobalState";
 import "./Styles/requests.css";
+import req from "./Styles/req.png"
 import axios from "axios";
+import swal from "sweetalert";
 
 function Requests() {
   const state = useContext(GlobalState);
@@ -26,13 +28,15 @@ function Requests() {
     console.log(request);
     try {
       const res = await axios.post(
-        "/api/request",
-        { ...request },
-        {
-          headers: { Authorization: token },
-        }
+          "/api/request",
+          { ...request },
+          {
+            headers: { Authorization: token },
+          }
       );
-      alert(res.data.msg);
+      swal("Done!", "Request successfully!", "success");
+      // alert(res.data.msg);
+      //move to request home
       setRequest("");
       //   setCallback(!callback);
     } catch (err) {
@@ -41,95 +45,92 @@ function Requests() {
   };
 
   return (
-    <div className="categoryTop">
-      <div className="container-fluid ps-md-0 ">
-        <div className="row g-0">
-          <div className="d-none d-md-flex col-md-4 col-lg-6 categoryimage"></div>
-          <div className="col-md-8 col-lg-6">
-            <div className="login d-flex align-items-center py-5">
-              <div className="card-body p-md-5 text-black">
-                <form onSubmit={createRequest}>
-                  <h3 className="category-heading mb-6">Create Request</h3>
-                  <hr className="hr1" />
-                  <br />
-                  <div className="col-md-6 mb-4">
-                    <div className="form-outline">
-                      <label className="form-label" for="form3Example1m">
-                        Book Name
-                      </label>
-                      <input
-                        type="text"
-                        name="bookName"
-                        value={request.bookName}
-                        className="form-control form-control-lg"
-                        onChange={onChangeInput}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="col-md-6 mb-4">
-                    <div className="form-outline">
-                      <label className="form-label" for="form3Example1m">
-                        Category
-                      </label>
-                      <input
-                        type="text"
-                        name="category"
-                        value={request.category}
-                        className="form-control form-control-lg"
-                        onChange={onChangeInput}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="col-md-6 mb-4">
-                    <div className="form-outline">
-                      <label className="form-label" for="form3Example1m">
-                        Author
-                      </label>
-                      <input
-                        type="text"
-                        name="author"
-                        value={request.author}
-                        className="form-control form-control-lg"
-                        onChange={onChangeInput}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="col-md-6 mb-4">
-                    <div className="form-outline">
-                      <label className="form-label" for="form3Example1m">
-                        ISBN Number
-                      </label>
-                      <input
-                        type="text"
-                        name="isbnNumber"
-                        value={request.isbnNumber}
-                        className="form-control form-control-lg"
-                        onChange={onChangeInput}
-                        required
-                      />
-                    </div>
-                  </div>
 
-                  <div className="d-flex justify-content-end pt-3">
-                    <button
-                      className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
-                      type="submit"
-                      style={{ height: "50px" }}
-                    >
-                      Create
-                    </button>
+      <div className="container">
+        <br/>
+        <div className="card">
+          <div className="card-body">
+            <center>
+              <h1>Request Book</h1>
+              <hr/>
+            </center>
+
+
+            <div className="row">
+              <div className="col-sm-6">
+                {/* <div className="card"> */}
+                {/* <div className="d-none d-md-flex col-md-4 col-lg-6 requestimage"></div> */}
+                <img className="card-img-top" src={req}  alt="Card image cap"/>
+                {/* <div className="card-body">
+                                    </div> */}
+                {/* </div> */}
+              </div>
+
+              <div className="col-sm-6">
+                <div className="card">
+                  <div className="card-body">
+                    <form onSubmit={createRequest}>
+                      <br/>
+                      <label>Book Name: </label>
+                      <div className="form-group">
+                        <input type="text" className="form-control"
+                               value={request.bookName}
+                               name="bookName"
+                               onChange={onChangeInput}
+                               required/>
+                      </div>
+                      <br/>
+
+                      <label>Book Category : </label>
+                      <div className="form-group">
+                        <input type="text" className="form-control"
+                               value={request.category}
+                               name="category"
+                               onChange={onChangeInput}
+                               required/>
+                      </div>
+                      <br/>
+
+                      <label>Book Author : </label>
+                      <div className="form-group">
+                        <input type="text" className="form-control"
+                               value={request.author}
+                               name="author"
+                               onChange={onChangeInput}
+                               required/>
+                      </div>
+                      <br/>
+
+                      <label>ISBN Number: </label>
+                      <div className="form-group">
+                        <input type="text" className="form-control"
+                               value={request.isbnNumber}
+                               name="isbnNumber"
+                               onChange={onChangeInput}
+                               required/>
+                      </div>
+                      <br/>
+
+
+                      <div className="d-flex justify-content-end pt-3">
+                        <button
+                            className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
+                            type="submit"
+                            style={{ height: "50px" }}
+                        >
+                          Request
+                        </button>
+                      </div>
+                    </form>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+
+  )
 }
 
 export default Requests;
