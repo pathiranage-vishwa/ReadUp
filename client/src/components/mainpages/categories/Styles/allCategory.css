@@ -39,7 +39,7 @@ body {
 }
 
 .categories1 .row {
-  min-width: 290px;
+  min-width: 190px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -62,5 +62,4 @@ body {
   margin-bottom: 10px;
   border-radius: 10px;
   margin-right: 100px;
-  margin-top: -20vh;
 }

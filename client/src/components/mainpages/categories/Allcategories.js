@@ -117,27 +117,24 @@ function Categories() {
       </div>
       <div className="col">
         {categories.map((category) => (
-          <div className="row" key={category._id}>
-            <p>{category.categoryName}</p>
+          <div key={category._id}>
+            {category.categoryName}
 
-            <p>{category.description}</p>
-            <div>
-              <button
-                onClick={() =>
-                  editCategory(
-                    category._id,
-                    category.categoryName,
-                    category.date,
-                    category.description
-                  )
-                }
-              >
-                Edit
-              </button>
-              <button onClick={() => deleteCategory(category._id)}>
-                Delete
-              </button>
-            </div>
+            {category.description}
+
+            <button
+              onClick={() =>
+                editCategory(
+                  category._id,
+                  category.categoryName,
+                  category.date,
+                  category.description
+                )
+              }
+            >
+              Edit
+            </button>
+            <button onClick={() => deleteCategory(category._id)}>Delete</button>
           </div>
         ))}
       </div>
