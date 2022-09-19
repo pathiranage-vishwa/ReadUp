@@ -59,7 +59,7 @@ function Categories() {
 
   return (
     <div className="categories1">
-      <div>
+      <div className="border">
         <form onSubmit={createCategory}>
           <h3 className="category-heading mb-6">Update Category</h3>
           <hr className="hr1" />
