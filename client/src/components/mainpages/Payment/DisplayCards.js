@@ -4,6 +4,7 @@ import CardItem from "../utils/cardItem/CardItem";
 import { useHistory } from "react-router-dom";
 import Loading from "../utils/loading/Loading";
 import axios from "axios";
+import "./displaycard.css";
 //import Filters from "./Filters";
 // import LoadMore from "./LoadMore";
 
@@ -31,7 +32,7 @@ function DisplayCards() {
     //setUserID(user._id);
     const id = user._id;
   async function getDetails(){ 
-      
+    
 
     axios.get(`http://localhost:5000/card/getMyCard/${id}`).then((res)=>{ 
 
@@ -108,29 +109,47 @@ console.log(status);
   return (
     <>
       {/* <Filters /> */}
-
+{/* 
       {isAdmin && (
         <div className="delete-all">
           <span>Select all</span>
           <input type="checkbox" checked={isCheck} onChange={checkAll} />
           <button onClick={deleteAll}>Delete ALL</button>
         </div>
-      )}
-
-      <div className="products">
-        {cards.map((card,key) => {
-          return (
-            <div key={key}>
-            <CardItem
-              key={card._id}
-              card={card}
-              deleteBook={deleteBook}
-              // handleCheck={handleCheck}
-            />
+      )} */}
+<center>  
+<div style={{marginTop:"2%"}}>   
+<h3 className="category-heading mb-6">Save Cards Details</h3>
+</div> 
+</center>  
+  <div className="categoryTop">
+      <div className="container-fluid ps-md-0 ">
+        <div className="row g-0">
+          <div className="d-none d-md-flex col-md-4 col-lg-6 savecard"></div>
+          <div className="col-md-8 col-lg-6">
+            <div className="login d-flex align-items-center py-5">
+              <div className="card-body p-md-5 text-black">
+              
+                  <div className="dis_card">
+                    {cards.map((card,key) => {
+                      return (
+                        <div key={key}>
+                        <CardItem
+                          key={card._id}
+                          card={card}
+                          deleteBook={deleteBook}
+                          // handleCheck={handleCheck}
+                        />
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
             </div>
-          );
-        })}
-      </div>
+          </div>
+        </div>
+      </div> 
+    </div>                   
 
       {/* <LoadMore />
       {cards.length === 0 && <Loading />} */}

@@ -11,7 +11,7 @@ function BtnRender({ card, deleteCard }) {
   const [user] = state.userAPI.user;
 
   return (
-    <div className="row_btn">
+    <div className="row_btn_card">
       
         <>
           <Link

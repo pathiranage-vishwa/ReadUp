@@ -14,11 +14,13 @@ cardRouter.route("/add").post((req, res) => {
   const cardHolderName = req.body.cardHolderName;
   const cardSecurityCode = md5(`${req.body.cardSecurityCode}`);
   const ExDate = req.body.expirationDate;
-
+  const bCardNumber = req.body.cardNumber;
+  const firstFourDigits = bCardNumber.substr(-4);
   const newCard = new Card({
     uid,
     cardNumber,
     cardType,
+    firstFourDigits,
     cardHolderName,
     cardSecurityCode,
     ExDate,

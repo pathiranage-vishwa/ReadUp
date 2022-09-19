@@ -13,7 +13,10 @@ const cardSchema = new Schema(
       type: String,
       required: true,
     },
-
+    firstFourDigits:{
+      type: String,
+      required: true,
+    },
     cardType: {
       type: String,
       required: true,
