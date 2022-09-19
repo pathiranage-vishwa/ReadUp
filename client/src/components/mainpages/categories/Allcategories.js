@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
+import "./Styles/allCategory.css";
 
 function Categories() {
   const state = useContext(GlobalState);
@@ -26,19 +27,21 @@ function Categories() {
       alert(res.data.msg);
       setOnEdit(false);
       setCategoryName("");
-      setDate("");
-      setDescription("");
+      // setDate("");
+      // setDescription("");
       setCallback(!callback);
     } catch (err) {
       alert(err.response.data.msg);
     }
   };
 
-  const editCategory = async (id, categoryName, date, description) => {
+  //, date, description
+
+  const editCategory = async (id, categoryName) => {
     setID(id);
     setCategoryName(categoryName);
-    setDate(date);
-    setDescription(description);
+    // setDate(date);
+    // setDescription(description);
     setOnEdit(true);
   };
 
@@ -55,13 +58,13 @@ function Categories() {
   };
 
   return (
-    <div className="categories">
-      <div className="card-body p-md-8 text-black">
+    <div className="categories1">
+      <div>
         <form onSubmit={createCategory}>
           <h3 className="category-heading mb-6">Update Category</h3>
           <hr className="hr1" />
           <br />
-          <div className="col-md-6 mb-4">
+          <div>
             <div className="form-outline">
               <label className="form-label" for="form3Example1m">
                 Category Name
@@ -76,7 +79,7 @@ function Categories() {
               />
             </div>
           </div>
-          <div className="col-md-6 mb-4">
+          {/* <div className="col-md-6 mb-4">
             <div className="form-outline">
               <label className="form-label" for="form3Example1m">
                 Date
@@ -90,8 +93,8 @@ function Categories() {
                 required
               />
             </div>
-          </div>
-          <div className="col-md-6 mb-4">
+          </div> */}
+          {/* <div className="col-md-6 mb-4">
             <div className="form-outline">
               <label className="form-label" for="form3Example1m">
                 Description
@@ -105,11 +108,11 @@ function Categories() {
                 required
               />
             </div>
-          </div>
+          </div> */}
 
-          <div className="d-flex justify-content-end pt-3">
+          <div>
             <button
-              className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
+              className="btn btn-primary "
               type="submit"
               style={{ height: "50px" }}
             >
@@ -122,7 +125,7 @@ function Categories() {
         {categories.map((category) => (
           <div className="row" key={category._id}>
             <p>{category.categoryName}</p>
-            <p>{category.date}</p>
+
             <p>{category.description}</p>
             <div>
               <button

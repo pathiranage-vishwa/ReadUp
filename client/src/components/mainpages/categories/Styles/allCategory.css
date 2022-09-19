@@ -1,38 +1,42 @@
-.categories {
+body {
+  margin: 0px;
+}
+
+.categories1 {
   max-width: 700px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin: 30px auto;
 }
-.categories form {
-  width: 290px;
+.categories1 form {
+  width: 390px;
   margin-bottom: 20px;
 }
-.categories label {
+.categories1 label {
   display: block;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 10px;
 }
-.categories input,
+.categories1 input,
 button {
   height: 35px;
   border: none;
   outline: none;
   border-bottom: 1px solid #555;
 }
-.categories input {
-  width: 210px;
+.categories1 input {
+  width: 310px;
 }
-.categories button {
+.categories1 button {
   width: 70px;
   background: #555;
   color: white;
   margin-left: 10px;
 }
-.categories .row {
+.categories1 .row {
   min-width: 290px;
   display: flex;
   justify-content: space-between;
