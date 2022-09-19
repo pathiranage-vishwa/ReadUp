@@ -52,3 +52,15 @@ button {
 
   z-index: 2;
 }
+
+.savecard{
+  background-image: url("./savecard.png");
+
+  background-size: 600px 600px;
+
+  background-repeat: no-repeat;
+
+  background-position: center;
+
+  z-index: 2;
+}

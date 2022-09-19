@@ -96,7 +96,8 @@ const AddPayment = () => {
           expirationDate,
           cardSecurityCode,
           cardType,
-          // email
+          user_id
+        
         };
         try {
           await axios.post("/card/add", data);

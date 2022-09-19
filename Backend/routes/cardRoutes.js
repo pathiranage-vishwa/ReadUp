@@ -8,15 +8,19 @@ const md5 = require("md5");
 const cardRouter = express.Router();
 
 cardRouter.route("/add").post((req, res) => {
+  const uid = req.body.user_id;
   const cardNumber = md5(`${req.body.cardNumber}`);
   const cardType = req.body.cardType;
   const cardHolderName = req.body.cardHolderName;
   const cardSecurityCode = md5(`${req.body.cardSecurityCode}`);
   const ExDate = req.body.expirationDate;
-
+  const bCardNumber = req.body.cardNumber;
+  const firstFourDigits = bCardNumber.substr(-4);
   const newCard = new Card({
+    uid,
     cardNumber,
     cardType,
+    firstFourDigits,
     cardHolderName,
     cardSecurityCode,
     ExDate,
@@ -43,16 +47,12 @@ cardRouter.route("/").get((req, res) => {
 
 cardRouter.get("/getMyCard/:id", (req, res) => {
   let crdid = req.params.id;
-  Card.find({ _id: crdid }).exec((err, Card) => {
-    if (err) {
-      return res.status(400).json({
-        error: err,
-      });
-    }
-    return res.status(200).json({
-      success: true,
-      existingPayRouter: Card,
-    });
+  Card.find({ uid: crdid }) .then((cards) => {
+    res.json(cards);
+    existingReqRouter: Card;
+  })
+  .catch((err) => {
+    console.log(err);
   });
 });
 
