@@ -187,7 +187,7 @@ function CreateBook() {
         </h2>
       </center>
       <div className="create_book">
-        <div className="border">
+        <div className="borderAdd">
           <br />
           <div className="upload">
             <br />

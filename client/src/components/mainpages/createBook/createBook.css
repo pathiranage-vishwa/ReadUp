@@ -9,7 +9,7 @@ body {
   align-items: center;
   justify-content: space-evenly;
 }
-.border {
+.borderAdd {
   border: rgb(48, 16, 207) 2px solid;
   padding: 10px;
   margin: 25px;
