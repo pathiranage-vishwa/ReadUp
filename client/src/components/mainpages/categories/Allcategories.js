@@ -116,27 +116,46 @@ function Categories() {
         </form>
       </div>
       <div className="col">
-        {categories.map((category) => (
-          <div key={category._id}>
-            {category.categoryName}
-
-            {category.description}
-
-            <button
-              onClick={() =>
-                editCategory(
-                  category._id,
-                  category.categoryName,
-                  category.date,
-                  category.description
-                )
-              }
-            >
-              Edit
-            </button>
-            <button onClick={() => deleteCategory(category._id)}>Delete</button>
+        <div className="DisplayMain">
+          <label className="formTitleMark"> ALL CATEGORIES</label>
+          <hr className="hr1" />
+          <div>
+            <table className="table" style={{ backgroundColor: "white" }}>
+              <thead>
+                <tr>
+                  <th scope="col">Index</th>
+                  <th scope="col">Category Name</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {categories.map((category, index) => (
+                  <tr key={index}>
+                    <th scope="row">{index + 1}</th>
+                    <td>{category.categoryName}</td>
+                    <td>
+                      <button
+                        onClick={() =>
+                          editCategory(
+                            category._id,
+                            category.categoryName,
+                            category.date,
+                            category.description
+                          )
+                        }
+                      >
+                        Edit
+                      </button>
+                      <button onClick={() => deleteCategory(category._id)}>
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );

@@ -67,3 +67,26 @@ body {
   border-radius: 10px;
   margin-right: 100px;
 }
+
+.table {
+  width: 90%;
+  column-gap: 2px;
+}
+
+.DisplayMain {
+  background-color: whitesmoke;
+  padding: 2vh;
+}
+
+.formTitleMark {
+  margin-top: 5vh;
+  margin-left: 3vh;
+  font-size: 5vh;
+  font-weight: bold;
+}
+
+.hr1 {
+  color: rgb(21, 5, 73);
+  border-top: 1vh solid;
+  width: 50%;
+}
