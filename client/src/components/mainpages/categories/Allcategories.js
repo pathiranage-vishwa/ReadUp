@@ -111,13 +111,7 @@ function Categories() {
           </div> */}
 
           <div>
-            <button
-              className="btn btn-primary "
-              type="submit"
-              style={{ height: "50px" }}
-            >
-              Update
-            </button>
+            <button type="submit">Save</button>
           </div>
         </form>
       </div>
