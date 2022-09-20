@@ -21,6 +21,7 @@ import Checkout from "./Reservation/Checkout";
 import AddPayment from "./Payment/AddPayment";
 import ForgotPassword from "./auth/ForgotPassword";
 import ResetPassword from "./auth/ResetPassword";
+import DisplayCards from "./Payment/DisplayCards";
 import Home from "../homepage/Home";
 import MyAds from "./myAds/MyAds";
 
@@ -107,6 +108,7 @@ function Pages() {
 
       <Route path="/checkout" exact component={Checkout} />
       <Route path="/addPayment" exact component={AddPayment} />
+      <Route path="/displayCard" exact component={DisplayCards} />
 
       <Route path="*" exact component={NotFound} />
     </Switch>
