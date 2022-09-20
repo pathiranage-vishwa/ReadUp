@@ -15,6 +15,7 @@ function Books() {
   const [loading, setLoading] = useState(false);
   const [isCheck, setIsCheck] = useState(false);
   const [userId] = state.userAPI.user;
+  var adscount = 0;
 
   useEffect(() => {
     const getBooks = async () => {
@@ -23,6 +24,9 @@ function Books() {
     };
     getBooks();
   }, [userId]);
+
+  adscount = books.length;
+  console.log(adscount);
 
   const handleCheck = (id) => {
     books.forEach((book) => {
@@ -77,7 +81,6 @@ function Books() {
   return (
     <>
       {/* <Filters /> */}
-
       {isAdmin && (
         <div className="delete-all">
           <span>Select all</span>
@@ -85,7 +88,6 @@ function Books() {
           <button onClick={deleteAll}>Delete ALL</button>
         </div>
       )}
-
       <div className="products">
         {books.map((book) => {
           return (
@@ -99,7 +101,7 @@ function Books() {
           );
         })}
       </div>
-
+      Total ads : {adscount}
       {/* <LoadMore /> */}
       {/* {books.length === 0 && <Loading />} */}
     </>
