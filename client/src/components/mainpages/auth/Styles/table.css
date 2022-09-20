@@ -6,7 +6,7 @@
 }
 .customers td,
 .customers th {
-  border: 1px solid #ddd;
+  border: 2px solid rgb(187, 187, 187);
   padding: 8px;
   min-width: 100px;
 }
@@ -17,8 +17,8 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background: #555;
-  color: white;
+  background: whitesmoke;
+  color: rgb(0, 0, 0);
 }
 
 .customers .fa-edit {
@@ -41,7 +41,20 @@
 
 .btn-tbl {
   font-size: 0.9rem;
+  border-radius: 7px;
   letter-spacing: 0.05rem;
   padding: 0.55rem 1rem;
   background-color: #112083;
+  color: rgb(255, 255, 255);
 }
+
+.btn-tb2 {
+  font-size: 0.8rem;
+  border-radius: 7px;
+  border: 2px solid #112083;
+  letter-spacing: 0.05rem;
+  padding: 0.55rem 1rem;
+  background-color: #ffffff;
+}
+
+/* Update_button */

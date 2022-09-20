@@ -4,15 +4,21 @@
 
 .pagination {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   list-style: none;
   cursor: pointer;
 }
 
+.pagination a:hover:not(.active) {
+  background-color: rgb(16, 26, 119);
+}
+
 .pagination a {
   padding: 10px;
-  border: 1px solid rgb(13, 122, 238);
-  color: rgb(13, 122, 238);
+  border: 1px solid #112083;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 .pagination__link {
@@ -20,8 +26,8 @@
 }
 
 .pagination__link--active a {
-  color: rgb(13, 122, 238);
-  background: rgb(13, 122, 238);
+  color: #112083;
+  background: #112083;
 }
 
 .pagination__link--disabled a {

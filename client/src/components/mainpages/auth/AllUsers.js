@@ -21,18 +21,17 @@ export default function AllUsers() {
       });
   }, []);
 
-  //   const setData = (data) => {
-  //     let { _id, name, email, regNumber, specialization, researchArea, role } =
-  //       data;
+    const setData = (data) => {
+      let { _id, firstName, lastName, username, email, userType } =
+        data;
 
-  //     localStorage.setItem("uid", _id);
-  //     localStorage.setItem("Name", name);
-  //     localStorage.setItem("Email", email);
-  //     localStorage.setItem("RegistrationNo", regNumber);
-  //     localStorage.setItem("Specialization", specialization);
-  //     localStorage.setItem("InterestedResearchArea", researchArea);
-  //     localStorage.setItem("Role", role);
-  //   };
+      localStorage.setItem("uid", _id);
+      localStorage.setItem("FirstName", firstName);
+      localStorage.setItem("LastName", lastName);
+      localStorage.setItem("UserName", username);
+      localStorage.setItem("Email", email);
+      localStorage.setItem("UserType", userType);
+    };
 
   function handlePageClick({ selected: selectedPage }) {
     console.log("selectedPage", selectedPage);
@@ -72,10 +71,10 @@ export default function AllUsers() {
     setprofile(result);
   };
 
-  function hancdleSearchArea(e) {
+  async function hancdleSearchArea(e) {
     const searchkey = e.currentTarget.value;
 
-    axios.get("/user/allUsers").then((res) => {
+    const res = await axios.get("/user/allUsers").then((res) => {
       if (res.data.success) {
         filterData(res.data.existingUsers, searchkey);
       }
@@ -92,7 +91,7 @@ export default function AllUsers() {
             <input
               className="form-control"
               type="search"
-              placeholder="search...( name, registration no, role)"
+              placeholder="search...( name,email)"
               name="search"
               onChange={hancdleSearchArea}
             ></input>
@@ -133,17 +132,14 @@ export default function AllUsers() {
 
               <td>
                 <a
-                  className="btn btn-primary"
-                  href={`/updateuser/${data._id}`}
-                  //   onClick={() => setData(data)}
+                  className="btn-tbl"
+                  href={`/UpdateUser/${data._id}`}
+                    onClick={() => setData(data)}
                 >
                   &nbsp;Update
                 </a>
                 &nbsp;
-                <a
-                  className="btn btn-danger"
-                  onClick={() => handleDelete(data._id)}
-                >
+                <a className="btn-tb2" onClick={() => handleDelete(data._id)}>
                   &nbsp;Delete
                 </a>
               </td>
@@ -155,8 +151,8 @@ export default function AllUsers() {
       <br />
 
       <ReactPaginate
-        previousLabel={"-Previous"}
-        nextLabel={"Next-"}
+        previousLabel={"« previous"}
+        nextLabel={"next »"}
         pageCount={pageCount}
         onPageChange={handlePageClick}
         containerClassName={"pagination"}

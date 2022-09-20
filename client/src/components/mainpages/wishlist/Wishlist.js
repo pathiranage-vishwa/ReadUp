@@ -167,15 +167,15 @@ const Button = styled.button`
   font-size: 20px;
 `;
 
-function Cart() {
+function WishList() {
   const state = useContext(GlobalState);
-  const [cart, setCart] = state.userAPI.cart;
+  const [wishList, setWishList] = state.userAPI.wishList;
   const [token] = state.token;
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
     const getTotal = () => {
-      const total = cart.reduce((prev, item) => {
+      const total = wishList.reduce((prev, item) => {
         return prev + item.price * item.quantity;
       }, 0);
 
@@ -183,12 +183,12 @@ function Cart() {
     };
 
     getTotal();
-  }, [cart]);
+  }, [wishList]);
 
-  const addToCart = async (cart) => {
+  const addToWishList = async (wishList) => {
     await axios.patch(
-      "/user/addcart",
-      { cart },
+      "/user/addWishList",
+      { wishList },
       {
         headers: { Authorization: token },
       }
@@ -196,44 +196,44 @@ function Cart() {
   };
 
   const increment = (id) => {
-    cart.forEach((item) => {
+    wishList.forEach((item) => {
       if (item._id === id) {
         item.quantity += 1;
       }
     });
 
-    setCart([...cart]);
-    addToCart(cart);
+    setWishList([...wishList]);
+    addToWishList(wishList);
   };
 
   const decrement = (id) => {
-    cart.forEach((item) => {
+    wishList.forEach((item) => {
       if (item._id === id) {
         item.quantity === 1 ? (item.quantity = 1) : (item.quantity -= 1);
       }
     });
 
-    setCart([...cart]);
-    addToCart(cart);
+    setWishList([...wishList]);
+    addToWishList(wishList);
   };
 
   const removeProduct = (id) => {
     swal({
       title: "Are you sure?",
-      text: "The selected book will be deleted from the cart!",
+      text: "The selected book will be deleted from the wishList!",
       icon: "warning",
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        cart.forEach((item, index) => {
+        wishList.forEach((item, index) => {
           if (item._id === id) {
-            cart.splice(index, 1);
+            wishList.splice(index, 1);
           }
         });
 
-        setCart([...cart]);
-        addToCart(cart);
+        setWishList([...wishList]);
+        addToWishList(wishList);
       } else {
         swal("Selected Book is safe!");
       }
@@ -245,42 +245,42 @@ function Cart() {
 
     await axios.post(
       "/api/payment",
-      { cart, paymentID, address },
+      { wishList, paymentID, address },
       {
         headers: { Authorization: token },
       }
     );
 
-    setCart([]);
-    addToCart([]);
+    setWishList([]);
+    addToWishList([]);
     alert("You have successfully placed an order.");
   };
 
   const setProduct = () => {
-    localStorage.setItem("Cart", JSON.stringify(cart));
+    localStorage.setItem("WishList", JSON.stringify(wishList));
     localStorage.setItem("Total", total);
   };
 
-  if (cart.length === 0)
+  if (wishList.length === 0)
     return (
-      <h2 style={{ textAlign: "center", fontSize: "5rem" }}>Cart Empty</h2>
+      <h2 style={{ textAlign: "center", fontSize: "5rem" }}>WishList Empty</h2>
     );
 
   return (
     <Container>
       <Wrapper>
-        <Title>YOUR SHOPPING CART</Title>
+        <Title>YOUR WISHLIST</Title>
         <Top>
           <TopButton>CONTINUE SHOPPING</TopButton>
           <TopTexts>
-            <TopText>Shopping Cart({cart.length})</TopText>
-            <TopText>Your Wishlist (0)</TopText>
+            <TopText>Shopping wishList({wishList.length})</TopText>
+            <TopText>Your Wishlist ({wishList.length})</TopText>
           </TopTexts>
           <TopButton>CHECKOUT NOW</TopButton>
         </Top>
         <Bottom>
           <Info>
-            {cart.map((product) => (
+            {wishList.map((product) => (
               <Product>
                 <ProductDetail>
                   <Image src={product.images.url} />
@@ -297,22 +297,6 @@ function Cart() {
                     </ProductSize>
                   </Details>
                 </ProductDetail>
-                <PriceDetail>
-                  <ProductAmountContainer>
-                    <div className="amount">
-                      <button onClick={() => decrement(product._id)}>
-                        <Remove />{" "}
-                      </button>
-                      <span>{product.quantity}</span>
-                      <button onClick={() => increment(product._id)}>
-                        <Add />{" "}
-                      </button>
-                    </div>
-                  </ProductAmountContainer>
-                  <ProductPrice>
-                    LKR {product.price * product.quantity}
-                  </ProductPrice>
-                </PriceDetail>
                 <div
                   className="delete"
                   onClick={() => removeProduct(product._id)}
@@ -323,34 +307,10 @@ function Cart() {
             ))}
             <Hr />
           </Info>
-          <Summary>
-            <SummaryTitle>ORDER SUMMARY</SummaryTitle>
-            <SummaryItem>
-              <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>LKR {total}</SummaryItemPrice>
-            </SummaryItem>
-            <SummaryItem>
-              <SummaryItemText>Estimated Shipping</SummaryItemText>
-              <SummaryItemPrice>LKR 5.90</SummaryItemPrice>
-            </SummaryItem>
-            <SummaryItem>
-              <SummaryItemText>Shipping Discount</SummaryItemText>
-              <SummaryItemPrice>LKR -5.90</SummaryItemPrice>
-            </SummaryItem>
-            <SummaryItem type="total">
-              <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>LKR {total}</SummaryItemPrice>
-            </SummaryItem>
-            <form action="/checkout" class="inline">
-              <Button onClick={() => setProduct()} href={`/checkout`}>
-                CHECKOUT NOW
-              </Button>
-            </form>
-          </Summary>
         </Bottom>
       </Wrapper>
     </Container>
   );
 }
 
-export default Cart;
+export default WishList;

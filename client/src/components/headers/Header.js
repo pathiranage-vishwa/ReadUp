@@ -34,6 +34,9 @@ function Header() {
           <li>
               <Link to="/managerequests">Manage Requests</Link>
           </li>
+        <li>
+          <Link to="/allusers">Registered Users</Link>
+        </li>
       </>
     );
   };
