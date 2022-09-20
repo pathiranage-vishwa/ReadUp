@@ -57,9 +57,28 @@ const orderCtrl = {
   getOrderBySellerID: async (req, res) => {
     try {
       const order = await Orders.find({
-        "cart.seller_id": { $in: req.params.seller_id },
+        cart: { $elemMatch: { seller_id: req.params.seller_id } },
       });
       res.json(order);
+
+      // const order1 = await Orders.aggregate([
+      //   { $match: { "cart.seller_id":  } },
+      //   {
+      //     $project: {
+      //       user_id: 1,
+      //       name: 1,
+      //       email: 1,
+      //       cart: 1,
+      //       paymentID: 1,
+      //       address: 1,
+      //       country: 1,
+      //       postalCode: 1,
+      //       phoneNumber: 1,
+      //     },
+      //   },
+      // ]);
+
+      // res.json(order1);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
