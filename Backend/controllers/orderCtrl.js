@@ -26,7 +26,7 @@ const orderCtrl = {
         country,
         postalCode,
         phoneNumber,
-        transfer_amount
+        transfer_amount,
       } = req.body;
       //const {_id, name, email} = user;
 
@@ -40,7 +40,7 @@ const orderCtrl = {
         country,
         postalCode,
         phoneNumber,
-        total:transfer_amount,
+        total: transfer_amount,
       });
 
       // cart.filter(item => {
@@ -49,6 +49,17 @@ const orderCtrl = {
 
       await newOrder.save();
       res.json({ msg: "Order Succes!" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+
+  getOrderBySellerID: async (req, res) => {
+    try {
+      const order = await Orders.find({
+        "cart.0.seller_id": { $in: req.params.seller_id },
+      });
+      res.json(order);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
