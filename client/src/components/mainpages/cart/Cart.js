@@ -169,6 +169,7 @@ const Button = styled.button`
 
 function Cart() {
   const state = useContext(GlobalState);
+  const [wishList, setWishList] = state.userAPI.wishList;
   const [cart, setCart] = state.userAPI.cart;
   const [token] = state.token;
   const [total, setTotal] = useState(0);
@@ -274,7 +275,7 @@ function Cart() {
           <TopButton>CONTINUE SHOPPING</TopButton>
           <TopTexts>
             <TopText>Shopping Cart({cart.length})</TopText>
-            <TopText>Your Wishlist (0)</TopText>
+            <TopText>Your Wishlist ({wishList.length})</TopText>
           </TopTexts>
           <TopButton>CHECKOUT NOW</TopButton>
         </Top>

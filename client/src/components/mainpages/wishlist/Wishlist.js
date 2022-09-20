@@ -51,7 +51,7 @@ const TopText = styled.span`
 
 const Bottom = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   ${mobile({ flexDirection: "column" })}
 `;
 
@@ -63,7 +63,7 @@ const Product = styled.div`
   display: flex;
   border: 0.5px solid lightgray;
   padding: 20px;
-  width: 1250px;
+  width: 850px;
   border-radius: 10px;
   justify-content: space-between;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -170,6 +170,7 @@ const Button = styled.button`
 function WishList() {
   const state = useContext(GlobalState);
   const [wishList, setWishList] = state.userAPI.wishList;
+  const [cart, setCart] = state.userAPI.cart;
   const [token] = state.token;
   const [total, setTotal] = useState(0);
 
@@ -273,7 +274,7 @@ function WishList() {
         <Top>
           <TopButton>CONTINUE SHOPPING</TopButton>
           <TopTexts>
-            <TopText>Shopping wishList({wishList.length})</TopText>
+            <TopText>Shopping Cart({cart.length})</TopText>
             <TopText>Your Wishlist ({wishList.length})</TopText>
           </TopTexts>
           <TopButton>CHECKOUT NOW</TopButton>
