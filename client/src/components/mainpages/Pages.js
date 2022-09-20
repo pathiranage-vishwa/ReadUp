@@ -21,6 +21,8 @@ import AddPayment from "./Payment/AddPayment";
 import ForgotPassword from "./auth/ForgotPassword";
 import ResetPassword from "./auth/ResetPassword";
 import Home from "../homepage/Home";
+import UpdateUser from "../mainpages/auth/UpdateUser";
+import Wishlist from "../mainpages/wishlist/Wishlist";
 
 import { GlobalState } from "../../GlobalState";
 
@@ -45,6 +47,12 @@ function Pages() {
       <Route path="/reset_pw" exact component={ResetPassword} />
 
       <Route
+        path="/UpdateUser/:id"
+        exact
+        component={isLogged ? UpdateUser : NotFound}
+      />
+
+      <Route
         path="/allusers"
         exact
         component={isLogged ? AllUsers : NotFound}
@@ -67,7 +75,7 @@ function Pages() {
         component={isLogged ? Allrequests : NotFound}
       />
       <Route
-        path="/updateuser/:id"
+        path="/updaterequest/:id"
         exact
         component={isLogged ? Updaterequest : NotFound}
       />
@@ -95,6 +103,7 @@ function Pages() {
       />
 
       <Route path="/cart" exact component={Cart} />
+      <Route path="/wishlist" exact component={Wishlist} />
 
       <Route path="/checkout" exact component={Checkout} />
       <Route path="/addPayment" exact component={AddPayment} />

@@ -21,18 +21,17 @@ export default function AllUsers() {
       });
   }, []);
 
-  //   const setData = (data) => {
-  //     let { _id, name, email, regNumber, specialization, researchArea, role } =
-  //       data;
+    const setData = (data) => {
+      let { _id, firstName, lastName, username, email, userType } =
+        data;
 
-  //     localStorage.setItem("uid", _id);
-  //     localStorage.setItem("Name", name);
-  //     localStorage.setItem("Email", email);
-  //     localStorage.setItem("RegistrationNo", regNumber);
-  //     localStorage.setItem("Specialization", specialization);
-  //     localStorage.setItem("InterestedResearchArea", researchArea);
-  //     localStorage.setItem("Role", role);
-  //   };
+      localStorage.setItem("uid", _id);
+      localStorage.setItem("FirstName", firstName);
+      localStorage.setItem("LastName", lastName);
+      localStorage.setItem("UserName", username);
+      localStorage.setItem("Email", email);
+      localStorage.setItem("UserType", userType);
+    };
 
   function handlePageClick({ selected: selectedPage }) {
     console.log("selectedPage", selectedPage);
@@ -134,8 +133,8 @@ export default function AllUsers() {
               <td>
                 <a
                   className="btn-tbl"
-                  href={`/updateuser/${data._id}`}
-                  //   onClick={() => setData(data)}
+                  href={`/UpdateUser/${data._id}`}
+                    onClick={() => setData(data)}
                 >
                   &nbsp;Update
                 </a>

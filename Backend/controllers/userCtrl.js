@@ -166,6 +166,27 @@ const userCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+  updateAUser: async (req,res) => {
+    try{
+        Users.findByIdAndUpdate(
+            req.params.id,
+            {
+              $set:req.body
+            },
+            (err,users)=>{
+              if(err){
+                return res.status(400).json({error:err});
+              }
+        
+              return res.status(200).json({
+                success:"updated successfully"
+              });
+            }
+          );
+    }catch{
+        return res.status(500).json({msg: err.message})
+    }
+},
   deleteUser: async (req, res) => {
     try {
       await Users.findByIdAndDelete(req.params.id);
@@ -188,6 +209,23 @@ const userCtrl = {
       );
 
       return res.json({ msg: "Added to cart" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  addWishList: async (req, res) => {
+    try {
+      const user = await Users.findById(req.user.id);
+      if (!user) return res.status(400).json({ msg: "User does not exist." });
+
+      await Users.findOneAndUpdate(
+        { _id: req.user.id },
+        {
+          wishList: req.body.wishList,
+        }
+      );
+
+      return res.json({ msg: "Added to Wishlist" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }

@@ -8,6 +8,7 @@ function BtnRender({ book, deleteBook }) {
   const [isSeller] = state.userAPI.isSeller;
   const [isBuyer] = state.userAPI.isBuyer;
   const addCart = state.userAPI.addCart;
+  const addWishList = state.userAPI.addWishList;
   const [user] = state.userAPI.user;
 
   return (
