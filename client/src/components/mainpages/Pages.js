@@ -22,9 +22,9 @@ import AddPayment from "./Payment/AddPayment";
 import ForgotPassword from "./auth/ForgotPassword";
 import ResetPassword from "./auth/ResetPassword";
 import Home from "../homepage/Home";
+import MyAds from "./myAds/MyAds";
 
 import { GlobalState } from "../../GlobalState";
-
 
 function Pages() {
   const state = useContext(GlobalState);
@@ -63,9 +63,11 @@ function Pages() {
         component={isAdmin ? Allcategories : NotFound}
       />
       <Route path="/request" exact component={isLogged ? Requests : NotFound} />
-        <Route
-            path = "/requestHome"
-            exact component={isLogged ? RequestHome : NotFound}/>
+      <Route
+        path="/requestHome"
+        exact
+        component={isLogged ? RequestHome : NotFound}
+      />
       <Route
         path="/allrequest"
         exact
@@ -100,6 +102,8 @@ function Pages() {
       />
 
       <Route path="/cart" exact component={Cart} />
+
+      <Route path="/myAds" exact component={MyAds} />
 
       <Route path="/checkout" exact component={Checkout} />
       <Route path="/addPayment" exact component={AddPayment} />
