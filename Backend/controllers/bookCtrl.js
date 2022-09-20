@@ -136,6 +136,15 @@ const bookCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+
+  getBookBySellerID: async (req, res) => {
+    try {
+      const Book = await Books.find({ seller_id: req.params.id });
+      res.json(Book);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
 };
 
 module.exports = bookCtrl;

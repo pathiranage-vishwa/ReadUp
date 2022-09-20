@@ -57,7 +57,7 @@ const orderCtrl = {
   getOrderBySellerID: async (req, res) => {
     try {
       const order = await Orders.find({
-        "cart.0.seller_id": { $in: req.params.seller_id },
+        "cart.seller_id": { $in: req.params.seller_id },
       });
       res.json(order);
     } catch (err) {

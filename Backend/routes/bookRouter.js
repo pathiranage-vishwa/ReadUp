@@ -8,6 +8,7 @@ router.route("/book").get(bookCtrl.getBooks).post(bookCtrl.createBook);
 router
   .route("/book/:id")
   .delete(auth, authAdmin, bookCtrl.deleteBook)
-  .put(bookCtrl.updateBook);
+  .put(bookCtrl.updateBook)
+  .get(bookCtrl.getBookBySellerID);
 
 module.exports = router;
