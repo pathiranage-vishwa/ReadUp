@@ -7,4 +7,6 @@ router.route("/order").get(orderCtrl.getOrders).post(orderCtrl.createOrder);
 
 router.route("/order/:seller_id").get(orderCtrl.getOrderBySellerID);
 
+router.route("/order/:id").put(orderCtrl.updateOrderStatus);
+
 module.exports = router;

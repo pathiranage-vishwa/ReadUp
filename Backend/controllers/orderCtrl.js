@@ -56,10 +56,50 @@ const orderCtrl = {
 
   getOrderBySellerID: async (req, res) => {
     try {
-      const order = await Orders.find({
-        "cart.seller_id": { $in: req.params.seller_id },
-      });
+      const order = await Orders.aggregate([
+        { $match: { "cart.seller_id": req.params.seller_id } },
+        {
+          $project: {
+            _id: 1,
+            user_id: 1,
+            name: 1,
+            email: 1,
+            address: 1,
+            country: 1,
+            postalCode: 1,
+            phoneNumber: 1,
+            paymentID: 1,
+            orderstatus: 1,
+            total: 1,
+            cart: {
+              $filter: {
+                input: "$cart",
+                as: "cartItem",
+                cond: {
+                  $eq: ["$$cartItem.seller_id", req.params.seller_id],
+                },
+              },
+            },
+          },
+        },
+      ]);
+
       res.json(order);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  updateOrderStatus: async (req, res) => {
+    // orderId = req.params.id;
+
+    try {
+      const order = await Orders.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          orderstatus: req.body.orderstatus,
+        }
+      );
+      res.json({ msg: "Order Status Updated" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
