@@ -1,14 +1,24 @@
 const Reviews = require("../models/reviewModel");
 
 const reviewBookCtrl = {
+
+    getReviews: async (req, res) => {
+        try {
+            const reviews = await Reviews.find();
+            res.json(reviews);
+        } catch (err) {
+            return res.status(500).json({ msg: err.message });
+        }
+    },
+
     createReviews: async (req, res) => {
         try {
-            const { rate, date, review } = req.body;
+            const { rate, date, CommentReview } = req.body;
 
             const newReview = new Reviews({
                 rate,
                 date,
-                review,
+                CommentReview,
             });
 
             await newReview.save();
@@ -17,6 +27,6 @@ const reviewBookCtrl = {
             return res.status(500).json({ msg: err.message });
         }
     },
-}
+};
 
 module.exports = reviewBookCtrl;
