@@ -62,7 +62,7 @@ export default function ManageOrders() {
               </td> */}
               <td>
                 <button
-                  className="btn btn btn_edit"
+                  className="btn btn btn_edit "
                   // disabled={
                   //   data.topicStatus === "Accepted" ||
                   //   data.topicStatus === "Rejected"
