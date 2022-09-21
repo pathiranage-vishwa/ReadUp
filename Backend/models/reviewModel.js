@@ -15,9 +15,9 @@ const review = new mongoose.Schema(
             required:true
         }
     },
-    {
-        timestamps: true,
-    }
+    // {
+    //     timestamps: true,
+    // }
 );
 
-module.exports = mongoose.model("Review",review);
+module.exports = mongoose.model("Reviews",review);
