@@ -1,0 +1,77 @@
+body {
+  margin: 0px;
+}
+
+.topicContainer {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 20% auto;
+}
+
+.frame {
+  margin-top: 2vh;
+  background-color: whitesmoke;
+  width: 40vh;
+  margin-right: 10vh;
+}
+
+.leftTopic {
+  background-color: whitesmoke;
+}
+
+.topicNam {
+  font-weight: bold;
+  font-size: 8vh;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin-top: 5vh;
+  margin-left: 30%;
+}
+
+.topicHr {
+  color: rgb(255, 166, 1);
+  border-top: 1vh solid;
+  width: 50%;
+  margin-bottom: 4vh;
+  margin-left: 20%;
+}
+
+.topicTop {
+  font-weight: bold;
+  font-size: 7vh;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin-top: 20vh;
+  margin-left: 5vh;
+}
+
+.table {
+  width: 90%;
+  column-gap: 2px;
+}
+
+.DisplayMain {
+  background-color: whitesmoke;
+  padding: 2vh;
+}
+
+.btn_edit {
+  background: rgb(12, 9, 104);
+  margin-right: 10px;
+  font-size: 17px;
+  height: 40px;
+  color: #ffffff;
+  border-radius: 5px;
+  width: 120px;
+  margin-left: 10px;
+}
+
+.btn_delete {
+  background: #ffffff;
+  outline: #bf0707;
+  color: #bf0707;
+  height: 40px;
+  width: 120px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
