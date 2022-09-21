@@ -88,6 +88,21 @@ const orderCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+  updateOrderStatus: async (req, res) => {
+    // orderId = req.params.id;
+
+    try {
+      const order = await Orders.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          orderstatus: req.body.orderstatus,
+        }
+      );
+      res.json({ msg: "Order Status Updated" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
 };
 
 const sold = async (id, quantity, oldSold) => {
