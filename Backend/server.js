@@ -24,6 +24,7 @@ app.use("/api", require("./routes/bookRouter"));
 app.use("/api", require("./routes/orderRouter"));
 app.use("/card", require("./routes/cardRoutes"));
 app.use("/api", require("./routes/requestBookRouter"));
+app.use("/api", require("./routes/reviewRouter"));
 
 // Connect to mongodb
 const URI = process.env.MONGODB_URL;
