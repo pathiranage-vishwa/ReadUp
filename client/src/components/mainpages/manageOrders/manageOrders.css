@@ -29,7 +29,7 @@ body {
 }
 
 .topicHr {
-  color: rgb(10, 30, 184);
+  color: rgb(1, 27, 219);
   border-top: 1vh solid;
   width: 50%;
   margin-bottom: 4vh;
@@ -103,4 +103,19 @@ body {
 .stat {
   color: blue;
   font-size: 2vh;
+}
+
+.btn_report {
+  background: rgb(12, 9, 104);
+  margin-right: 10px;
+  font-size: 18px;
+  height: 55px;
+  font-weight: bold;
+  color: #ffffff;
+  width: 160px;
+  margin-left: 10px;
+}
+
+.manageReport {
+  margin-left: 82%;
 }

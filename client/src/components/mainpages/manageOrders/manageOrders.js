@@ -47,6 +47,17 @@ export default function ManageOrders() {
     <div>
       <div className="topicNam">Customer Orders</div>
       <hr className="topicHr" />
+      <div className="manageReport">
+        <button
+          className="btn btn_report  ms-3"
+          // onClick={() =>
+          //   getMarkingScheme(data.specialization, data.totalMarks, data.criteria)
+          // }
+        >
+          {/* <DownloadOutlinedIcon /> */}
+          Seller Report
+        </button>
+      </div>
       <table className="table frame">
         <thead>
           <tr>
