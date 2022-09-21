@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import Loading from "../utils/loading/Loading";
 import axios from "axios";
 import "./displaycard.css";
+import swal from "sweetalert";
 //import Filters from "./Filters";
 // import LoadMore from "./LoadMore";
 
@@ -30,11 +31,13 @@ function DisplayCards() {
   // };
   
     //setUserID(user._id);
-    const id = user._id;
+ const id = user._id;
+ useEffect(()=>{
+
   async function getDetails(){ 
     
 
-    axios.get(`http://localhost:5000/card/getMyCard/${id}`).then((res)=>{ 
+    await axios.get(`http://localhost:5000/card/getMyCard/${id}`).then((res)=>{ 
 
       
       console.log(res.data); 
@@ -51,23 +54,35 @@ function DisplayCards() {
     })
 
   }
-  if (cards === undefined || cards.length == 0){
-    getDetails();
-  }     
+  getDetails();
+
+},[id]);
+
+  // if (cards === undefined || cards.length == 0){
+    
+  // }     
   
 console.log(id);
 
 
   const deleteCard = async (id) => {
+    let ans = window.confirm("Do you really want to delete this Movie ?");
+
+    if(ans){
     try {
       setLoading(true);
+      
       const deleteCard = axios.delete(`http://localhost:5000/card/delete/${id}`, {
       });
+    
       await deleteCard;
       //setCallback(!callback);
+      swal("successfully remove the card");
       setLoading(false);
+      
     } catch (err) {
       alert(err.response.data.msg);
+    }
     }
   };
 
@@ -107,11 +122,10 @@ console.log(status);
           <button onClick={deleteAll}>Delete ALL</button>
         </div>
       )} */}
-<center>  
-<div style={{marginTop:"2%"}}>   
-<h3 className="category-heading mb-6">Save Cards Details</h3>
-</div> 
-</center>  
+ 
+{/* <div style={{marginTop:"2%"}}>    */}
+
+{/* </div>    */}
   <div className="categoryTop">
       <div className="container-fluid ps-md-0 ">
         <div className="row g-0">
@@ -119,7 +133,7 @@ console.log(status);
           <div className="col-md-8 col-lg-6">
             <div className="login d-flex align-items-center py-5">
               <div className="card-body p-md-5 text-black">
-              
+              <h3 className="category-heading mb-6">Save Cards Details</h3>
                   <div className="dis_card">
                     {cards.map((card,key) => {
                       return (

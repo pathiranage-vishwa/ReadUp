@@ -34,7 +34,7 @@ const AddPayment = () => {
   const [mobileNumber, setmobileNumber] = useState();
   const [pin, setpin] = useState("");
   const [status, setStatus] = useState("");
-  const [cart, setCart] = useState([JSON.parse(localStorage.getItem("Cart"))]);
+  const [cart, setCart] = state.userAPI.cart;
   const [token] = state.token;
 
   console.log(user);
