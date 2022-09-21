@@ -48,12 +48,12 @@ export default function ManageOrders() {
               <td>{data.phoneNumber}</td>
               <td>
                 {data.cart.map((item) => (
-                  <div key={item._id}>
-                    {item.title}
+                  <div className="detailsOrder" key={item._id}>
+                    Book : {item.title}
                     <br />
-                    {item.price}
+                    Price : {item.price}
                     <br />
-                    {item.quantity}
+                    Quantity :{item.quantity}
                   </div>
                 ))}
               </td>
