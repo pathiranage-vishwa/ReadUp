@@ -60,6 +60,15 @@ function Profile() {
       }
     };
 
+    const handleDelete = async (id) => {
+      try {
+        const res = await axios.delete(`/users/delete/${id}`);
+        alert(res.data.msg);
+      } catch (err) {
+        alert("ERR");
+      }
+    };
+
     function submitData(e) {
         e.preventDefault();
         const newRoute = {
@@ -247,10 +256,11 @@ function Profile() {
                     <button
                         className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
                         type="submit"
+                        onClick={() => handleDelete(user._id)}
                         style={{ height: "50px" }}
                       >
-                        Update
-                      </button>
+                        Delete
+                    </button>
                   </form>
                 </div>
               </div>
