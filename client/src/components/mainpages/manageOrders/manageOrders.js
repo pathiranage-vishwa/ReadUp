@@ -22,6 +22,27 @@ export default function ManageOrders() {
   return (
     <div>
       <h1>Manage Orders</h1>
+
+      {orders.map((order) => (
+        <div key={order._id}>
+          {" "}
+          {order._id}
+          <br />
+          {order.name}
+          <br />
+          {order.address}
+          <br />
+          {order.cart.map((item) => (
+            <div key={item._id}>
+              {item.title}
+              <br />
+              {item.price}
+              <br />
+              {item.quantity}
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   );
 }
