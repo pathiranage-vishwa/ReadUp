@@ -49,11 +49,13 @@ export default function ManageOrders() {
               <td>
                 {data.cart.map((item) => (
                   <div className="detailsOrder" key={item._id}>
-                    Book : {item.title}
-                    <br />
-                    Price : {item.price}
-                    <br />
-                    Quantity :{item.quantity}
+                    <h6 className="hOrder">Book : {item.title}</h6>
+                    <div className="hItems">
+                      {" "}
+                      Price of Book (unique): {item.price}
+                      <br />
+                      Number of Books(Qty) :{item.quantity}
+                    </div>
                   </div>
                 ))}
               </td>

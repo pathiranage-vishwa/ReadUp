@@ -90,3 +90,12 @@ body {
   margin-left: 3vh;
   font-weight: bold;
 }
+
+.hOrder {
+  font-weight: bold;
+}
+
+.hItems {
+  margin-right: auto;
+  font-weight: bold;
+}
