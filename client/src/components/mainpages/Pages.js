@@ -24,6 +24,7 @@ import ResetPassword from "./auth/ResetPassword";
 import DisplayCards from "./Payment/DisplayCards";
 import Home from "../homepage/Home";
 import MyAds from "./myAds/MyAds";
+import ManageOrders from "./manageOrders/ManageOrders";
 
 import { GlobalState } from "../../GlobalState";
 
@@ -105,6 +106,8 @@ function Pages() {
       <Route path="/cart" exact component={Cart} />
 
       <Route path="/myAds" exact component={MyAds} />
+
+      <Route path="/manageOrders" exact component={ManageOrders} />
 
       <Route path="/checkout" exact component={Checkout} />
       <Route path="/addPayment" exact component={AddPayment} />

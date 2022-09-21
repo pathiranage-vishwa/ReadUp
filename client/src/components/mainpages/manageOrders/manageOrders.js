@@ -1,21 +1,22 @@
-import React from "react";
-import axios from "axios";
-import React, { useEffect, useState, useContext } from "react";
-import swal from "sweetalert";
+import React, { useContext, useEffect, useState } from "react";
 import { GlobalState } from "../../../GlobalState";
+import axios from "axios";
+import swal from "sweetalert";
 
-export default function manageOrders() {
+export default function ManageOrders() {
   const state = useContext(GlobalState);
   const [orders, setOrders] = useState([]);
   const [crrUser, setCrrUser] = state.userAPI.user;
 
   useEffect(() => {
     const getOrders = async () => {
-      const res = await axios.get(`/api/order/${crrUser._id}`);
+      const res = await axios.get(
+        `http://localhost:5000/api/order/${crrUser._id}`
+      );
       setOrders(res.data);
     };
     getOrders();
-  }, []);
+  }, [crrUser]);
 
   console.log(orders);
   return (
