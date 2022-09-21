@@ -20,6 +20,29 @@ export default function ManageOrders() {
   }, [crrUser]);
 
   console.log(orders);
+
+  const setData = (id, orderstatus) => {
+    const value = {
+      orderstatus,
+    };
+
+    axios.put(`http://localhost:5000/api/order/${id}`, value).then((res) => {
+      window.location.reload(false);
+      swal({
+        title: ` Order is ${orderstatus}`,
+        icon: "success",
+        button: "OK",
+      }).catch((err) => {
+        swal({
+          title: "Error",
+          text: err.response.data.msg,
+          icon: "error",
+          button: "OK",
+        });
+      });
+    });
+  };
+
   return (
     <div>
       <div className="topicNam">Customer Orders</div>
@@ -32,6 +55,7 @@ export default function ManageOrders() {
             <th scope="col">Address</th>
             <th scope="col">Phone</th>
             <th scope="col">Order</th>
+            <th scope="col">Order Status</th>
 
             <th scope="col">
               <center>Action</center>
@@ -59,26 +83,24 @@ export default function ManageOrders() {
                   </div>
                 ))}
               </td>
-              {/* <td>
-                <b className="statusUp">{data.topicStatus}</b>
-              </td> */}
+              <td className="stat">{data.orderstatus}</td>
               <td>
                 <button
                   className="btn btn btn_edit "
-                  // disabled={
-                  //   data.topicStatus === "Accepted" ||
-                  //   data.topicStatus === "Rejected"
-                  // }
-                  //  onClick={() => setData(data)}
+                  disabled={
+                    data.orderstatus === "Accepted" ||
+                    data.orderstatus === "Rejected"
+                  }
+                  onClick={() => setData(data._id, "Accepted")}
                 >
                   &nbsp;Accept
                 </button>
                 <button
-                  // disabled={
-                  //   data.topicStatus === "pending" ||
-                  //   data.topicStatus === "Rejected"
-                  // }
-                  // onClick={() => setDocument(data)}
+                  disabled={
+                    data.orderstatus === "Accepted" ||
+                    data.orderstatus === "Rejected"
+                  }
+                  onClick={() => setData(data._id, "Rejected")}
                   className="btn btn-danger ms-3 btn_delete"
                 >
                   &nbsp;Reject

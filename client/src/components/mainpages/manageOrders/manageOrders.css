@@ -99,3 +99,8 @@ body {
   margin-right: auto;
   font-weight: bold;
 }
+
+.stat {
+  color: blue;
+  font-size: 2vh;
+}

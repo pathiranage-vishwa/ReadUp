@@ -69,6 +69,7 @@ const orderCtrl = {
             postalCode: 1,
             phoneNumber: 1,
             paymentID: 1,
+            orderstatus: 1,
             total: 1,
             cart: {
               $filter: {
