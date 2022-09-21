@@ -1,16 +1,20 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext } from 'react'
 import axios from 'axios'
-import './Styles/profile.css';
+import { GlobalState } from "../../../GlobalState";
+import './Styles/updateUser.css';
 import swal from "sweetalert";
 
 function Profile() {
-
+    const state = useContext(GlobalState);
     const [id,setId] = useState();
     const [firstname, setFirstname] = useState();
     const [lastname,setLastname] = useState();
     const [username,setUsername]= useState();
     const [email,setEmail]= useState();
     const [userType,setUserType]= useState();
+    const [user] = state.userAPI.user;
+    const [token] = state.token;
+    const [image, setImage] = useState(false);
 
     useEffect(() => {
 
@@ -22,6 +26,39 @@ function Profile() {
         setUserType(localStorage.getItem('UserType'));
 
     },[] );
+
+    const changeAvatar = async (e) => {
+      e.preventDefault();
+      try {
+        const file = e.target.files[0];
+  
+        if (!file) return swal("ERROR!", "No files were uploaded!", "error");
+  
+        if (file.size > 1024 * 1024)
+          return swal("ERROR!", "Size too large.", "error");
+  
+        if (file.type !== "image/jpeg" && file.type !== "image/png")
+          return swal("ERROR!", "File format is incorrect.", "error");
+  
+        let formData = new FormData();
+        formData.append("file", file);
+  
+        const res = await axios.post(
+          "/api/upload",
+          formData,
+          {
+            headers: {
+              "content-type": "multipart/form-data",
+              Authorization: token,
+            },
+          }
+        );
+        swal("Done!", "Image upload successfull!", "success");
+        setImage(res.data.url);
+      } catch (err) {
+        return swal("ERROR!", err.response.res.msg, "error");
+      }
+    };
 
     function submitData(e) {
         e.preventDefault();
@@ -56,7 +93,7 @@ function Profile() {
     }
 
     return (
-      <div className="regTop">
+      <div className="updateTop">
         <br />
         <br />
         <br />
@@ -64,15 +101,28 @@ function Profile() {
         <br />
         <div className="container-fluid ps-md-0 ">
           <div className="row g-0">
-            <div className="d-none d-md-flex col-md-4 col-lg-6 regimage"></div>
+            <div className="d-none d-md-flex col-md-4 col-lg-6 updateimage"></div>
             <div className="col-md-8 col-lg-6">
               <div className="login d-flex align-items-center py-5">
                 <div className="card-body p-md-5 text-black">
                   <form onSubmit={submitData}>
-                    <h3 className="register-heading mb-6">{firstname + " " + lastname}</h3>
+                    <h3 className="update-heading mb-6">{firstname + " " + lastname}</h3>
+                    <div className="avatar">
+                    <img src={image ? image : user.image} alt="" />
+                      <span>
+                        <i className="fas fa-camera"></i>
+                        <p>Change</p>
+                        <input
+                          type="file"
+                          name="file"
+                          id="file_up"
+                          onChange={changeAvatar}
+                        />
+                      </span>
+                    </div>
                     <hr className="hr1" />
                     <br />
-                    <h4>{userType + " "}Account</h4>
+                    <h4 className="register-heading mb-6">{userType + " "}Account</h4>
                     <br />
                     <div className="row">
                       <div className="col-md-6 mb-4">

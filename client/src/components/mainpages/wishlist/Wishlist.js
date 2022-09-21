@@ -50,8 +50,11 @@ const TopText = styled.span`
 `;
 
 const Bottom = styled.div`
-  display: flex;
-  justify-content: start;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(780px, 1fr));
+  grid-gap: 50px;
+  margin: 20px 0;
   ${mobile({ flexDirection: "column" })}
 `;
 
@@ -280,7 +283,7 @@ function WishList() {
           <TopButton>CHECKOUT NOW</TopButton>
         </Top>
         <Bottom>
-          <Info>
+          {/* <Info> */}
             {wishList.map((product) => (
               <Product>
                 <ProductDetail>
@@ -307,7 +310,7 @@ function WishList() {
               </Product>
             ))}
             <Hr />
-          </Info>
+          {/* </Info> */}
         </Bottom>
       </Wrapper>
     </Container>
