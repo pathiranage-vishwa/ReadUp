@@ -106,21 +106,6 @@ export default function ManageOrders() {
                   &nbsp;Reject
                 </button>
                 &nbsp;&nbsp;&nbsp;
-                {/* {crrUser.role === "Panel_Member" ? (
-                  <button
-                    class="btn btn-info"
-                    disabled={
-                      data.topicStatus === "pending" ||
-                      data.topicStatus === "Rejected" ||
-                      data.topicDocument === "pending"
-                    }
-                    onClick={() => setEvaluate(data)}
-                  >
-                    &nbsp;Evaluate
-                  </button>
-                ) : (
-                  " "
-                )} */}
               </td>
             </tr>
           ))}
