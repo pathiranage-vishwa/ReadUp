@@ -4,7 +4,7 @@ import axios from "axios";
 import swal from "sweetalert";
 import UpdateReq from "../requests/Styles/UpdateReq.png";
 
-function UpdateReview(){
+export default function UpdateReview(){
     const state = useContext(GlobalState);
     const [token] = state.token;
 
@@ -44,7 +44,7 @@ function UpdateReview(){
             <div className="card">
                 <div className="card-body">
                     <center>
-                        <h1>Update Request Book Details</h1>
+                        <h1>Update Book Reviews</h1>
                         <hr/>
                     </center>
 
@@ -57,68 +57,51 @@ function UpdateReview(){
                         <div className="col-sm-6">
                             <div className="card">
                                 <div className="card-body">
-                                    <form onSubmit={createRequest}>
+                                    <form onSubmit={createReview}>
                                         <br/>
-                                        <label>Book Name: </label>
-                                        <div className="form-group">
-                                            <input
-                                                type="text"
-                                                name="bookName"
-                                                defaultValue={bookName}
-                                                className="form-control form-control-lg"
-                                                onChange={(e) => {
-                                                    setBookName(e.target.value);
-                                                }}
-                                                required
-                                            />
+                                        <label>Rate: </label>
+                                        <div>
+                                            <select className="form-select" defaultValue={rate} name="rate"
+                                                    onChange={(e) => {setRate(e.target.value);}}>
+                                                <option value="">Select</option>
+                                                <option value="1">1 - Bad</option>
+                                                <option value="2">2 - Fair</option>
+                                                <option value="3">3 - Good</option>
+                                                <option value="4">4 - Very good</option>
+                                                <option value="5">5 - Excellent</option>
+                                            </select>
                                         </div>
                                         <br/>
 
-                                        <label>Book Category : </label>
+                                        <label>Date : </label>
                                         <div className="form-group">
                                             <input
                                                 type="text"
                                                 name="category"
-                                                defaultValue={category}
+                                                defaultValue={date}
                                                 className="form-control form-control-lg"
                                                 onChange={(e) => {
-                                                    setCategory(e.target.value);
+                                                    setDate(e.target.value);
                                                 }}
                                                 required
                                             />
                                         </div>
                                         <br/>
 
-                                        <label>Book Author : </label>
+                                        <label>Comment Review: </label>
                                         <div className="form-group">
                                             <input
                                                 type="text"
                                                 name="author"
-                                                defaultValue={author}
+                                                defaultValue={CommentReview}
                                                 className="form-control form-control-lg"
                                                 onChange={(e) => {
-                                                    setAuthor(e.target.value);
+                                                    setCommentReview(e.target.value);
                                                 }}
                                                 required
                                             />
                                         </div>
                                         <br/>
-
-                                        <label>ISBN Number: </label>
-                                        <div className="form-group">
-                                            <input
-                                                type="text"
-                                                name="isbnNumber"
-                                                defaultValue={isbnNumber}
-                                                className="form-control form-control-lg"
-                                                onChange={(e) => {
-                                                    setIsbnNumber(e.target.value);
-                                                }}
-                                                required
-                                            />
-                                        </div>
-                                        <br/>
-
 
                                         <div className="d-flex justify-content-end pt-3">
                                             <button
