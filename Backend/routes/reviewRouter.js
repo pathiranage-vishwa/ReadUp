@@ -7,4 +7,8 @@ router
     .route("/review")
     .post(auth,reviewCtrl.createReviews);
 
+router
+    .route("/review/:id")
+    .put(reviewCtrl.updateReview);
+
 module.exports = router;
