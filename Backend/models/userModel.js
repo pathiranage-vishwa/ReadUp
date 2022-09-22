@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema(
     },
     image: {
       type: String,
-      default: "Image"
+      default: "https://res.cloudinary.com/dlprhahi4/image/upload/v1663887060/pngwing.com_ar5lyy.png"
   }
   },
   {

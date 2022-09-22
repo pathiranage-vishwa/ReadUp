@@ -69,39 +69,6 @@ function Profile() {
       }
     };
 
-    function submitData(e) {
-        e.preventDefault();
-        const newRoute = {
-              
-          firstname,
-          lastname,
-          username,
-          email,
-          userType,
-          image
-        }
-        swal({
-            title: "Are you sure?",
-            text: "You are going to update a users account!",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-          }).then((willDelete) => {
-            if (willDelete) {
-              axios.put(`/user/updateUsr/${id}`,newRoute)
-              swal("Poof! User account successfully updated!", {
-                icon: "success",
-              });
-            } else {
-              swal("User account is safe!");
-            }
-          }).catch((err)=>{
-    
-            alert(err);
-         })
-      
-    }
-
     return (
       <div className="updateTop">
         <br />
@@ -115,7 +82,7 @@ function Profile() {
             <div className="col-md-8 col-lg-6">
               <div className="login d-flex align-items-center py-5">
                 <div className="card-body p-md-5 text-black">
-                  <form onSubmit={submitData}>
+                  <form>
                     <h3 className="update-heading mb-6">{firstname + " " + lastname}</h3>
                     <div className="avatar">
                     <img src={image ? image : user.image} alt="" />
