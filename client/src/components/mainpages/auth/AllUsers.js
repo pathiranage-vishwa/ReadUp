@@ -133,7 +133,7 @@ export default function AllUsers() {
               <td>
                 <a
                   className="btn-tbl"
-                  href={`/UpdateUser/${data._id}`}
+                  href={`/userProfile/${data._id}`}
                     onClick={() => setData(data)}
                 >
                   &nbsp;Update

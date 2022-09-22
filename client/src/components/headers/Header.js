@@ -5,6 +5,22 @@ import Close from "./icon/close.svg";
 import Cart from "./icon/cart1.svg";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import styled from "styled-components";
+
+const Avatar = styled.div`
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  position: relative;
+  top: 12px;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  cursor: pointer;
+  img {
+    display: block;
+    width: 100%;
+  }
+`;
 
 function Header() {
   const state = useContext(GlobalState);
@@ -13,6 +29,9 @@ function Header() {
   const [isSeller] = state.userAPI.isSeller;
   const [cart] = state.userAPI.cart;
   const [menu, setMenu] = useState(false);
+  const [user] = state.userAPI.user;
+
+  console.log(user.image);
 
   const logoutUser = async () => {
     await axios.get("/user/logout");
@@ -69,6 +88,13 @@ function Header() {
           <Link to="/" onClick={logoutUser}>
             Logout
           </Link>
+        </li>
+        <li>
+          <Avatar>
+            <div>
+              <img src={user.image} alt="" />
+            </div>
+          </Avatar>
         </li>
       </>
     );

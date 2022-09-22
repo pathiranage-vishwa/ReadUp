@@ -24,7 +24,7 @@ import ResetPassword from "./auth/ResetPassword";
 import DisplayCards from "./Payment/DisplayCards";
 import Home from "../homepage/Home";
 import MyAds from "./myAds/MyAds";
-import UpdateUser from "../mainpages/auth/UpdateUser";
+import userProfile from "./auth/userProfile";
 import Wishlist from "../mainpages/wishlist/Wishlist";
 
 import { GlobalState } from "../../GlobalState";
@@ -50,9 +50,9 @@ function Pages() {
       <Route path="/reset_pw" exact component={ResetPassword} />
 
       <Route
-        path="/UpdateUser/:id"
+        path="/userProfile/:id"
         exact
-        component={isLogged ? UpdateUser : NotFound}
+        component={isLogged ? userProfile : NotFound}
       />
 
       <Route
