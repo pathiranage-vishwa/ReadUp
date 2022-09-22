@@ -24,6 +24,7 @@ import ResetPassword from "./auth/ResetPassword";
 import DisplayCards from "./Payment/DisplayCards";
 import Home from "../homepage/Home";
 import MyAds from "./myAds/MyAds";
+import AddReview from "./Reviews/AddReview";
 
 import { GlobalState } from "../../GlobalState";
 
@@ -63,6 +64,7 @@ function Pages() {
         exact
         component={isAdmin ? Allcategories : NotFound}
       />
+        <Route path="/review" exact component={isLogged ? AddReview : NotFound} />
       <Route path="/request" exact component={isLogged ? Requests : NotFound} />
       <Route
         path="/requestHome"
