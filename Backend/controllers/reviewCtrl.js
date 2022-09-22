@@ -2,6 +2,14 @@ const Reviews = require("../models/reviewModel");
 
 const reviewBookCtrl = {
 
+    getReviews: async (req, res) => {
+        try {
+            const reviews = await Reviews.find();
+            res.json(reviews);
+        } catch (err) {
+            return res.status(500).json({ msg: err.message });
+        }
+    },
 
     createReviews: async (req, res) => {
         try {
