@@ -89,13 +89,13 @@ function Header() {
             Logout
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Avatar>
             <div>
               <img src={user.image} alt="" />
             </div>
           </Avatar>
-        </li>
+        </li> */}
       </>
     );
   };

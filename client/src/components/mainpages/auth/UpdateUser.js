@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import './Styles/profile.css';
-import { id } from 'date-fns/locale';
+import { GlobalState } from "../../../GlobalState";
+import swal from "sweetalert";
 
 function UpdateUser() {
 

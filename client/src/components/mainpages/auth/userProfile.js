@@ -69,6 +69,15 @@ function Profile() {
       }
     };
 
+    const handleUpdate = async (id) => {
+      try {
+        const res = await axios.delete(`/users/delete/${id}`);
+        alert(res.data.msg);
+      } catch (err) {
+        alert("ERR");
+      }
+    };
+
     return (
       <div className="updateTop">
         <br />
@@ -112,6 +121,7 @@ function Profile() {
                             name="firstName"
                             placeholder="First Name"
                             defaultValue={firstname}
+                            disabled = {true}
                             className="form-control form-control-lg"
                             onChange={e=>{setFirstname(e.target.value);}}
                             required
@@ -127,6 +137,7 @@ function Profile() {
                             type="text"
                             name="lastName"
                             placeholder="Last Name"
+                            disabled = {true}
                             defaultValue={lastname}
                             className="form-control form-control-lg"
                             onChange={e=>{setLastname(e.target.value);}}
@@ -148,6 +159,7 @@ function Profile() {
                             placeholder="Username"
                             autocomplete="off"
                             defaultValue={username}
+                            disabled = {true}
                             className="form-control form-control-lg"
                             onChange={e=>{setEmail(e.target.value);}}
                             required
@@ -165,6 +177,7 @@ function Profile() {
                             placeholder="Home Address"
                             autocomplete="off"
                             // defaultValue={address}
+                            disabled = {true}
                             className="form-control form-control-lg"
                             // onChange={e=>{setName(e.target.value);}}
                             required
@@ -184,6 +197,7 @@ function Profile() {
                             placeholder="Email Address"
                             name="email"
                             defaultValue={email}
+                            disabled = {true}
                             onChange={e=>{setUsername(e.target.value);}}
                             className="form-control form-control-lg"
                             required
@@ -197,6 +211,7 @@ function Profile() {
                           </label>
                           <select
                             name="userType"
+                            disabled = {true}
                             class="form-select"
                             aria-label="Default select example"
                             onChange={e=>{setUserType(e.target.value);}}
@@ -211,7 +226,7 @@ function Profile() {
                     <div className="d-flex justify-content-end pt-3">
                       <button
                         className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
-                        type="submit"
+                        onClick={() => handleUpdate(user._id)}
                         style={{ height: "50px" }}
                       >
                         Update

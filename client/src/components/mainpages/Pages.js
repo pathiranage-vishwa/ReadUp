@@ -25,6 +25,7 @@ import DisplayCards from "./Payment/DisplayCards";
 import Home from "../homepage/Home";
 import MyAds from "./myAds/MyAds";
 import userProfile from "./auth/userProfile";
+import updateProfile from "./auth/UpdateUser";
 import Wishlist from "../mainpages/wishlist/Wishlist";
 
 import { GlobalState } from "../../GlobalState";
@@ -59,6 +60,12 @@ function Pages() {
         path="/allusers"
         exact
         component={isLogged ? AllUsers : NotFound}
+      />
+
+      <Route
+        path="/updateProfile/:id"
+        exact
+        component={isLogged ? updateProfile : NotFound}
       />
 
       <Route
