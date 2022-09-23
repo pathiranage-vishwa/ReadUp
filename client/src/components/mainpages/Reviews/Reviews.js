@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from "react";
 import axios from "axios";
 import reqBook from "../requests/Styles/reqBook.png";
-
+import "./Styles/reviewStyle.css"
 
 export default function Reviews(){
     const [reviews, setReview] = useState([]);
@@ -55,10 +55,16 @@ export default function Reviews(){
                                 <div className="card-body">
                                     <div className="reviewStl">
                                         {reviews.map((data, index) => (
-                                            <div className="product_box">
+
+                                                <div className="card text-white bg-secondary mb-3">
+                                                    <div className="card-body">
                                                 <h5 >{data.rate}</h5>
                                                 <span>{data.date}</span>
                                                 <p>{data.CommentReview}</p>
+                                                        <a href="#" className="btn btn-primary">Go somewhere</a>
+                                                        <a href="#" className="btn btn-primary">Go somewhere</a>
+                                                    </div>
+
                                             </div>
                                         ))}
                                         {/*</table>*/}
