@@ -17,15 +17,15 @@ export default function Reviews(){
             });
     }, []);
 
-    // const setData = (data) => {
-    //     let { _id, rate, date,CommentReview } = data;
-    //
-    //     localStorage.setItem("reid", _id);
-    //     localStorage.setItem("Rate", rate);
-    //     localStorage.setItem("Date", date);
-    //     localStorage.setItem("Comment", CommentReview);
-    //
-    // };
+    const setData = (data) => {
+        let { _id, rate, date,CommentReview } = data;
+
+        localStorage.setItem("reid", _id);
+        localStorage.setItem("Rate", rate);
+        localStorage.setItem("Date", date);
+        localStorage.setItem("Comment", CommentReview);
+
+    };
 
 
     return(
