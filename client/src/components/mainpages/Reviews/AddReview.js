@@ -32,10 +32,7 @@ function AddReview(){
                 }
             );
             swal("Done!", "Request successfully!", "success");
-            // alert(res.data.msg);
-            //move to request home
             setReview("");
-            //   setCallback(!callback);
         } catch (err) {
             alert(err.response.data.msg);
         }
