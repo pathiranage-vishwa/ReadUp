@@ -58,10 +58,16 @@ export default function Reviews(){
 
                                                 <div className="card text-white bg-secondary mb-3">
                                                     <div className="card-body">
-                                                <h5 >{data.rate}</h5>
-                                                <span>{data.date}</span>
-                                                <p>{data.CommentReview}</p>
-                                                        {/*<a href="#" className="btn btn-primary">Go somewhere</a>*/}
+                                                        <h5 >{data.rate}</h5>
+                                                        <span>{data.date}</span>
+                                                        <p>{data.CommentReview}</p>
+                                                        <a
+                                                                className="btn btn-warning"
+                                                                href={`/updatereview/${data._id}`}
+                                                                onClick={() => setData(data)}
+                                                            >
+                                                                &nbsp;Update
+                                                        </a>
                                                     </div>
 
                                             </div>
