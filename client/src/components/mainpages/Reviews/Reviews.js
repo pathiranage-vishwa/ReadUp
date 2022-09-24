@@ -17,7 +17,7 @@ export default function Reviews(){
             });
     }, []);
 
-    const setData = (data) => {
+    const setRData = (data) => {
         let { _id, rate, date,CommentReview } = data;
 
         localStorage.setItem("reid", _id);
@@ -64,7 +64,7 @@ export default function Reviews(){
                                                         <a
                                                                 className="btn btn-warning"
                                                                 href={`/updatereview/${data._id}`}
-                                                                onClick={() => setData(data)}
+                                                                onClick={() => setRData(data)}
                                                             >
                                                                 &nbsp;Update
                                                         </a>
