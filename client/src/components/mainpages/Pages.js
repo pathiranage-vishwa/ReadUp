@@ -26,6 +26,7 @@ import Home from "../homepage/Home";
 import MyAds from "./myAds/MyAds";
 import AddReview from "./Reviews/AddReview";
 import UpdateReview from "./Reviews/UpdateReview";
+import Reviews from "./Reviews/Reviews";
 
 import { GlobalState } from "../../GlobalState";
 
@@ -65,7 +66,8 @@ function Pages() {
         exact
         component={isAdmin ? Allcategories : NotFound}
       />
-        <Route path="/review" exact component={isLogged ? AddReview : NotFound} />
+        <Route path="/review" exact component={isLogged ? Reviews : NotFound} />
+        <Route path="/addreview" exact component={isLogged ? AddReview : NotFound} />
         <Route path="/updatereview" exact component={isLogged ? UpdateReview : NotFound} />
       <Route path="/request" exact component={isLogged ? Requests : NotFound} />
       <Route
