@@ -61,8 +61,7 @@ export default function Reviews(){
                                                 <h5 >{data.rate}</h5>
                                                 <span>{data.date}</span>
                                                 <p>{data.CommentReview}</p>
-                                                        <a href="#" className="btn btn-primary">Go somewhere</a>
-                                                        <a href="#" className="btn btn-primary">Go somewhere</a>
+                                                        {/*<a href="#" className="btn btn-primary">Go somewhere</a>*/}
                                                     </div>
 
                                             </div>
