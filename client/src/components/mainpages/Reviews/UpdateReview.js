@@ -77,7 +77,7 @@ export default function UpdateReview(){
                                         <div className="form-group">
                                             <input
                                                 type="text"
-                                                name="category"
+                                                name="date"
                                                 defaultValue={date}
                                                 className="form-control form-control-lg"
                                                 onChange={(e) => {
@@ -92,7 +92,7 @@ export default function UpdateReview(){
                                         <div className="form-group">
                                             <input
                                                 type="text"
-                                                name="author"
+                                                name="CommentReview"
                                                 defaultValue={CommentReview}
                                                 className="form-control form-control-lg"
                                                 onChange={(e) => {
