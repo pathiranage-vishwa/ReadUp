@@ -4,6 +4,7 @@ const auth = require("../middleware/auth");
 
 router
     .route("/review")
+    .get(reviewCtrl.getReviews)
     .post(auth,reviewCtrl.createReviews);
 
 router
