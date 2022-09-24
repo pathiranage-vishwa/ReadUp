@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { useHistory } from "react-router";
 import { mobile } from "../../homepage/responsive";
 import swal from "sweetalert";
+import { useParams, Link } from "react-router-dom";
 
 const KEY = process.env.REACT_APP_STRIPE;
 
@@ -277,10 +278,14 @@ function WishList() {
         <Top>
           <TopButton>CONTINUE SHOPPING</TopButton>
           <TopTexts>
-            <TopText>Shopping Cart({cart.length})</TopText>
-            <TopText>Your Wishlist ({wishList.length})</TopText>
+            <Link to="/cart">
+            <TopButton>Shopping Cart({cart.length})</TopButton>
+            </Link>
+            <Link to="/wishlist">
+            <TopButton>Your Wishlist ({wishList.length})</TopButton>
+            </Link>
           </TopTexts>
-          <TopButton>CHECKOUT NOW</TopButton>
+          <TopButton>VISIT STORE</TopButton>
         </Top>
         <Bottom>
           {/* <Info> */}

@@ -8,6 +8,7 @@ function DetailBook() {
   const state = useContext(GlobalState);
   const [books] = state.booksAPI.books;
   const addCart = state.userAPI.addCart;
+  const addWishList = state.userAPI.addWishList;
   const [detailBook, setDetailBook] = useState([]);
 
   useEffect(() => {
@@ -51,6 +52,13 @@ function DetailBook() {
             onClick={() => addCart(detailBook)}
           >
             Add to Cart
+          </Link>
+          <Link
+            to="/wishlist"
+            className="btnDetail"
+            onClick={() => addWishList(detailBook)}
+          >
+            Add to Wishlist
           </Link>
         </div>
       </div>

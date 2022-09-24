@@ -3,6 +3,7 @@ import axios from 'axios'
 import { GlobalState } from "../../../GlobalState";
 import './Styles/updateUser.css';
 import swal from "sweetalert";
+import { useParams, Link } from "react-router-dom";
 
 function Profile() {
     const state = useContext(GlobalState);
@@ -69,14 +70,14 @@ function Profile() {
       }
     };
 
-    const handleUpdate = async (id) => {
-      try {
-        const res = await axios.delete(`/users/delete/${id}`);
-        alert(res.data.msg);
-      } catch (err) {
-        alert("ERR");
-      }
-    };
+    // const handleUpdate = async (id) => {
+    //   try {
+    //     const res = await axios.delete(`/users/delete/${id}`);
+    //     alert(res.data.msg);
+    //   } catch (err) {
+    //     alert("ERR");
+    //   }
+    // };
 
     return (
       <div className="updateTop">
@@ -224,18 +225,20 @@ function Profile() {
                       </div>
                     </div>
                     <div className="d-flex justify-content-end pt-3">
+                    <Link to = {`/updateProfile/${user._id}`}>
                       <button
                         className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
-                        onClick={() => handleUpdate(user._id)}
                         style={{ height: "50px" }}
                       >
                         Update
                       </button>
+                      </Link>
                     </div>
                     <label className="register-heading mb-6" for="form3Example1m1">
                             Delete Account ?
                     </label>
                     <br />
+
                     <button
                         className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
                         type="submit"
@@ -244,6 +247,7 @@ function Profile() {
                       >
                         Delete
                     </button>
+
                   </form>
                 </div>
               </div>

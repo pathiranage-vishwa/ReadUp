@@ -28,6 +28,7 @@
     padding: 30 50px;
     margin: auto;
     margin-left: 50px;
+    margin-top: 200px;
 }
 
 .profile_page .col-left .avatar{
@@ -92,7 +93,7 @@
     border: 3px solid #313131;
     border-radius: 6px;
     outline: none;
-    background: rgb(255, 194, 137);
+    background: rgb(137, 151, 255);
     padding: 0 5px;
 }
 .profile_page .col-left button{
@@ -109,8 +110,8 @@
     max-width: 500px;
     min-width: 500px;
     padding: 0 50px;
-    margin-left: 600px;
-    margin-top: -600px;
+    margin-left: 900px;
+    margin-top: -500px;
 }
 .profile_page .col-right h2{
     font-size: 1.7rem;
@@ -122,15 +123,16 @@
     display: block;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 5px;
+    margin-left: 20px;
 }
 .profile_page .col-right input{
-    width: 100%;
+    width: 200%;
     height: 40px;
     margin: 5px 0;
     border: 3px solid #313131;
     border-radius: 6px;
     outline: none;
-    background: rgb(255, 194, 137);
+    background: rgb(137, 151, 255);
     padding: 0 5px;
 }
 
@@ -155,6 +157,16 @@ div.profilecard {
 
 div.card1 {
     width: 800px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    padding: 40px;
+    background-color: rgb(235, 235, 235);
+    margin-top: -100px;
+  }
+
+  div.card2 {
+    width: 500px;
     border-radius: 15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;

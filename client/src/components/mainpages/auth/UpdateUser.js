@@ -13,6 +13,8 @@ function UpdateUser() {
     const [username,setUsername]= useState();
     const [email,setEmail]= useState();
     const [userType,setUserType]= useState();
+    const [newpassword,setNewpassword]= useState();
+    const [confNewPassword,setConfNewPassword]= useState();
     const [user] = state.userAPI.user;
     const [token] = state.token;
     const [image, setImage] = useState(false);
@@ -61,6 +63,34 @@ function UpdateUser() {
          })
       
     }
+
+    function resetPassword(e) {
+      e.preventDefault();
+      const newPassword = {
+        newpassword,
+        confNewPassword,
+      }
+      swal({
+          title: "Are you sure?",
+          text: "You are reset your account password!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        }).then((willDelete) => {
+          if (willDelete) {
+            axios.put(`/user/updateUsr/${id}`,newPassword)
+            swal("Poof! User password updated successfully!", {
+              icon: "success",
+            });
+          } else {
+            swal("Password is safe!");
+          }
+        }).catch((err)=>{
+  
+          alert(err);
+       })
+    
+  }
 
     return (
         <>
@@ -143,7 +173,40 @@ function UpdateUser() {
                 </div>
                 </div>
 
-                <button>Update</button>
+                <button className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
+                >Update</button>
+                </div>
+                </form>
+            </div>
+            <div className="col-right">
+            <form className="form" onSubmit={resetPassword}>
+                <div className='card2'>
+                <h2>Reset Password</h2>
+                <br/>
+                <div className="row">
+                <div className="col-md-6 mb-4">
+                <div className="form-outline">
+                <div className="form-group">
+                    <label htmlFor="name">New Password</label>
+                    <input type="text" name="newpassword" id="newpassword" defaultValue={firstname}
+                    placeholder="new password" onChange={e=>{setNewpassword(e.target.value);}} />
+                </div>
+                </div>
+                </div>
+                </div>
+                <div className="row">
+                <div className="col-md-6 mb-4">
+                <div className="form-outline">
+                <div className="form-group">
+                    <label htmlFor="regNumber">Confirm Password</label>
+                    <input type="text" name="confNewPassword" id="confNewPassword" defaultValue={lastname}
+                    placeholder="confirm New Password" onChange={e=>{setConfNewPassword(e.target.value);}}/>
+                </div>
+                </div>
+                </div>
+                </div>
+                <button className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
+                >Update Password</button>
                 </div>
                 </form>
             </div>
