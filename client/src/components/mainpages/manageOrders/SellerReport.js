@@ -11,6 +11,7 @@ const SellerReport = (order) => {
   const tableRows = [];
 
   var no = 0;
+  var total = 0;
 
   order.forEach((data) => {
     ++no;
@@ -25,12 +26,24 @@ const SellerReport = (order) => {
         data.name,
         data.address,
         data.phoneNumber,
-        item.title,
+        [
+          `Book Title\t:` +
+            item.title +
+            `\nBook Price(LKR):` +
+            item.price +
+            `\nBook Quantity\t:` +
+            item.quantity +
+            `\nTotal Price(LKR):` +
+            item.price * item.quantity,
+        ],
+        (total = total + item.price * item.quantity),
       ];
 
       tableRows.push(SellerHistory);
     });
   });
+
+  console.log(total);
 
   //   var img = new Image();
   //   img.src =
