@@ -2,6 +2,7 @@ import React, {useState,useEffect} from "react";
 import axios from "axios";
 import reqBook from "../requests/Styles/reqBook.png";
 import "./Styles/reviewStyle.css"
+import Rating from "./Rating";
 
 export default function Reviews(){
     const [reviews, setReview] = useState([]);
@@ -30,9 +31,13 @@ export default function Reviews(){
 
     return(
         <div className="container">
-            br/>
+            <br/>
             <div className="card">
                 <div className="card-body">
+                    <h1><center>
+                        Book Reviews
+                    </center></h1>
+                    <hr/>
                     <div className="row">
                         <div className="col-sm-6">
                             <div className="card">
@@ -53,31 +58,29 @@ export default function Reviews(){
                         <div className="col-sm-6">
                             <div className="card">
                                 <div className="card-body">
-                                    <div className="reviewStl">
+                                    <div>
                                         {reviews.map((data, index) => (
 
-                                                <div className="card text-white bg-secondary mb-3">
+                                                <div className="card text-white bg-secondary mb-3" >
                                                     <div className="card-body">
-                                                        <h5 >{data.rate}</h5>
+                                                        <Rating value={data.rate} /><br/>
+                                                        &nbsp;&nbsp;
                                                         <span>{data.date}</span>
                                                         <p>{data.CommentReview}</p>
                                                         <a
-                                                                className="btn btn-warning"
-                                                                href={`/updatereview/${data._id}`}
-                                                                onClick={() => setRData(data)}
-                                                            >
-                                                                &nbsp;Update
+                                                            className="btn btn-warning"
+                                                            href={`/updatereview/${data._id}`}
+                                                            onClick={() => setRData(data)}
+                                                        >
+                                                            &nbsp;Update
                                                         </a>
                                                     </div>
-
-                                            </div>
+                                                </div>
                                         ))}
-                                        {/*</table>*/}
                                     </div>
-
-                </div>
-            </div>
-        </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
