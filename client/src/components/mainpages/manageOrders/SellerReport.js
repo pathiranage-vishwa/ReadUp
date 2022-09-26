@@ -68,17 +68,21 @@ const SellerReport = (order) => {
   });
   doc.setFont("helvetica", "bold");
 
-  //   // Received items title. and margin-top + margin-left
-  //   doc.text(Type, 80, 50);
+  // Received items title. and margin-top + margin-left
+  doc.text(`Read Up Book Market`, 80, 50);
 
-  //   doc.setFontSize(10);
-  //   doc.text(`General marks `, 15, 60);
-  //   doc.text(`This mark sheet contain ${Type} marks.`, 15, 66);
-  //   doc.text(
-  //     `Note that this is final marks that evaluate by marking panel.`,
-  //     15,
-  //     71
-  //   );
+  doc.setFontSize(10);
+  doc.text(`General Seller Report `, 15, 60);
+  doc.text(
+    `This seller report contain all the orders that are complete buy the seller.`,
+    15,
+    66
+  );
+  doc.text(
+    `Total amount of money that the seller has earned is : ${total}`,
+    15,
+    71
+  );
 
   //we define the name of our PDF file.
   doc.save(`sellerReport_.pdf`);
