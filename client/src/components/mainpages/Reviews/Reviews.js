@@ -28,6 +28,14 @@ export default function Reviews(){
 
     };
 
+    const deleteReview = async (id) =>{
+        try {
+            const res = await axios.delete(`/api/review/${id}`);
+            alert(res.data.msg);
+        }catch (err){
+            alert("ERR");
+        }
+    };
 
     return(
         <div className="container">
