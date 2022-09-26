@@ -3,6 +3,7 @@ import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
 import swal from "sweetalert";
 import "./manageOrders.css";
+import SellerReport from "./SellerReport";
 
 export default function ManageOrders() {
   const state = useContext(GlobalState);
@@ -50,9 +51,7 @@ export default function ManageOrders() {
       <div className="manageReport">
         <button
           className="btn btn_report  ms-3"
-          // onClick={() =>
-          //   getMarkingScheme(data.specialization, data.totalMarks, data.criteria)
-          // }
+          onClick={() => SellerReport(orders)}
         >
           {/* <DownloadOutlinedIcon /> */}
           Seller Report
