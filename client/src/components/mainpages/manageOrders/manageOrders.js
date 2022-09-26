@@ -51,7 +51,7 @@ export default function ManageOrders() {
       <div className="manageReport">
         <button
           className="btn btn_report  ms-3"
-          onClick={() => SellerReport(orders)}
+          onClick={() => SellerReport(orders, crrUser.firstName)}
         >
           {/* <DownloadOutlinedIcon /> */}
           Seller Report
