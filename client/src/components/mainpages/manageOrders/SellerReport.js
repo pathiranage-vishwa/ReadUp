@@ -6,22 +6,30 @@ const SellerReport = (order) => {
   console.log(order);
   const doc = new jsPDF();
 
-  const tableColumn = ["Name", "Address", "Phone Number", "Order"];
+  const tableColumn = ["No", "Name", "Address", "Phone Number", "Order"];
 
   const tableRows = [];
 
   var no = 0;
-  const [items, setItems] = useState([]);
 
   order.forEach((data) => {
     ++no;
-    data.cart.forEach((item) => {
-      const itemData = [item.title, item.price, item.quantity];
-      setItems(itemData);
-    });
-    const SellerHistory = [no, data.name, data.address, data.phone, items];
 
-    tableRows.push(SellerHistory);
+    console.log(data.cart);
+
+    data.cart.forEach((item) => {
+      // const SellerIt = [item.title, item.price, item.quantity];
+
+      const SellerHistory = [
+        no,
+        data.name,
+        data.address,
+        data.phoneNumber,
+        item.title,
+      ];
+
+      tableRows.push(SellerHistory);
+    });
   });
 
   //   var img = new Image();
