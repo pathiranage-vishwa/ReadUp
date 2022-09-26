@@ -20,8 +20,6 @@ const SellerReport = (order, seller) => {
     console.log(data.cart);
 
     data.cart.forEach((item) => {
-      // const SellerIt = [item.title, item.price, item.quantity];
-
       const SellerHistory = [
         no,
         data.name,

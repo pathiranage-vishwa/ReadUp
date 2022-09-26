@@ -54,7 +54,7 @@ export default function ManageOrders() {
           onClick={() => SellerReport(orders, crrUser.firstName)}
         >
           {/* <DownloadOutlinedIcon /> */}
-          Seller Report
+          Sales Report
         </button>
       </div>
       <table className="table frame">
