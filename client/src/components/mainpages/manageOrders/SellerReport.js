@@ -3,7 +3,8 @@ import "jspdf-autotable";
 import { useState } from "react";
 
 const SellerReport = (order, seller) => {
-  console.log(seller);
+  const sellerName =
+    seller.charAt(0).toUpperCase() + seller.slice(1).toLowerCase();
   const doc = new jsPDF();
 
   const tableColumn = ["No", "Name", "Address", "Phone Number", "Order"];
@@ -69,7 +70,7 @@ const SellerReport = (order, seller) => {
   doc.setFont("helvetica", "bold");
 
   // Received items title. and margin-top + margin-left
-  doc.text(`${seller}'s Total Income (LKR) : ${total}`, 40, 140);
+  doc.text(`${sellerName}'s Total Income (LKR) : ${total}`, 40, 140);
 
   doc.setFontSize(10);
   doc.text(`General Seller Report `, 15, 60);
