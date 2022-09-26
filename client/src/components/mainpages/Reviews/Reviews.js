@@ -67,16 +67,24 @@ export default function Reviews(){
 
                                                 <div className="card text-white bg-secondary mb-3" >
                                                     <div className="card-body">
-                                                        <Rating value={data.rate} /><br/>
-                                                        &nbsp;&nbsp;
-                                                        <span>{data.date}</span>
+                                                        <Rating value={data.rate} />
+                                                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                                                        <b><span>{data.date}</span></b>
                                                         <p>{data.CommentReview}</p>
+                                                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                                                         <a
                                                             className="btn btn-warning"
                                                             href={`/updatereview/${data._id}`}
                                                             onClick={() => setRData(data)}
                                                         >
                                                             &nbsp;Update
+                                                        </a>
+                                                        &nbsp;
+                                                        <a
+                                                            className="btn btn-danger"
+                                                            onClick={() => deleteReview(data._id)}
+                                                        >
+                                                            &nbsp;Delete
                                                         </a>
                                                     </div>
                                                 </div>
