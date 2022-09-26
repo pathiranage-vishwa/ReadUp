@@ -42,10 +42,6 @@ export default function Reviews(){
                         <div className="col-sm-6">
                             <div className="card">
                                 <div className="card-body">
-                                    <h3><center>
-                                        Request Books
-                                    </center></h3>
-                                    <hr/>
                                     <img className="card-img-top" src={reqBook}  alt="Card image cap"/>
                                     <br/>  <br/>
                                     <center>
@@ -87,31 +83,3 @@ export default function Reviews(){
         </div>
     );
 }
-        {/*<div className="products">*/}
-        {/*    /!*<table className="table table-bordered table table-dark ">*!/*/}
-        {/*    /!*    <thead>*!/*/}
-        {/*    /!*    <tr>*!/*/}
-        {/*    /!*        <th scope="col">#</th>*!/*/}
-        {/*    /!*        <th scope="col">Rate</th>*!/*/}
-        {/*    /!*        <th scope="col">Date</th>*!/*/}
-        {/*    /!*        <th scope="col">Comment</th>*!/*/}
-        {/*    /!*    </tr>*!/*/}
-        {/*    /!*    </thead>*!/*/}
-        {/*        {reviews.map((data, index) => (*/}
-        {/*            // <tbody key={index}>*/}
-        {/*            // <tr>*/}
-        {/*            //     <th scope="row">{index + 1}</th>*/}
-        {/*            //     <td>{data.rate}</td>*/}
-        {/*            //     <td>{data.date}</td>*/}
-        {/*            //     <td>{data.CommentReview}</td>*/}
-        {/*            // </tr>*/}
-        {/*            // </tbody>*/}
-
-        {/*            <div className="product_box">*/}
-        {/*            <h5 >{data.rate}</h5>*/}
-        {/*            <span>{data.date}</span>*/}
-        {/*            <p>{data.CommentReview}</p>*/}
-        {/*            </div>*/}
-        {/*        ))}*/}
-        {/*    /!*</table>*!/*/}
-        {/*</div>*/}
