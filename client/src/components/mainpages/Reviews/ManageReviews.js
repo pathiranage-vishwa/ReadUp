@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect, useContext} from "react";
 import axios from "axios";
+import { GlobalState } from "../../../GlobalState.js";
 
 export default function ManageReviews() {
     const [reviews, setReview] = useState([]);
+    // const state = useContext(GlobalState);
+    // const [user] = state.userAPI.user;
+    // const username = user.username;
 
     useEffect(() => {
         axios
@@ -51,6 +55,7 @@ export default function ManageReviews() {
                 {reviews.map((data, index) => (
                     <tr key={index}>
                         <th scope="row">{index + 1}</th>
+                        {/*<td>{data.Rusername}</td>*/}
                         <td>{data.rate}</td>
                         <td>{data.CommentReview}</td>
                         <td>{data.date}</td>
