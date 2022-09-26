@@ -9,6 +9,7 @@ router
 
 router
     .route("/review/:id")
+    .delete(reviewCtrl.deleteReview)
     .put(reviewCtrl.updateReview);
 
 module.exports = router;
