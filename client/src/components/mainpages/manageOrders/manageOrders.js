@@ -53,8 +53,7 @@ export default function ManageOrders() {
           className="btn btn_report  ms-3"
           onClick={() => SellerReport(orders, crrUser.firstName)}
         >
-          {/* <DownloadOutlinedIcon /> */}
-          Sales Report
+          <i class="bi bi-download"></i>Sales Report
         </button>
       </div>
       <table className="table frame">

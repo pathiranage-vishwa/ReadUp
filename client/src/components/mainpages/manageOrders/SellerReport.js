@@ -84,7 +84,7 @@ const SellerReport = (order, seller) => {
   );
 
   //we define the name of our PDF file.
-  doc.save(`sellerReport_.pdf`);
+  doc.save(`SalesReport_.pdf`);
 };
 
 export default SellerReport;
