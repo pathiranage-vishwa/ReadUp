@@ -2,7 +2,8 @@ import React, {useState,useEffect} from "react";
 import axios from "axios";
 import reqBook from "../requests/Styles/reqBook.png";
 import "./Styles/reviewStyle.css"
-
+import Rating from "./Rating";
+import {FaStar} from 'react-icons/fa'
 export default function Reviews(){
     const [reviews, setReview] = useState([]);
 
@@ -53,21 +54,33 @@ export default function Reviews(){
                         <div className="col-sm-6">
                             <div className="card">
                                 <div className="card-body">
+                                    {/*<ListGroup variant='flush'>*/}
+                                    {/*    {reviews.map((review) => (*/}
+                                    {/*        <ListGroup.Item key={review._id}>*/}
+                                    {/*            <strong>{review.date}</strong>*/}
+                                    {/*            <Rating value={review.rate} />*/}
+                                    {/*            <p>{review.CommentReview}</p>*/}
+                                    {/*        </ListGroup.Item>*/}
+                                    {/*    ))}*/}
                                     <div className="reviewStl">
                                         {reviews.map((data, index) => (
 
-                                                <div className="card text-white bg-secondary mb-3">
+                                                <div className="card text-white bg-danger mb-3">
                                                     <div className="card-body">
                                                 <h5 >{data.rate}</h5>
+                                                        <Rating value={data.rate}>{data.rate}</Rating>
+                                                        <Rating value={data.rate} />
                                                 <span>{data.date}</span>
                                                 <p>{data.CommentReview}</p>
                                                         {/*<a href="#" className="btn btn-primary">Go somewhere</a>*/}
                                                     </div>
 
+
                                             </div>
                                         ))}
                                         {/*</table>*/}
                                     </div>
+
 
                 </div>
             </div>
