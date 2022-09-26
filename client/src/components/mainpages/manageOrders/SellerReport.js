@@ -27,13 +27,13 @@ const SellerReport = (order) => {
         data.address,
         data.phoneNumber,
         [
-          `Book Title\t:` +
+          `Book Title\t\t   :` +
             item.title +
-            `\nBook Price(LKR):` +
+            `\nBook Price(LKR)\t:` +
             item.price +
-            `\nBook Quantity\t:` +
+            `\nBook Quantity\t    :` +
             item.quantity +
-            `\nTotal Price(LKR):` +
+            `\nTotal Price(LKR)\t:` +
             item.price * item.quantity,
         ],
         (total = total + item.price * item.quantity),
@@ -45,10 +45,10 @@ const SellerReport = (order) => {
 
   console.log(total);
 
-  //   var img = new Image();
-  //   img.src =
-  //     "https://res.cloudinary.com/donfmtaf4/image/upload/v1654153704/Group_2_ny8ylr.png";
-  //   doc.addImage(img, "png", 10, 10, 180, 42);
+  var img = new Image();
+  img.src =
+    "https://res.cloudinary.com/donfmtaf4/image/upload/v1664219191/report_muqe5m.png";
+  doc.addImage(img, "png", 10, 10, 180, 42);
 
   // startY is basically margin-top
   doc.autoTable({
