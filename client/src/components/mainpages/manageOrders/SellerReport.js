@@ -69,7 +69,7 @@ const SellerReport = (order) => {
   doc.setFont("helvetica", "bold");
 
   // Received items title. and margin-top + margin-left
-  doc.text(`Read Up Book Market`, 80, 50);
+  doc.text(`Total Earned (LKR) : ${total}`, 80, 50);
 
   doc.setFontSize(10);
   doc.text(`General Seller Report `, 15, 60);
