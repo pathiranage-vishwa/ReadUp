@@ -3,7 +3,7 @@ import axios from "axios";
 import reqBook from "../requests/Styles/reqBook.png";
 import "./Styles/reviewStyle.css"
 import Rating from "./Rating";
-import {FaStar} from 'react-icons/fa'
+
 export default function Reviews(){
     const [reviews, setReview] = useState([]);
 
@@ -18,35 +18,23 @@ export default function Reviews(){
             });
     }, []);
 
-    // const setData = (data) => {
-    //     let { _id, rate, date,CommentReview } = data;
-    //
-    //     localStorage.setItem("reid", _id);
-    //     localStorage.setItem("Rate", rate);
-    //     localStorage.setItem("Date", date);
-    //     localStorage.setItem("Comment", CommentReview);
-    //
-    // };
 
 
     return(
         <div className="container">
-            br/>
+            <br/>
             <div className="card">
                 <div className="card-body">
+                    <h1><center>
+                        Book Reviews
+                    </center></h1>
+                    <hr/>
                     <div className="row">
                         <div className="col-sm-6">
                             <div className="card">
                                 <div className="card-body">
-                                    <h3><center>
-                                        Request Books
-                                    </center></h3>
-                                    <hr/>
                                     <img className="card-img-top" src={reqBook}  alt="Card image cap"/>
                                     <br/>  <br/>
-                                    <center>
-                                        <a className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5" href="/request" role="button" >Go</a>
-                                    </center>
                                 </div>
                             </div>
                         </div>
@@ -54,68 +42,25 @@ export default function Reviews(){
                         <div className="col-sm-6">
                             <div className="card">
                                 <div className="card-body">
-                                    {/*<ListGroup variant='flush'>*/}
-                                    {/*    {reviews.map((review) => (*/}
-                                    {/*        <ListGroup.Item key={review._id}>*/}
-                                    {/*            <strong>{review.date}</strong>*/}
-                                    {/*            <Rating value={review.rate} />*/}
-                                    {/*            <p>{review.CommentReview}</p>*/}
-                                    {/*        </ListGroup.Item>*/}
-                                    {/*    ))}*/}
-                                    <div className="reviewStl">
+                                    <div>
                                         {reviews.map((data, index) => (
 
-                                                <div className="card text-white bg-danger mb-3">
+                                                <div className="card text-white bg-secondary mb-3" >
                                                     <div className="card-body">
-                                                <h5 >{data.rate}</h5>
-                                                        <Rating value={data.rate}>{data.rate}</Rating>
-                                                        <Rating value={data.rate} />
-                                                <span>{data.date}</span>
-                                                <p>{data.CommentReview}</p>
-                                                        {/*<a href="#" className="btn btn-primary">Go somewhere</a>*/}
+                                                        <Rating value={data.rate} /><br/>
+                                                        &nbsp;&nbsp;
+                                                        <span>{data.date}</span>
+                                                        <p>{data.CommentReview}</p>
                                                     </div>
-
-
-                                            </div>
+                                                </div>
                                         ))}
-                                        {/*</table>*/}
                                     </div>
-
-
-                </div>
-            </div>
-        </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     );
 }
-        {/*<div className="products">*/}
-        {/*    /!*<table className="table table-bordered table table-dark ">*!/*/}
-        {/*    /!*    <thead>*!/*/}
-        {/*    /!*    <tr>*!/*/}
-        {/*    /!*        <th scope="col">#</th>*!/*/}
-        {/*    /!*        <th scope="col">Rate</th>*!/*/}
-        {/*    /!*        <th scope="col">Date</th>*!/*/}
-        {/*    /!*        <th scope="col">Comment</th>*!/*/}
-        {/*    /!*    </tr>*!/*/}
-        {/*    /!*    </thead>*!/*/}
-        {/*        {reviews.map((data, index) => (*/}
-        {/*            // <tbody key={index}>*/}
-        {/*            // <tr>*/}
-        {/*            //     <th scope="row">{index + 1}</th>*/}
-        {/*            //     <td>{data.rate}</td>*/}
-        {/*            //     <td>{data.date}</td>*/}
-        {/*            //     <td>{data.CommentReview}</td>*/}
-        {/*            // </tr>*/}
-        {/*            // </tbody>*/}
-
-        {/*            <div className="product_box">*/}
-        {/*            <h5 >{data.rate}</h5>*/}
-        {/*            <span>{data.date}</span>*/}
-        {/*            <p>{data.CommentReview}</p>*/}
-        {/*            </div>*/}
-        {/*        ))}*/}
-        {/*    /!*</table>*!/*/}
-        {/*</div>*/}
