@@ -1,5 +1,6 @@
 import jsPDF from "jspdf";
 import "jspdf-autotable";
+import { useState } from "react";
 
 const SellerReport = (order) => {
   console.log(order);
@@ -10,14 +11,15 @@ const SellerReport = (order) => {
   const tableRows = [];
 
   var no = 0;
-  var itemData;
+  const [items, setItems] = useState([]);
 
   order.forEach((data) => {
     ++no;
     data.cart.forEach((item) => {
-      itemData = [item.title, item.price, item.quantity];
+      const itemData = [item.title, item.price, item.quantity];
+      setItems(itemData);
     });
-    const SellerHistory = [no, data.name, data.address, data.phone, itemData];
+    const SellerHistory = [no, data.name, data.address, data.phone, items];
 
     tableRows.push(SellerHistory);
   });
