@@ -42,8 +42,8 @@ export default function ManageReviews() {
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Rate</th>
-                    <th scope="col">Date</th>
                     <th scope="col">Review</th>
+                    <th scope="col">Date</th>
                     <th scope="col">Action</th>
                 </tr>
                 </thead>
@@ -52,8 +52,8 @@ export default function ManageReviews() {
                     <tr key={index}>
                         <th scope="row">{index + 1}</th>
                         <td>{data.rate}</td>
-                        <td>{data.date}</td>
                         <td>{data.CommentReview}</td>
+                        <td>{data.date}</td>
                         <td>
                             <a
                                 className="btn btn-danger"
