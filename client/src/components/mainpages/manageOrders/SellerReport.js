@@ -48,7 +48,7 @@ const SellerReport = (order, seller) => {
 
   var img = new Image();
   img.src =
-    "https://res.cloudinary.com/donfmtaf4/image/upload/v1664219957/Group_3_m4hond.png";
+    "https://res.cloudinary.com/donfmtaf4/image/upload/v1664221315/Group_4_cxmlgv.png";
   doc.addImage(img, "png", 10, 10, 180, 42);
 
   // startY is basically margin-top
@@ -70,17 +70,17 @@ const SellerReport = (order, seller) => {
   doc.setFont("helvetica", "bold");
 
   // Received items title. and margin-top + margin-left
-  doc.text(`${sellerName}'s Total Income (LKR) : ${total}`, 40, 140);
+  doc.text(`${sellerName}'s Total Income (LKR) : ${total}`, 15, 140);
 
   doc.setFontSize(10);
-  doc.text(`General Seller Report `, 15, 60);
+  doc.text(`General Sales Report `, 15, 60);
   doc.text(
-    `This seller report contain all the orders that are complete buy the seller.`,
+    `This sales report contain all the orders that are complete buy the ${sellerName}.`,
     15,
     66
   );
   doc.text(
-    `Total amount of money that the seller has earned is : ${total}`,
+    `Total amount of money that the ${sellerName} has earned is : ${total}`,
     15,
     71
   );
