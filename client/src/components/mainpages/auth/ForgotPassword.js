@@ -57,7 +57,7 @@ function ForgotPassword() {
                       value={email}
                       onChange={handleChangeInput}
                     />
-                    <button onClick={forgotPassword}>Verify your email</button>
+                    <button onClick={forgotPassword}>Verify your email address</button>
                   </div>
                 </div>
               </div>
