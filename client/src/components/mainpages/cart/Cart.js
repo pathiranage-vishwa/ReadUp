@@ -168,6 +168,8 @@ const Button = styled.button`
   font-size: 20px;
 `;
 
+//Cart
+
 function Cart() {
   const state = useContext(GlobalState);
   const [wishList, setWishList] = state.userAPI.wishList;
