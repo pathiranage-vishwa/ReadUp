@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
 import "./Styles/allCategory.css";
+import swal from "sweetalert";
 
 function Categories() {
   const state = useContext(GlobalState);
@@ -24,14 +25,14 @@ function Categories() {
           headers: { Authorization: token },
         }
       );
-      alert(res.data.msg);
+      swal(res.data.msg);
       setOnEdit(false);
       setCategoryName("");
       // setDate("");
       // setDescription("");
       setCallback(!callback);
     } catch (err) {
-      alert(err.response.data.msg);
+      swal(err.response.data.msg);
     }
   };
 
@@ -50,10 +51,10 @@ function Categories() {
       const res = await axios.delete(`/api/category/${id}`, {
         headers: { Authorization: token },
       });
-      alert(res.data.msg);
+      swal(res.data.msg);
       setCallback(!callback);
     } catch (err) {
-      alert(err.response.data.msg);
+      swal(err.response.data.msg);
     }
   };
 
