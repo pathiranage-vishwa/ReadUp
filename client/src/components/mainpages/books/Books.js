@@ -25,24 +25,41 @@ function Books() {
 
   const deleteBook = async (id, public_id) => {
     try {
-      setLoading(true);
-      const destroyImg = axios.post(
-        "/api/destroy",
-        { public_id },
-        {
-          headers: { Authorization: token },
-        }
-      );
-      const deleteBook = axios.delete(`/api/book/${id}`, {
-        headers: { Authorization: token },
-      });
+      swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this add",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          setLoading(true);
+          const destroyImg = axios.post(
+            "/api/destroy",
+            { public_id },
+            {
+              headers: { Authorization: token },
+            }
+          );
+          const deleteBook = axios.delete(`/api/book/${id}`, {
+            headers: { Authorization: token },
+          });
 
-      await destroyImg;
-      await deleteBook;
-      setCallback(!callback);
-      setLoading(false);
+          // destroyImg;
+          //deleteBook;
+          setCallback(!callback);
+          setLoading(false);
+
+          swal("Book has been deleted!", {
+            icon: "success",
+          });
+          window.location.reload(false);
+        } else {
+          swal("terminate deletion");
+        }
+      });
     } catch (err) {
-      alert(err.response.data.msg);
+      swal(err.response.data.msg);
     }
   };
 
