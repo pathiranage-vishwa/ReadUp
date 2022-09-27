@@ -8,6 +8,8 @@ const initialState = {
   success: "",
 };
 
+//forgetpw
+
 function ForgotPassword() {
   const [data, setData] = useState(initialState);
 
