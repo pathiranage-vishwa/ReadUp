@@ -4,6 +4,8 @@ import './Styles/profile.css';
 import { GlobalState } from "../../../GlobalState";
 import swal from "sweetalert";
 
+//Update User
+
 function UpdateUser() {
 
     const state = useContext(GlobalState);
