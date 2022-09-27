@@ -8,7 +8,7 @@ import { mobile } from "../../homepage/responsive";
 import swal from "sweetalert";
 import { useParams, Link } from "react-router-dom";
 
-const KEY = process.env.REACT_APP_STRIPE;
+//Wishlist
 
 const Container = styled.div``;
 
