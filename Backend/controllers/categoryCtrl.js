@@ -45,7 +45,7 @@ const categoryCtrl = {
       const { categoryName } = req.body;
       await Category.findOneAndUpdate({ _id: req.params.id }, { categoryName });
 
-      res.json({ msg: "Updated a category" });
+      res.json({ msg: "Book category is successfully updated" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
