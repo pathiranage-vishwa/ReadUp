@@ -43,34 +43,58 @@ export default function DisplayOrders() {
       });
     });
   };
+  
+
+  const filterData = (order, searchkey) => {
+    const result = order.filter(
+      (orders) =>
+        orders.name.includes(searchkey)
+    );
+
+    setOrders(result);
+  };
+
+  function hancdleSearchArea(e) {
+    const searchkey = e.currentTarget.value;
+
+    axios.get(`http://localhost:5000/api/orderGet/${crrUser._id}`).then((res) => {
+      if (res.data.success) {
+        filterData(res.data, searchkey);
+      }
+    });
+  }
 
   return (
     <div>
-      <div className="dIsTopicNam">Customer Orders</div>
+      <div className="dIsTopicNam">My Orders</div>
       <hr className="disTopicHr" />
+      <div className="row">
+          <h4> Search here </h4>
+          <div className="col-lg-12  mt-2 mb-2">
+            <input
+              className="form-control"
+              type="search"
+              placeholder="search...( name, registration no, role)"
+              name="search"
+              onChange={hancdleSearchArea}
+            ></input>
+          </div>
+        </div>
       <table className="table frame">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Address</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Order</th>
-            <th scope="col">Order Status</th>
-
-            <th scope="col">
-              <center>Action</center>
-            </th>
+            <th scope="col">Book Details</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Status</th>
           </tr>
         </thead>
         <tbody>
           {orders.map((data, index) => (
             <tr key={index}>
               <th scope="row">{index + 1}</th>
-              <td>{moment(data.createdAt).utc().format('hh:mm:ss')}</td>
-
-              <td>{data.address}</td>
-              <td>{data.phoneNumber}</td>
               <td>
                 {data.cart.map((item) => (
                   <div className="disDetailsOrder" key={item._id}>
@@ -84,25 +108,10 @@ export default function DisplayOrders() {
                   </div>
                 ))}
               </td>
+              <td>Rs.{data.total}</td>
+              <td>{moment(data.createdAt).utc().format('YYYY-MM-DD')}</td>
+              <td>{moment(data.createdAt).utc().format('HH:MM:SS')}</td>
               <td className="DisStat">{data.orderstatus}</td>
-              <td>
-                &nbsp;&nbsp;&nbsp;
-                {/* {crrUser.role === "Panel_Member" ? (
-                  <button
-                    class="btn btn-info"
-                    disabled={
-                      data.topicStatus === "pending" ||
-                      data.topicStatus === "Rejected" ||
-                      data.topicDocument === "pending"
-                    }
-                    onClick={() => setEvaluate(data)}
-                  >
-                    &nbsp;Evaluate
-                  </button>
-                ) : (
-                  " "
-                )} */}
-              </td>
             </tr>
           ))}
         </tbody>
