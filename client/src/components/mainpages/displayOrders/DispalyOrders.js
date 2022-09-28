@@ -12,7 +12,7 @@ export default function DisplayOrders() {
   useEffect(() => {
     const getOrders = async () => {
       const res = await axios.get(
-        `http://localhost:5000/api/order/${crrUser._id}`
+        `http://localhost:5000/api/orderGet/${crrUser._id}`
       );
       setOrders(res.data);
     };
