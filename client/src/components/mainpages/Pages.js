@@ -25,6 +25,7 @@ import DisplayCards from "./Payment/DisplayCards";
 import Home from "../homepage/Home";
 import MyAds from "./myAds/MyAds";
 import ManageOrders from "./manageOrders/manageOrders.js";
+import DisplayOrders from "./displayOrders/DispalyOrders";
 
 import { GlobalState } from "../../GlobalState";
 
@@ -112,6 +113,7 @@ function Pages() {
       <Route path="/checkout" exact component={Checkout} />
       <Route path="/addPayment" exact component={AddPayment} />
       <Route path="/displayCard" exact component={DisplayCards} />
+      <Route path="/displayOrders" exact component={DisplayOrders} />
 
       <Route path="*" exact component={NotFound} />
     </Switch>
