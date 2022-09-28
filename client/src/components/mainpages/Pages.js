@@ -24,7 +24,7 @@ import ResetPassword from "./auth/ResetPassword";
 import DisplayCards from "./Payment/DisplayCards";
 import Home from "../homepage/Home";
 import MyAds from "./myAds/MyAds";
-import ManageOrders from "./manageOrders/ManageOrders";
+import ManageOrders from "./manageOrders/manageOrders.js";
 
 import { GlobalState } from "../../GlobalState";
 

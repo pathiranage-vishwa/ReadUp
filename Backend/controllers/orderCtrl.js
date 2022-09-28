@@ -5,7 +5,7 @@ const Products = require("../models/bookModel");
 const orderCtrl = {
   getOrders: async (req, res) => {
     try {
-      const Orders = await Orders.find();
+      const Orders = await Orders.find({user_id:req.params.buyer_id});
       res.json(Orders);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
