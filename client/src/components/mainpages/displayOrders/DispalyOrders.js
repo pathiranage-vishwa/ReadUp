@@ -3,6 +3,7 @@ import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
 import swal from "sweetalert";
 import "./displayOrders.css";
+import moment from "moment";
 
 export default function DisplayOrders() {
   const state = useContext(GlobalState);
@@ -66,7 +67,7 @@ export default function DisplayOrders() {
           {orders.map((data, index) => (
             <tr key={index}>
               <th scope="row">{index + 1}</th>
-              <td>{data.name}</td>
+              <td>{moment(data.createdAt).utc().format('hh:mm:ss')}</td>
 
               <td>{data.address}</td>
               <td>{data.phoneNumber}</td>
