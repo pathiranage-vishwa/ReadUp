@@ -68,7 +68,7 @@ export default function DisplayOrders() {
     <div>
       <div className="dIsTopicNam">My Orders</div>
       <hr className="disTopicHr" />
-      <div className="row">
+      {/* <div className="row">
           <h4> Search here </h4>
           <div className="col-lg-12  mt-2 mb-2">
             <input
@@ -79,7 +79,7 @@ export default function DisplayOrders() {
               onChange={hancdleSearchArea}
             ></input>
           </div>
-        </div>
+        </div> */}
       <table className="table frame">
         <thead>
           <tr>
