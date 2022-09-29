@@ -50,6 +50,7 @@ const orderCtrl = {
     }
   },
 
+// get orders for seller
   getOrderBySellerID: async (req, res) => {
     try {
       const order = await Orders.aggregate([
