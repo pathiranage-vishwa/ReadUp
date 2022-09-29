@@ -41,9 +41,6 @@ const orderCtrl = {
         total: transfer_amount,
       });
 
-      // cart.filter(item => {
-      //     return sold(item._id, item.quantity, item.sold)
-      // })
 
       await newOrder.save();
       res.json({ msg: "Order Succes!" });
