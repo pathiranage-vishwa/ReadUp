@@ -45,14 +45,14 @@ export default function DisplayOrders() {
   };
   
 
-  const filterData = (order, searchkey) => {
-    const result = order.filter(
-      (orders) =>
-        orders.name.includes(searchkey)
-    );
+  // const filterData = (order, searchkey) => {
+  //   const result = order.filter(
+  //     (orders) =>
+  //       orders.name.includes(searchkey)
+  //   );
 
-    setOrders(result);
-  };
+  //   setOrders(result);
+  // };
 
   function hancdleSearchArea(e) {
     const searchkey = e.currentTarget.value;
