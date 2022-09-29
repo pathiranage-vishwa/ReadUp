@@ -54,15 +54,15 @@ export default function DisplayOrders() {
   //   setOrders(result);
   // };
 
-  function hancdleSearchArea(e) {
-    const searchkey = e.currentTarget.value;
+  // function hancdleSearchArea(e) {
+  //   const searchkey = e.currentTarget.value;
 
-    axios.get(`http://localhost:5000/api/orderGet/${crrUser._id}`).then((res) => {
-      if (res.data.success) {
-        filterData(res.data, searchkey);
-      }
-    });
-  }
+  //   axios.get(`http://localhost:5000/api/orderGet/${crrUser._id}`).then((res) => {
+  //     if (res.data.success) {
+  //       filterData(res.data, searchkey);
+  //     }
+  //   });
+  // }
 
   return (
     <div>
