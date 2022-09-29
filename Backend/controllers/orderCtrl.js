@@ -3,6 +3,7 @@ const Users = require("../models/userModel");
 const Products = require("../models/bookModel");
 
 const orderCtrl = {
+  //get one user orders
   getOrders: async (req, res) => {
     try {
       const orders = await Orders.find({"user_id":req.params.buyer_id});
