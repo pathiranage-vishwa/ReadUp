@@ -28,8 +28,6 @@ function Categories() {
       swal(res.data.msg);
       setOnEdit(false);
       setCategoryName("");
-      // setDate("");
-      // setDescription("");
       setCallback(!callback);
     } catch (err) {
       swal(err.response.data.msg);
@@ -41,8 +39,6 @@ function Categories() {
   const editCategory = async (id, categoryName) => {
     setID(id);
     setCategoryName(categoryName);
-    // setDate(date);
-    // setDescription(description);
     setOnEdit(true);
   };
 
