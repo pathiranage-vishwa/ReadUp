@@ -3,6 +3,7 @@ import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
 import swal from "sweetalert";
 import "./manageOrders.css";
+import SellerReport from "./SellerReport";
 
 export default function ManageOrders() {
   const state = useContext(GlobalState);
@@ -47,6 +48,14 @@ export default function ManageOrders() {
     <div>
       <div className="topicNam">Customer Orders</div>
       <hr className="topicHr" />
+      <div className="manageReport">
+        <button
+          className="btn btn_report  ms-3"
+          onClick={() => SellerReport(orders, crrUser.firstName)}
+        >
+          Sales Report
+        </button>
+      </div>
       <table className="table frame">
         <thead>
           <tr>
@@ -106,21 +115,6 @@ export default function ManageOrders() {
                   &nbsp;Reject
                 </button>
                 &nbsp;&nbsp;&nbsp;
-                {/* {crrUser.role === "Panel_Member" ? (
-                  <button
-                    class="btn btn-info"
-                    disabled={
-                      data.topicStatus === "pending" ||
-                      data.topicStatus === "Rejected" ||
-                      data.topicDocument === "pending"
-                    }
-                    onClick={() => setEvaluate(data)}
-                  >
-                    &nbsp;Evaluate
-                  </button>
-                ) : (
-                  " "
-                )} */}
               </td>
             </tr>
           ))}
