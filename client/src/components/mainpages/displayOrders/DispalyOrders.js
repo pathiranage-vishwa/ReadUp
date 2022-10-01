@@ -4,6 +4,7 @@ import axios from "axios";
 import swal from "sweetalert";
 import "./displayOrders.css";
 import moment from "moment";
+import BuyerReport from "./BuyerReport";
 
 export default function DisplayOrders() {
   const state = useContext(GlobalState);
@@ -80,6 +81,14 @@ export default function DisplayOrders() {
             ></input>
           </div>
         </div> */}
+        <div className="buyerReport">
+        <button
+          className="btn btn_report_buyer  ms-3"
+          onClick={() => BuyerReport(orders, crrUser.firstName)}
+        >
+          Buyer Report
+        </button>
+      </div>
       <table className="table frame">
         <thead>
           <tr>

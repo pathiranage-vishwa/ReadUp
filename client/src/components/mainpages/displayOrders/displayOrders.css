@@ -80,4 +80,17 @@ body {
     color: blue;
     font-size: 2vh;
   }
+  .btn_report_buyer {
+    background: rgb(12, 9, 104);
+    margin-right: 10px;
+    font-size: 18px;
+    height: 55px;
+    font-weight: bold;
+    color: #ffffff;
+    width: 175px;
+    margin-left: 10px;
+  }
   
+  .buyerReport {
+    margin-left: 82%;
+  }

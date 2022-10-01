@@ -324,7 +324,7 @@ const AddPayment = () => {
           <div
           className="cashOnForm"
           class="card"
-          style={{ width: "300px", height: "900px", marginTop: "60%" }}
+          style={{ width: "300px", height: "700px", marginTop: "60%" }}
         >
           <Box mb={2}>
                       <Typography variant="h6" gutterBottom>
@@ -337,12 +337,11 @@ const AddPayment = () => {
             </div>
           
           <div className="row" style={{ marginTop: "20px" }}>
-          <center>
               <button
               className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
                       type="submit"
                       style={{
-                        // marginLeft: "330px",
+                        marginLeft: "60%",
                         marginTop: "10px",
                         height: "50px",
                         width: "100px",
@@ -350,7 +349,6 @@ const AddPayment = () => {
                     >
                       Buy
               </button>
-            </center>
           </div>
           </div>
         </div>
