@@ -163,6 +163,8 @@ export default function AllUsers() {
         disabledClassName={"pagination__link--disabled"}
         activeLinkClassName={"pagination__link--active"}
       />
+      <br />
+      <br />
     </div>
   );
 }
