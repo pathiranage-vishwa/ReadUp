@@ -109,7 +109,7 @@ export default function AllUsers() {
                             style={{textDecoration:'none'}}>
                             <i></i>&nbsp;Generate Report
                             </a>
-
+                            <br />      <br />
       <table className="customers">
         <thead>
           <tr>
