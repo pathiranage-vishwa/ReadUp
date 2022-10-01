@@ -34,8 +34,6 @@ function Categories() {
     }
   };
 
-  //, date, description
-
   const editCategory = async (id, categoryName) => {
     setID(id);
     setCategoryName(categoryName);
