@@ -115,7 +115,7 @@ function UpdateUser() {
                 <div className="form-outline">
                 <div className="form-group">
                     <label htmlFor="name">First Name</label>
-                    <input type="text" name="Fname" id="Fname" defaultValue={firstname}
+                    <input type="text" name="firstname" id="firstname" defaultValue={firstname}
                     placeholder="First name" onChange={e=>{setFirstname(e.target.value);}} />
                 </div>
                 </div>
