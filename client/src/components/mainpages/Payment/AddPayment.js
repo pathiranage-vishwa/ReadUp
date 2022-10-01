@@ -321,7 +321,41 @@ const AddPayment = () => {
               total={transfer_amount}/>
             </center>
           </div>
+          <div
+          className="cashOnForm"
+          class="card"
+          style={{ width: "300px", height: "900px", marginTop: "60%" }}
+        >
+          <Box mb={2}>
+                      <Typography variant="h6" gutterBottom>
+                        <b> Cash On Delivery</b>
+                      </Typography>
+                    </Box>
+          <div class="amount">
+            <div class="inner">
+              <span class="dollar"><b>TOTAL LKR.{transfer_amount}</b></span>
+            </div>
+          
+          <div className="row" style={{ marginTop: "20px" }}>
+          <center>
+              <button
+              className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
+                      type="submit"
+                      style={{
+                        // marginLeft: "330px",
+                        marginTop: "10px",
+                        height: "50px",
+                        width: "100px",
+                      }}
+                    >
+                      Buy
+              </button>
+            </center>
+          </div>
+          </div>
         </div>
+        </div>
+        
       </div>
     </div>
   );
