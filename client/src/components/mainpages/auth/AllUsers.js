@@ -6,6 +6,8 @@ import "./Styles/table.css";
 
 const PER_PAGE = 10;
 
+//All users page
+
 export default function AllUsers() {
   const [profile, setprofile] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
