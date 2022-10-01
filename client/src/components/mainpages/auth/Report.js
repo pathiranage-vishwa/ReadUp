@@ -18,7 +18,7 @@ const generatePDF = profile => {
   
   profile.forEach(profile => {
     const profileData = [
-      profile.firstName + " " + data.lastName,
+      profile.firstName + " " + profile.lastName,
       profile.email,
       profile.username,
       // called date-fns to format the date on the profile
