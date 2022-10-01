@@ -8,6 +8,8 @@ const initialState = {
   cf_password: "",
 };
 
+//Reset password
+
 function ResetPassword() {
   const [data, setData] = useState(initialState);
   const { token } = useParams();
