@@ -103,7 +103,7 @@ export default function AllUsers() {
         <h1 className="tabl-heading mb-4">REGISTERED USERS </h1>
       </div>
 
-      <a className="btn btn-warning" 
+      <a className="btn-tbl" 
                             type="button"
                             href={`http://localhost:3000/report`}
                             style={{textDecoration:'none'}}>
