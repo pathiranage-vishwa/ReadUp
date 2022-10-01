@@ -27,6 +27,7 @@ import MyAds from "./myAds/MyAds";
 import userProfile from "./auth/userProfile";
 import updateProfile from "./auth/UpdateUser";
 import Wishlist from "../mainpages/wishlist/Wishlist";
+import generateReport from "./auth/generateReport";
 
 import { GlobalState } from "../../GlobalState";
 
@@ -49,6 +50,7 @@ function Pages() {
       />
       <Route path="/forget_pw" exact component={ForgotPassword} />
       <Route path="/reset_pw" exact component={ResetPassword} />
+      <Route path="/report" exact component={generateReport} />
 
       <Route
         path="/userProfile/:id"
