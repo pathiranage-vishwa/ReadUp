@@ -66,6 +66,39 @@ function UpdateUser() {
       
     }
 
+    const changeAvatar = async (e) => {
+      e.preventDefault();
+      try {
+        const file = e.target.files[0];
+  
+        if (!file) return swal("ERROR!", "No files were uploaded!", "error");
+  
+        if (file.size > 1024 * 1024)
+          return swal("ERROR!", "Size too large.", "error");
+  
+        if (file.type !== "image/jpeg" && file.type !== "image/png")
+          return swal("ERROR!", "File format is incorrect.", "error");
+  
+        let formData = new FormData();
+        formData.append("file", file);
+  
+        const res = await axios.post(
+          "/api/upload",
+          formData,
+          {
+            headers: {
+              "content-type": "multipart/form-data",
+              Authorization: token,
+            },
+          }
+        );
+        swal("Done!", "Image upload successfull!", "success");
+        setImage(res.data.url);
+      } catch (err) {
+        return swal("ERROR!", err.response.res.msg, "error");
+      }
+    };
+
     function resetPassword(e) {
       e.preventDefault();
       const newPassword = {
@@ -109,6 +142,19 @@ function UpdateUser() {
             <form onSubmit={submitData}  className="form">
                 <div className='card1'>
                 <h2>Update</h2>
+                <div className="avatar">
+                    <img src={image ? image : user.image} alt="" />
+                      <span>
+                        <i className="fas fa-camera"></i>
+                        <p>Change</p>
+                        <input
+                          type="file"
+                          name="file"
+                          id="file_up"
+                          onChange={changeAvatar}
+                        />
+                      </span>
+                    </div>
                 <br/>
                 <div className="row">
                 <div className="col-md-6 mb-4">
