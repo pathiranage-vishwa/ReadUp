@@ -46,30 +46,30 @@ export default function DisplayOrders() {
   };
   
 
-  // const filterData = (order, searchkey) => {
-  //   const result = order.filter(
-  //     (orders) =>
-  //       orders.name.includes(searchkey)
-  //   );
+  const filterData = (order, searchkey) => {
+    const result = order.filter(
+      (orders) =>
+        orders.name.includes(searchkey)
+    );
 
-  //   setOrders(result);
-  // };
+    setOrders(result);
+  };
 
-  // function hancdleSearchArea(e) {
-  //   const searchkey = e.currentTarget.value;
+  function hancdleSearchArea(e) {
+    const searchkey = e.currentTarget.value;
 
-  //   axios.get(`http://localhost:5000/api/orderGet/${crrUser._id}`).then((res) => {
-  //     if (res.data.success) {
-  //       filterData(res.data, searchkey);
-  //     }
-  //   });
-  // }
+    axios.get(`http://localhost:5000/api/orderGet/${crrUser._id}`).then((res) => {
+      if (res.data.success) {
+        filterData(res.data, searchkey);
+      }
+    });
+  }
 
   return (
     <div>
       <div className="dIsTopicNam">My Orders</div>
       <hr className="disTopicHr" />
-      {/* <div className="row">
+      <div className="row">
           <h4> Search here </h4>
           <div className="col-lg-12  mt-2 mb-2">
             <input
@@ -80,7 +80,7 @@ export default function DisplayOrders() {
               onChange={hancdleSearchArea}
             ></input>
           </div>
-        </div> */}
+        </div>
         <div className="buyerReport">
         <button
           className="btn btn_report_buyer  ms-3"
