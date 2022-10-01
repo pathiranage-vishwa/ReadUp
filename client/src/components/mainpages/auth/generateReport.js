@@ -3,6 +3,8 @@ import generatePDF from "./Report";
 import axios from "axios";
 
 const GetReport = () => {
+
+    //Generate Report
    
   
     const[profile,setprofile] = useState([]);
@@ -11,7 +13,7 @@ const GetReport = () => {
   useEffect(() => {
     const getAllUsers = async () => {
       try {
-        const res = await axios.get("http://localhost:8070/user/profiles");
+        const res = await axios.get("/user/allUsers");
         setprofile(res.data.existingUsers);
       } catch (err) {
         console.log("error");
