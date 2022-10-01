@@ -7,18 +7,16 @@ function BtnRender({ card, deleteCard }) {
 
   return (
     <div className="row_btn_card">
-      
-        <>
-          <Link
-            id="btn_buy"
-            to="#!"
-            onClick={() => deleteCard(card._id)}
-            // className="btn btn-lg text-uppercase  mb-5"
-          >
-            Remove
-          </Link>
-        
-        </>
+      <>
+        <Link
+          id="btn_buy1"
+          to="#!"
+          onClick={() => deleteCard(card._id)}
+          // className="btn btn-lg text-uppercase  mb-5"
+        >
+          Remove
+        </Link>
+      </>
     </div>
   );
 }
