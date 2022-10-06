@@ -3,6 +3,7 @@ import axios from "axios";
 import reqBook from "../requests/Styles/reqBook.png";
 import "./Styles/reviewStyle.css"
 import Rating from "./Rating";
+import swal from "sweetalert";
 
 export default function Reviews(){
     const [reviews, setReview] = useState([]);
@@ -31,7 +32,8 @@ export default function Reviews(){
     const deleteReview = async (id) =>{
         try {
             const res = await axios.delete(`/api/review/${id}`);
-            alert(res.data.msg);
+            // alert(res.data.msg);
+    swal(res.data.msg);
         }catch (err){
             alert("ERR");
         }
