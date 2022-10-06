@@ -68,10 +68,10 @@ export default function Reviews(){
                                                 <div className="card text-white bg-secondary mb-3" >
                                                     <div className="card-body">
                                                         <Rating value={data.rate} />
-                                                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                                                         <b><span>{data.date}</span></b>
                                                         <p>{data.CommentReview}</p>
-                                                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+
+                                                        <div className="d-flex justify-content-end pt-3">
                                                         <a
                                                             className="btn btn-warning"
                                                             href={`/updatereview/${data._id}`}
@@ -86,6 +86,7 @@ export default function Reviews(){
                                                         >
                                                             &nbsp;Delete
                                                         </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                         ))}
