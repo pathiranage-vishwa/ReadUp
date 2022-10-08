@@ -29,15 +29,33 @@ export default function Reviews(){
 
     };
 
-    const deleteReview = async (id) =>{
-        try {
-            const res = await axios.delete(`/api/review/${id}`);
-            // alert(res.data.msg);
-    swal(res.data.msg);
-        }catch (err){
-            alert("ERR");
-        }
-    };
+
+    function deleteReview(id) {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                axios
+                    .delete(`/api/review/${id}`)
+                    .then(() => {
+                        swal("Your Review Deleted successfully", {
+                            icon: "success",
+                        });
+                        window.location.reload(false);
+                    })
+                    .catch((err) => {
+                        alert(err);
+                    });
+            } else {
+                swal("Deletion canceled!");
+            }
+        });
+    }
+
 
     return(
         <div className="container">
