@@ -28,7 +28,7 @@ import AddReview from "./Reviews/AddReview";
 import UpdateReview from "./Reviews/UpdateReview";
 import Reviews from "./Reviews/Reviews";
 import ManageReviews from "./Reviews/ManageReviews";
-import ManageOrders from "./manageOrders/manageOrders.js";
+import ManageOrders from "./manageOrders/ManageOrders.js";
 import DisplayOrders from "./displayOrders/DispalyOrders";
 
 import { GlobalState } from "../../GlobalState";
