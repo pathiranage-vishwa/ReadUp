@@ -3,6 +3,7 @@ import { GlobalState } from "../../../GlobalState";
 import BookItem from "../utils/bookItem/BookItem";
 import Loading from "../utils/loading/Loading";
 import axios from "axios";
+import swal from "sweetalert";
 
 function Books() {
   const state = useContext(GlobalState);
@@ -25,32 +26,52 @@ function Books() {
   adscount = books.length;
   console.log(adscount);
 
-  const handleCheck = (id) => {
-    books.forEach((book) => {
-      if (book._id === id) book.checked = !book.checked;
-    });
-    setBooks([...books]);
-  };
+  // const handleCheck = (id) => {
+  //   books.forEach((book) => {
+  //     if (book._id === id) book.checked = !book.checked;
+  //   });
+  //   setBooks([...books]);
+  // };
 
   const deleteBook = async (id, public_id) => {
     try {
-      setLoading(true);
-      const destroyImg = axios.post(
-        "/api/destroy",
-        { public_id },
-        {
-          headers: { Authorization: token },
-        }
-      );
-      const deleteBook = axios.delete(`/api/book/${id}`, {
-        headers: { Authorization: token },
-      });
+      swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this add",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          setLoading(true);
+          const destroyImg = axios.post(
+            "/api/destroy",
+            { public_id },
+            {
+              headers: { Authorization: token },
+            }
+          );
+          const deleteBook = axios.delete(`/api/book/${id}`, {
+            headers: { Authorization: token },
+          });
 
-      await destroyImg;
-      await deleteBook;
-      setLoading(false);
+          const execute = async () => {
+            await destroyImg;
+            await deleteBook;
+          };
+          execute();
+          setLoading(false);
+
+          swal("Book has been deleted!", {
+            icon: "success",
+          });
+          window.location.reload(false);
+        } else {
+          swal("terminate deletion");
+        }
+      });
     } catch (err) {
-      alert(err.response.data.msg);
+      swal(err.response.data.msg);
     }
   };
 
@@ -84,7 +105,6 @@ function Books() {
               book={book}
               isAdmin={isAdmin}
               deleteBook={deleteBook}
-              handleCheck={handleCheck}
             />
           );
         })}
