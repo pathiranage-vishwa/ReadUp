@@ -4,6 +4,7 @@ import BookItem from "../utils/bookItem/BookItem";
 import Loading from "../utils/loading/Loading";
 import axios from "axios";
 import swal from "sweetalert";
+import "./MyAds.css";
 
 function Books() {
   const state = useContext(GlobalState);
@@ -25,13 +26,6 @@ function Books() {
 
   adscount = books.length;
   console.log(adscount);
-
-  // const handleCheck = (id) => {
-  //   books.forEach((book) => {
-  //     if (book._id === id) book.checked = !book.checked;
-  //   });
-  //   setBooks([...books]);
-  // };
 
   const deleteBook = async (id, public_id) => {
     try {
@@ -75,20 +69,6 @@ function Books() {
     }
   };
 
-  // const checkAll = () => {
-  //   books.forEach((book) => {
-  //     book.checked = !isCheck;
-  //   });
-  //   setBooks([...books]);
-  //   setIsCheck(!isCheck);
-  // };
-
-  // const deleteAll = () => {
-  //   books.forEach((book) => {
-  //     if (book.checked) deleteBook(book._id, book.images.public_id);
-  //   });
-  // };
-
   if (loading)
     return (
       <div>
@@ -97,6 +77,7 @@ function Books() {
     );
   return (
     <>
+      <div className="NumAds">Total ads : {adscount}</div>
       <div className="products">
         {books.map((book) => {
           return (
@@ -109,7 +90,6 @@ function Books() {
           );
         })}
       </div>
-      Total ads : {adscount}
     </>
   );
 }
