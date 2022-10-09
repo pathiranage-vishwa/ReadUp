@@ -16,12 +16,12 @@ function Books() {
   const [loading, setLoading] = useState(false);
   const [isCheck, setIsCheck] = useState(false);
 
-  const handleCheck = (id) => {
-    books.forEach((book) => {
-      if (book._id === id) book.checked = !book.checked;
-    });
-    setBooks([...books]);
-  };
+  // const handleCheck = (id) => {
+  //   books.forEach((book) => {
+  //     if (book._id === id) book.checked = !book.checked;
+  //   });
+  //   setBooks([...books]);
+  // };
 
   const deleteBook = async (id, public_id) => {
     try {
@@ -63,19 +63,19 @@ function Books() {
     }
   };
 
-  const checkAll = () => {
-    books.forEach((book) => {
-      book.checked = !isCheck;
-    });
-    setBooks([...books]);
-    setIsCheck(!isCheck);
-  };
+  // const checkAll = () => {
+  //   books.forEach((book) => {
+  //     book.checked = !isCheck;
+  //   });
+  //   setBooks([...books]);
+  //   setIsCheck(!isCheck);
+  // };
 
-  const deleteAll = () => {
-    books.forEach((book) => {
-      if (book.checked) deleteBook(book._id, book.images.public_id);
-    });
-  };
+  // const deleteAll = () => {
+  //   books.forEach((book) => {
+  //     if (book.checked) deleteBook(book._id, book.images.public_id);
+  //   });
+  // };
 
   if (loading)
     return (
@@ -87,13 +87,13 @@ function Books() {
     <>
       <Filters />
 
-      {isAdmin && (
+      {/* {isAdmin && (
         <div className="delete-all">
           <span>Select all</span>
           <input type="checkbox" checked={isCheck} onChange={checkAll} />
           <button onClick={deleteAll}>Delete ALL</button>
         </div>
-      )}
+      )} */}
 
       <div className="products">
         {books.map((book) => {
@@ -103,7 +103,6 @@ function Books() {
               book={book}
               isAdmin={isAdmin}
               deleteBook={deleteBook}
-              handleCheck={handleCheck}
             />
           );
         })}

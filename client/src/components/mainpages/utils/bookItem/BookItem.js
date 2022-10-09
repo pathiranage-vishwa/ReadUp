@@ -2,8 +2,6 @@ import React from "react";
 import BtnRender from "./BtnRender";
 
 function BookItem({ book, isAdmin, deleteBook, handleCheck }) {
-  console.log(book);
-  console.log(isAdmin);
   return (
     <div className="product_card">
       {/* {isAdmin && (
