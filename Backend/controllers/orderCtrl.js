@@ -3,19 +3,18 @@ const Users = require("../models/userModel");
 const Products = require("../models/bookModel");
 
 const orderCtrl = {
+  //get one user orders
   getOrders: async (req, res) => {
     try {
-      const Orders = await Orders.find();
-      res.json(Orders);
+      const orders = await Orders.find({"user_id":req.params.buyer_id});
+      res.json(orders);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
   },
   createOrder: async (req, res) => {
     try {
-      // const user = await Users.findById(req.user.id).select('name email')
-      // if(!user) return res.status(400).json({msg: "User does not exist."})
-
+      
       const {
         user_id,
         name,
@@ -43,9 +42,6 @@ const orderCtrl = {
         total: transfer_amount,
       });
 
-      // cart.filter(item => {
-      //     return sold(item._id, item.quantity, item.sold)
-      // })
 
       await newOrder.save();
       res.json({ msg: "Order Succes!" });
@@ -54,6 +50,7 @@ const orderCtrl = {
     }
   },
 
+// get orders for seller
   getOrderBySellerID: async (req, res) => {
     try {
       const order = await Orders.aggregate([

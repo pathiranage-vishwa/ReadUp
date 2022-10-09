@@ -24,7 +24,12 @@ import ResetPassword from "./auth/ResetPassword";
 import DisplayCards from "./Payment/DisplayCards";
 import Home from "../homepage/Home";
 import MyAds from "./myAds/MyAds";
-import ManageOrders from "./manageOrders/ManageOrders";
+import AddReview from "./Reviews/AddReview";
+import UpdateReview from "./Reviews/UpdateReview";
+import Reviews from "./Reviews/Reviews";
+import ManageReviews from "./Reviews/ManageReviews";
+import ManageOrders from "./manageOrders/ManageOrders.js";
+import DisplayOrders from "./displayOrders/DispalyOrders";
 
 import { GlobalState } from "../../GlobalState";
 
@@ -61,6 +66,24 @@ function Pages() {
         exact
         component={isAdmin ? Allcategories : NotFound}
       />
+
+      <Route path="/review" exact component={isLogged ? Reviews : NotFound} />
+      <Route
+        path="/addreview"
+        exact
+        component={isLogged ? AddReview : NotFound}
+      />
+      <Route
+        path="/updatereview"
+        exact
+        component={isLogged ? UpdateReview : NotFound}
+      />
+      <Route
+        path="/managereviews"
+        exact
+        component={isLogged ? ManageReviews : NotFound}
+      />
+
       <Route path="/request" exact component={isLogged ? Requests : NotFound} />
       <Route
         path="/requestHome"
@@ -104,6 +127,8 @@ function Pages() {
       <Route path="/checkout" exact component={Checkout} />
       <Route path="/addPayment" exact component={AddPayment} />
       <Route path="/displayCard" exact component={DisplayCards} />
+      <Route path="/displayOrders" exact component={DisplayOrders} />
+
       <Route path="*" exact component={NotFound} />
     </Switch>
   );
