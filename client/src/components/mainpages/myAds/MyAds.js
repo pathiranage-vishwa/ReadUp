@@ -77,7 +77,10 @@ function Books() {
     );
   return (
     <>
-      <div className="NumAds">Total ads : {adscount}</div>
+      <div className="NumAds">
+        {" "}
+        <h3>Number Of Ads {adscount} </h3>
+      </div>
       <div className="products">
         {books.map((book) => {
           return (
