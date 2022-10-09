@@ -3,9 +3,11 @@ import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
 import swal from "sweetalert";
 import req from "../requests/Styles/req.png";
+import {useHistory} from "react-router-dom";
 
 
 function AddReview(){
+    const history = useHistory();
     const state = useContext(GlobalState);
     const [token] = state.token;
 
@@ -33,6 +35,7 @@ function AddReview(){
             );
             swal("Done!", "Request successfully!", "success");
             setReview("");
+            history.push("/review")
         } catch (err) {
             alert(err.response.data.msg);
         }
