@@ -38,13 +38,17 @@ const paymentSchema = new mongoose.Schema(
       type: Object,
       default: {},
     },
-    total:{
-      type:String,
-      required:true,
+    total: {
+      type: String,
+      required: true,
     },
     status: {
       type: Boolean,
       default: false,
+    },
+    orderstatus: {
+      type: String,
+      default: "Pending",
     },
   },
   {
