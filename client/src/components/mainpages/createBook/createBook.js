@@ -154,8 +154,6 @@ function CreateBook() {
           } else {
             swal("Update process canceled!");
           }
-
-          //  history.push("/");
         });
       } else {
         await axios.post(
@@ -166,11 +164,8 @@ function CreateBook() {
           }
         );
         swal("Done!", " Book Added Successfully", "success");
-
-        // history.push("/");
       }
       setCallback(!callback);
-      // history.push("/");
     } catch (err) {
       alert(err.response.data.msg);
     }
