@@ -77,8 +77,10 @@ function Books() {
     );
   return (
     <>
+      <div className="myads">
+        <h2>My Ads</h2>
+      </div>
       <div className="NumAds">
-        {" "}
         <h3>Number Of Ads {adscount} </h3>
       </div>
       <div className="products">
