@@ -81,13 +81,13 @@ function Books() {
   return (
     <>
       {/* <Filters /> */}
-      {isAdmin && (
+      {/* {isAdmin && (
         <div className="delete-all">
           <span>Select all</span>
           <input type="checkbox" checked={isCheck} onChange={checkAll} />
           <button onClick={deleteAll}>Delete ALL</button>
         </div>
-      )}
+      )} */}
       <div className="products">
         {books.map((book) => {
           return (

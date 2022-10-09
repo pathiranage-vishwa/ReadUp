@@ -38,7 +38,6 @@ function Pages() {
       <Route path="/" exact component={Home} />
       <Route path="/books" exact component={Books} />
       <Route path="/detail/:id" exact component={DetailBook} />
-
       <Route path="/login" exact component={isLogged ? NotFound : Login} />
       <Route
         path="/register"
@@ -47,13 +46,11 @@ function Pages() {
       />
       <Route path="/forget_pw" exact component={ForgotPassword} />
       <Route path="/reset_pw" exact component={ResetPassword} />
-
       <Route
         path="/allusers"
         exact
         component={isLogged ? AllUsers : NotFound}
       />
-
       <Route
         path="/category"
         exact
@@ -91,7 +88,6 @@ function Pages() {
         exact
         component={isLogged ? CreateBook : NotFound}
       />
-
       <Route
         path="/history"
         exact
@@ -102,17 +98,12 @@ function Pages() {
         exact
         component={isLogged ? OrderDetails : NotFound}
       />
-
       <Route path="/cart" exact component={Cart} />
-
       <Route path="/myAds" exact component={MyAds} />
-
       <Route path="/manageOrders" exact component={ManageOrders} />
-
       <Route path="/checkout" exact component={Checkout} />
       <Route path="/addPayment" exact component={AddPayment} />
       <Route path="/displayCard" exact component={DisplayCards} />
-
       <Route path="*" exact component={NotFound} />
     </Switch>
   );
