@@ -10,8 +10,8 @@ function UpdateUser() {
 
     const state = useContext(GlobalState);
     const [id,setId] = useState();
-    const [firstname, setFirstname] = useState();
-    const [lastname,setLastname] = useState();
+    const [firstName, setfirstName] = useState();
+    const [lastName,setlastName] = useState();
     const [username,setUsername]= useState();
     const [email,setEmail]= useState();
     const [userType,setUserType]= useState();
@@ -19,26 +19,25 @@ function UpdateUser() {
     const [confNewPassword,setConfNewPassword]= useState();
     const [user] = state.userAPI.user;
     const [token] = state.token;
-    const [image, setImage] = useState(false);
+    const [image, setImage] = useState();
 
     useEffect(() => {
 
         setId(localStorage.getItem('uid'));
-        setFirstname(localStorage.getItem('FirstName'));
-        setLastname(localStorage.getItem('LastName'));
+        setfirstName(localStorage.getItem('FirstName'));
+        setlastName(localStorage.getItem('LastName'));
         setUsername(localStorage.getItem('UserName'));
         setEmail(localStorage.getItem('Email'));
         setUserType(localStorage.getItem('UserType'));
-        // setImage(localStorage.getItem)
+        setImage(localStorage.getItem('Image'))
 
     },[] );
 
     function submitData(e) {
         e.preventDefault();
         const newRoute = {
-              
-          firstname,
-          lastname,
+          firstName,
+          lastName,
           username,
           email,
           userType,
@@ -143,7 +142,7 @@ function UpdateUser() {
                 <div className='card1'>
                 <h2>Update</h2>
                 <div className="avatar">
-                    <img src={image ? image : user.image} alt="" />
+                    <img src={image} alt="" />
                       <span>
                         <i className="fas fa-camera"></i>
                         <p>Change</p>
@@ -161,8 +160,8 @@ function UpdateUser() {
                 <div className="form-outline">
                 <div className="form-group">
                     <label htmlFor="name">First Name</label>
-                    <input type="text" name="firstname" id="firstname" defaultValue={firstname}
-                    placeholder="First name" onChange={e=>{setFirstname(e.target.value);}} />
+                    <input type="text" name="firstName" id="firstName" defaultValue={firstName}
+                    placeholder="First name" onChange={e=>{setfirstName(e.target.value);}} />
                 </div>
                 </div>
                 </div>
@@ -170,8 +169,8 @@ function UpdateUser() {
                 <div className="form-outline">
                 <div className="form-group">
                     <label htmlFor="regNumber">Last Name</label>
-                    <input type="text" name="lastName" id="lastName" defaultValue={lastname}
-                    placeholder="Last Name" onChange={e=>{setLastname(e.target.value);}}/>
+                    <input type="text" name="lastName" id="lastName" defaultValue={lastName}
+                    placeholder="Last Name" onChange={e=>{setlastName(e.target.value);}}/>
                 </div>
                 </div>
                 </div>
@@ -236,7 +235,7 @@ function UpdateUser() {
                 <div className="form-outline">
                 <div className="form-group">
                     <label htmlFor="name">New Password</label>
-                    <input type="text" name="newpassword" id="newpassword" defaultValue={firstname}
+                    <input type="text" name="newpassword" id="newpassword"
                     placeholder="new password" onChange={e=>{setNewpassword(e.target.value);}} />
                 </div>
                 </div>
@@ -247,7 +246,7 @@ function UpdateUser() {
                 <div className="form-outline">
                 <div className="form-group">
                     <label htmlFor="regNumber">Confirm Password</label>
-                    <input type="text" name="confNewPassword" id="confNewPassword" defaultValue={lastname}
+                    <input type="text" name="confNewPassword" id="confNewPassword"
                     placeholder="confirm New Password" onChange={e=>{setConfNewPassword(e.target.value);}}/>
                 </div>
                 </div>

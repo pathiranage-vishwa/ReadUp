@@ -1,0 +1,7 @@
+.bgimage {
+    background-image: url("./bg2.jpg");
+    background-size: 980px 630px;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+  }

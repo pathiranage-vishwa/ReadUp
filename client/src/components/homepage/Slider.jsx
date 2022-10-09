@@ -49,6 +49,7 @@ const Slide = styled.div`
 `;
 
 const ImgContainer = styled.div`
+  margin-top: 13%;
   height: 100%;
   flex: 1;
 `;

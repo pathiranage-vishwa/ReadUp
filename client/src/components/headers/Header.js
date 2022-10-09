@@ -6,13 +6,18 @@ import Cart from "./icon/cart1.svg";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
+import { SidebarData } from "../sidebar/SidebarData";
+import { IconContext } from "react-icons";
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
 
 const Avatar = styled.div`
-  width: 70px;
-  height: 70px;
+  width: 160px;
+  height: 160px;
   overflow: hidden;
   position: relative;
   top: 12px;
+  left: 72px;
   border: 2px solid #ddd;
   border-radius: 50%;
   cursor: pointer;
@@ -30,6 +35,9 @@ function Header() {
   const [cart] = state.userAPI.cart;
   const [menu, setMenu] = useState(false);
   const [user] = state.userAPI.user;
+  const [sidebar, setSidebar] = useState(false);
+
+  const showSidebar = () => setSidebar(!sidebar);
 
   console.log(user.image);
 
@@ -41,6 +49,19 @@ function Header() {
     window.location.href = "/";
   };
 
+  const setData = (user) => {
+    let { _id, firstName, lastName, username, email, userType, image } =
+    user;
+
+    localStorage.setItem("uid", _id);
+    localStorage.setItem("FirstName", firstName);
+    localStorage.setItem("LastName", lastName);
+    localStorage.setItem("UserName", username);
+    localStorage.setItem("Email", email);
+    localStorage.setItem("UserType", userType);
+    localStorage.setItem("Image", image);
+  };
+
   const adminRouter = () => {
     return (
       <>
@@ -49,12 +70,6 @@ function Header() {
         </li>
         <li>
           <Link to="/category">Categories</Link>
-        </li>
-          <li>
-              <Link to="/managerequests">Manage Requests</Link>
-          </li>
-        <li>
-          <Link to="/allusers">Registered Users</Link>
         </li>
       </>
     );
@@ -66,18 +81,13 @@ function Header() {
         <li>
           <Link to="/create_book">Create Book</Link>
         </li>
-          <li>
-              <Link to="/managerequests">Manage Requests</Link>
-          </li>
       </>
     );
   };
 
   const loggedRouter = () => {
     return (
-      <><li>
-          <Link to="/requestHome">Request Books</Link>
-      </li>
+      <>
         <li>
           <Link to="/request">Request Books</Link>
         </li>
@@ -89,13 +99,6 @@ function Header() {
             Logout
           </Link>
         </li>
-        {/* <li>
-          <Avatar>
-            <div>
-              <img src={user.image} alt="" />
-            </div>
-          </Avatar>
-        </li> */}
       </>
     );
   };
@@ -106,6 +109,45 @@ function Header() {
 
   return (
     <header className="logo">
+                <IconContext.Provider value={{ color: "#fff" }}>
+            <div className="navbar">
+              <Link to="#" className="menu-bars">
+                <FaIcons.FaBars onClick={showSidebar} />
+              </Link>
+            </div>
+            <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
+              <ul className="nav-menu-items" onClick={showSidebar}>
+                <li className="navbar-toggle">
+                  <Link to="#" className="menu-close">
+                    <AiIcons.AiOutlineClose />
+                  </Link>
+                </li>
+                <Avatar>
+            <div>
+            <a
+             href={`/userProfile/${user._id}`}
+              onClick={() => setData(user)}
+            >
+              <img src={user.image} alt="" />
+            </a>
+            </div>
+          </Avatar>
+          <br/>
+                {SidebarData.map((item, index) => {
+                  return (
+                    <div>
+                    <li key={index} className={item.cName}>
+                      <Link to={item.path}>
+                        {item.icon}
+                        <span>{item.title}</span>
+                      </Link>
+                    </li>
+                    </div>
+                  );
+                })}
+              </ul>
+            </nav>
+          </IconContext.Provider>
       <div className="menu" onClick={() => setMenu(!menu)}>
         <img src={Menu} alt="" width="30" />
       </div>

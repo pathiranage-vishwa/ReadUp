@@ -17,7 +17,7 @@ function Profile() {
     const [userType,setUserType]= useState();
     const [user] = state.userAPI.user;
     const [token] = state.token;
-    const [image, setImage] = useState(false);
+    const [image, setImage] = useState();
 
     useEffect(() => {
 
@@ -27,6 +27,7 @@ function Profile() {
         setUsername(localStorage.getItem('UserName'));
         setEmail(localStorage.getItem('Email'));
         setUserType(localStorage.getItem('UserType'));
+        setImage(localStorage.getItem('Image'))
 
     },[] );
 
@@ -64,7 +65,7 @@ function Profile() {
                   <form>
                     <h3 className="update-heading mb-6">{firstname + " " + lastname}</h3>
                     <div className="avatar">
-                    <img src={image ? image : user.image} alt="" />
+                    <img src={image} alt="" />
                     </div>
                     <hr className="hr1" />
                     <br />

@@ -24,7 +24,7 @@ export default function AllUsers() {
   }, []);
 
     const setData = (data) => {
-      let { _id, firstName, lastName, username, email, userType } =
+      let { _id, firstName, lastName, username, email, userType, image } =
         data;
 
       localStorage.setItem("uid", _id);
@@ -33,6 +33,7 @@ export default function AllUsers() {
       localStorage.setItem("UserName", username);
       localStorage.setItem("Email", email);
       localStorage.setItem("UserType", userType);
+      localStorage.setItem("Image", image);
     };
 
   function handlePageClick({ selected: selectedPage }) {
