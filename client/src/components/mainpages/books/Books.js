@@ -45,8 +45,11 @@ function Books() {
             headers: { Authorization: token },
           });
 
-          // destroyImg;
-          //deleteBook;
+          const execute = async () => {
+            await destroyImg;
+            await deleteBook;
+          };
+          execute();
           setCallback(!callback);
           setLoading(false);
 
@@ -55,7 +58,7 @@ function Books() {
           });
           window.location.reload(false);
         } else {
-          swal("terminate deletion");
+          swal("Terminate the deletion");
         }
       });
     } catch (err) {
