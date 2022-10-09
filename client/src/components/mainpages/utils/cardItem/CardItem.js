@@ -21,7 +21,7 @@ function CardItem({ card, deleteCard }) {
           expiry={card.ExDate}
           focused={card.cardType}
           name={card.cardHolderName}
-          number={card.firstFourDigits}
+          number={card.lastFourDigits}
         />
       </div>
 

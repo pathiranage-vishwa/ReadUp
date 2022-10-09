@@ -46,36 +46,38 @@ export default function DisplayOrders() {
   };
   
 
-  const filterData = (order, searchkey) => {
-    const result = order.filter(
+  const filterData = (orders, searchkey) => {
+    const result = orders.filter(
       (orders) =>
-        orders.name.includes(searchkey)
+        orders.total.includes(searchkey)||
+        orders.orderstatus.includes(searchkey)||
+        orders.createdAt.includes(searchkey)
     );
-
     setOrders(result);
   };
 
   function hancdleSearchArea(e) {
     const searchkey = e.currentTarget.value;
 
-    axios.get(`http://localhost:5000/api/orderGet/${crrUser._id}`).then((res) => {
-      if (res.data.success) {
-        filterData(res.data, searchkey);
-      }
-    });
+    // axios.get(`http://localhost:5000/api/orderGet/${crrUser._id}`).then((res) => {
+    //   if (res.data.success) {
+        filterData(orders, searchkey);
+    //   }
+    // });
   }
 
   return (
     <div>
       <div className="dIsTopicNam">My Orders</div>
       <hr className="disTopicHr" />
-      <div className="row">
+      <div className="row" style={{"width":"20%"}}>
           <h4> Search here </h4>
-          <div className="col-lg-12  mt-2 mb-2">
+          <div className="col-lg-12  mt-2 mb-2" style={{"marginLeft":"5%"}} >
+            
             <input
               className="form-control"
               type="search"
-              placeholder="search...( name, registration no, role)"
+              placeholder="search...(Date,time,total,status)"
               name="search"
               onChange={hancdleSearchArea}
             ></input>

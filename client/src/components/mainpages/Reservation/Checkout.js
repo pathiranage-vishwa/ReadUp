@@ -153,13 +153,13 @@ export default function Checkout() {
                       />
                     </div>
                   </div>
-
-                  <div className="d-flex justify-content-end pt-3">
-                    <div class="amount">
+                  <div class="amount">
                       <div class="inner">
-                        <span class="dollar"><b>Total LKR.{transfer_amount}</b></span>
+                        <span class="dollar"><b><h2>Total LKR.{transfer_amount}</h2></b></span>
                       </div>
                     </div>
+                  <div className="d-flex justify-content-end pt-3">
+                    
                     <button
                       className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
                       type="submit"

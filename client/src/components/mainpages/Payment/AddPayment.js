@@ -1,4 +1,4 @@
-import React, { useContext, useState, useId } from "react";
+import React, { useContext, useState, useId,useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import PhoneInput from "react-phone-number-input";
@@ -36,6 +36,7 @@ const AddPayment = () => {
   const [status, setStatus] = useState("");
   const [cart, setCart] = state.userAPI.cart;
   const [token] = state.token;
+  const [cards, setCards] = useState([]);
 
   console.log(user);
 
@@ -47,6 +48,7 @@ const AddPayment = () => {
   // const cart = user.cart;
 
   const [PaymentType, setPaymentType] = useState("card");
+  const [saveCard,setSaveCard]=useState("notSaved");
 
   const phoneNumber = localStorage.getItem("PNumber");
   const name = localStorage.getItem("Name");
@@ -60,6 +62,32 @@ const AddPayment = () => {
   //         headers: {Authorization: token}
   //     })
   // }
+  const id = user._id;
+  useEffect(()=>{
+
+    async function getDetails(){ 
+      
+  
+      await axios.get(`http://localhost:5000/card/getMyCard/${id}`).then((res)=>{ 
+  
+        
+        console.log(res.data); 
+  
+        
+        setCards(res.data)
+        
+        setStatus(1);
+      
+  
+       
+      }).catch((err)=>{
+          alert(err.message);
+      })
+  
+    }
+    getDetails();
+  
+  },[id]);
 
   const cardPayment = async (e) => {
     e.preventDefault();
@@ -121,28 +149,7 @@ const AddPayment = () => {
         axios.post("http://localhost:7000/cardPay/payment", dataAdd);
         // navigate("/ViewDetails")
         swal("successfully save card payment");
-
-        const reserDataAdd = {
-          user_id,
-          name,
-          email,
-          paymentID: order_id,
-          address,
-          country,
-          postalCode,
-          phoneNumber,
-          cart,
-          transfer_amount
-        };
-        try {
-          axios.post("/api/order", reserDataAdd);
-          // navigate("/ViewDetails")
-          swal("successfully place the order");
-          history.push("/");
-        } catch (error) {
-          console.log(error);
-          swal("reservaion save faild");
-        }
+        orderPalce();
       } catch (error) {
         console.log(error);
         swal("card payment save failed");
@@ -153,6 +160,32 @@ const AddPayment = () => {
       setStatus("0");
     }
   };
+
+  function orderPalce() {
+
+    const reserDataAdd = {
+      user_id,
+      name,
+      email,
+      paymentID: order_id,
+      address,
+      country,
+      postalCode,
+      phoneNumber,
+      cart,
+      transfer_amount
+    };
+    try {
+      axios.post("/api/order", reserDataAdd);
+      // navigate("/ViewDetails")
+      swal("successfully place the order");
+      history.push("/");
+    } catch (error) {
+      console.log(error);
+      swal("reservaion save faild");
+    }
+    
+  }
 
   // console.log(crrUser)
 
@@ -188,24 +221,30 @@ const AddPayment = () => {
                       {/* <label for="iText" class="exptxt">Payment Type</label> */}
                       {/* <input type="text" class="form-control" value={cardType} onChange={e=> setcardType(e.target.value)} required/> */}
                       <Grid item xs={12}>
+                      
                         <Select
                           labelId="demo-simple-select-helper-label"
                           label="Payment Type"
                           id="payment_type"
                           name="payment_type"
                           //class="form-control"
-                          value={PaymentType}
-                          onChange={(e) => setPaymentType(e.target.value)}
+                          value={saveCard}
+                          onChange={(e) => setSaveCard(e.target.value)}
                           required
                         >
-                          <MenuItem value="card" selected="selected">
+                          
+                          <MenuItem value="notSaved" selected="selected">
                             Select Save Card
                           </MenuItem>
-                          <MenuItem value="mobile">card 1</MenuItem>
+                          {cards.map((card,key)=>(
+                          <MenuItem value="mobile">{card.lastFourDigits}</MenuItem>
+                        ))}
                         </Select>
+                      
                       </Grid>
                     </div>
                   </div>
+          {saveCard === "notSaved" ?(
                   <div class="d-flex justify-content-between px-3 pt-4">
                     <div>
                       {/* <input type="text" class="form-control" value={cardType} onChange={e=> setcardType(e.target.value)} required/> */}
@@ -223,7 +262,7 @@ const AddPayment = () => {
                         </Select>
                       </Grid>
                     </div>
-
+                   
                     <div>
                       {/* <label for="iText" class="iTxt">Name on Card</label> */}
                       <Grid item xs={12} md={12}>
@@ -238,7 +277,7 @@ const AddPayment = () => {
                       </Grid>
                     </div>
                   </div>
-
+          ):null}{saveCard === "notSaved" ?(
                   <div class="px-3 pt-3">
                     {/* <label for="card number" class="iTxt">CARD NUMBER</label> */}
                     <Grid item xs={12} md={12}>
@@ -253,7 +292,7 @@ const AddPayment = () => {
                       />
                     </Grid>
                   </div>
-
+          ):null}{saveCard === "notSaved" ?(
                   <div class="d-flex justify-content-between px-3 pt-4">
                     <div>
                       {/* <label for="date" class="exptxt">Expiration Date</label> */}
@@ -269,7 +308,7 @@ const AddPayment = () => {
                         />
                       </Grid>
                     </div>
-
+                      
                     <div>
                       {/* <label for="iText" class="iTxt">CVV /CVC</label> */}
                       <Grid item xs={12} md={12}>
@@ -285,7 +324,7 @@ const AddPayment = () => {
                       </Grid>
                     </div>
                   </div>
-
+          ):null} {saveCard === "notSaved" ?(
                   <div className="d-flex justify-content-end pt-3">
                     <button
                       className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
@@ -297,9 +336,27 @@ const AddPayment = () => {
                         width: "100px",
                       }}
                     >
+            
                       Pay
                     </button>
                   </div>
+          ):null}{saveCard !== "notSaved" ?(
+                    <div className="d-flex justify-content-end pt-3">
+                    <button
+                      className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
+                      type="submit"
+                      style={{
+                        marginLeft: "330px",
+                        marginTop: "10px",
+                        height: "50px",
+                        width: "100px",
+                      }}
+                    >
+            
+                      Pay
+                    </button>
+                  </div>
+          ):null}        
                 </form>
               </Form>
             </div>
@@ -308,7 +365,7 @@ const AddPayment = () => {
         <div
           className="paypal form"
           class="card"
-          style={{ width: "300px", height: "100px", marginTop: "25px" }}
+          style={{marginTop: "25px" ,height: "60%"}}
         >
           <div class="amount">
             <div class="inner">
@@ -324,7 +381,7 @@ const AddPayment = () => {
           <div
           className="cashOnForm"
           class="card"
-          style={{ width: "300px", height: "700px", marginTop: "60%" }}
+          style={{ width: "300px", height: "60%", marginTop: "auto" }}
         >
           <Box mb={2}>
                       <Typography variant="h6" gutterBottom>
@@ -335,7 +392,7 @@ const AddPayment = () => {
             <div class="inner">
               <span class="dollar"><b>TOTAL LKR.{transfer_amount}</b></span>
             </div>
-          
+          <form onSubmit={orderPalce}>
           <div className="row" style={{ marginTop: "20px" }}>
               <button
               className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
@@ -350,6 +407,7 @@ const AddPayment = () => {
                       Buy
               </button>
           </div>
+          </form>
           </div>
         </div>
         </div>
