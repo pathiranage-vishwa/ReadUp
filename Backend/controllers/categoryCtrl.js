@@ -31,7 +31,7 @@ const categoryCtrl = {
       const products = await Products.findOne({ category: req.params.id });
       if (products)
         return res.status(400).json({
-          msg: "You can't delete this category because it has books.",
+          msg: "Please inform the customers before deleting this category.",
         });
 
       await Category.findByIdAndDelete(req.params.id);
