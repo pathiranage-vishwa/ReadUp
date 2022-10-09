@@ -53,7 +53,7 @@ export default function Reviews(){
                                     <img className="card-img-top" src={reqBook}  alt="Card image cap"/>
                                     <br/>  <br/>
                                     <center>
-                                        <a className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5" href="/request" role="button" >Go</a>
+                                        <a className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5" href="/addreview" role="button" >Add Review</a>
                                     </center>
                                 </div>
                             </div>
