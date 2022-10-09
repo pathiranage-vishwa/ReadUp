@@ -1,0 +1,83 @@
+body {
+    margin: 0px;
+  }
+  
+  .topicContainer {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 20% auto;
+  }
+  
+  .frame {
+    margin-top: 2vh;
+    background-color: whitesmoke;
+    width: 40vh;
+    margin-right: 10vh;
+  }
+  
+  .leftTopic {
+    background-color: whitesmoke;
+  }
+  
+  .dIsTopicNam {
+    font-weight: bold;
+    font-size: 8vh;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    margin-top: 5vh;
+    margin-left: 40%;
+  }
+  
+  .disTopicHr {
+    color: rgb(255, 166, 1);
+    border-top: 1vh solid;
+    width: 50%;
+    margin-bottom: 4vh;
+    margin-left: 20%;
+  }
+  
+  .topicTop {
+    font-weight: bold;
+    font-size: 7vh;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    margin-top: 20vh;
+    margin-left: 5vh;
+  }
+  
+  .table {
+    width: 90%;
+    column-gap: 2px;
+    box-shadow: 0px -2px 5px 0px rgba(19, 8, 143, 0.5);
+  }
+  
+  .table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-weight: bold;
+  }
+  
+  .DisplayMain {
+    background-color: whitesmoke;
+    padding: 2vh;
+  }
+  
+  .disDetailsOrder {
+    margin-left: 3vh;
+    font-weight: bold;
+  }
+  
+  .DisHOrder{
+    font-weight: bold;
+  }
+  
+  .DisHItems{
+    margin-right: auto;
+    font-weight: bold;
+  }
+  
+  .DisStat {
+    color: blue;
+    font-size: 2vh;
+  }
+  
