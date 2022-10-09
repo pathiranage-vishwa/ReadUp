@@ -77,11 +77,11 @@ function Books() {
     );
   return (
     <>
-      <div className="myads">
+      <div className="myads1">
         <h2>My Ads</h2>
       </div>
       <div className="NumAds">
-        <h3>Number Of Ads {adscount} </h3>
+        <h3>Number Of Ads : {adscount} </h3>
       </div>
       <div className="products">
         {books.map((book) => {

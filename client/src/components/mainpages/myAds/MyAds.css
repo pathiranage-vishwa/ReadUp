@@ -5,11 +5,30 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 5px;
   margin-left: 76%;
+  background-color: whitesmoke;
   margin-top: -4%;
 }
 
 .NumAds h3 {
   margin-top: 40px;
   text-align: center;
+
   padding: 30px;
+}
+
+.myads1 {
+  margin-top: 10px;
+  display: flex;
+  margin-left: 40%;
+  justify-content: space-between;
+}
+
+.myads1 h2 {
+  text-align: center;
+  text-transform: uppercase;
+  color: black;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 6px;
+  font-size: 6vh;
 }
