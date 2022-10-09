@@ -76,12 +76,7 @@ const bookCtrl = {
       } = req.body;
       if (!images) return res.status(400).json({ msg: "No image upload" });
 
-      // const product = await Books.findOne({ _id });
-      // if (product)
-      //   return res.status(400).json({ msg: "This product already exists." });
-
       const newProduct = new Books({
-        // book_id,
         seller_id,
         title: title.toLowerCase(),
         author,
