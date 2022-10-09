@@ -67,7 +67,7 @@ function Books() {
           });
           window.location.reload(false);
         } else {
-          swal("terminate deletion");
+          swal("Terminate deletion");
         }
       });
     } catch (err) {
