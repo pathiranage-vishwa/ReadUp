@@ -63,12 +63,12 @@ const SellerReport = (order, seller) => {
       lineWidth: 0.1,
       lineColor: [0, 0, 0],
     },
-    startY: 75,
+    startY: 82,
   });
   doc.setFont("helvetica", "bold");
 
   // Received items title. and margin-top + margin-left
-  doc.text(`${sellerName}'s Total Income (LKR) : ${total}`, 15, 140);
+  doc.text(`${sellerName}'s Total Income (LKR) : ${total}`, 15, 78);
 
   doc.setFontSize(10);
   doc.text(`General Sales Report `, 15, 60);

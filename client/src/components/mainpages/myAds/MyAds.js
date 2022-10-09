@@ -3,15 +3,14 @@ import { GlobalState } from "../../../GlobalState";
 import BookItem from "../utils/bookItem/BookItem";
 import Loading from "../utils/loading/Loading";
 import axios from "axios";
-// import Filters from "./Filters";
-// import LoadMore from "./LoadMore";
+import swal from "sweetalert";
+import "./MyAds.css";
 
 function Books() {
   const state = useContext(GlobalState);
   const [books, setBooks] = useState([]);
   const [isAdmin] = state.userAPI.isAdmin;
   const [token] = state.token;
-  //   const [callback, setCallback] = state.booksAPI.callback;
   const [loading, setLoading] = useState(false);
   const [isCheck, setIsCheck] = useState(false);
   const [userId] = state.userAPI.user;
@@ -28,48 +27,46 @@ function Books() {
   adscount = books.length;
   console.log(adscount);
 
-  const handleCheck = (id) => {
-    books.forEach((book) => {
-      if (book._id === id) book.checked = !book.checked;
-    });
-    setBooks([...books]);
-  };
-
   const deleteBook = async (id, public_id) => {
     try {
-      setLoading(true);
-      const destroyImg = axios.post(
-        "/api/destroy",
-        { public_id },
-        {
-          headers: { Authorization: token },
+      swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this add",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          setLoading(true);
+          const destroyImg = axios.post(
+            "/api/destroy",
+            { public_id },
+            {
+              headers: { Authorization: token },
+            }
+          );
+          const deleteBook = axios.delete(`/api/book/${id}`, {
+            headers: { Authorization: token },
+          });
+
+          const execute = async () => {
+            await destroyImg;
+            await deleteBook;
+          };
+          execute();
+          setLoading(false);
+
+          swal("Book has been deleted!", {
+            icon: "success",
+          });
+          window.location.reload(false);
+        } else {
+          swal("Terminate deletion");
         }
-      );
-      const deleteBook = axios.delete(`/api/book/${id}`, {
-        headers: { Authorization: token },
       });
-
-      await destroyImg;
-      await deleteBook;
-      //setCallback(!callback);
-      setLoading(false);
     } catch (err) {
-      alert(err.response.data.msg);
+      swal(err.response.data.msg);
     }
-  };
-
-  const checkAll = () => {
-    books.forEach((book) => {
-      book.checked = !isCheck;
-    });
-    setBooks([...books]);
-    setIsCheck(!isCheck);
-  };
-
-  const deleteAll = () => {
-    books.forEach((book) => {
-      if (book.checked) deleteBook(book._id, book.images.public_id);
-    });
   };
 
   if (loading)
@@ -80,14 +77,12 @@ function Books() {
     );
   return (
     <>
-      {/* <Filters /> */}
-      {isAdmin && (
-        <div className="delete-all">
-          <span>Select all</span>
-          <input type="checkbox" checked={isCheck} onChange={checkAll} />
-          <button onClick={deleteAll}>Delete ALL</button>
-        </div>
-      )}
+      <div className="myads1">
+        <h2>{userId.firstName}'s Ads</h2>
+      </div>
+      <div className="NumAds">
+        <h3>Number Of Ads : {adscount} </h3>
+      </div>
       <div className="products">
         {books.map((book) => {
           return (
@@ -96,14 +91,10 @@ function Books() {
               book={book}
               isAdmin={isAdmin}
               deleteBook={deleteBook}
-              handleCheck={handleCheck}
             />
           );
         })}
       </div>
-      Total ads : {adscount}
-      {/* <LoadMore /> */}
-      {/* {books.length === 0 && <Loading />} */}
     </>
   );
 }

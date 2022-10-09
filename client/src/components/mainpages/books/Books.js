@@ -16,13 +16,6 @@ function Books() {
   const [loading, setLoading] = useState(false);
   const [isCheck, setIsCheck] = useState(false);
 
-  const handleCheck = (id) => {
-    books.forEach((book) => {
-      if (book._id === id) book.checked = !book.checked;
-    });
-    setBooks([...books]);
-  };
-
   const deleteBook = async (id, public_id) => {
     try {
       swal({
@@ -45,8 +38,11 @@ function Books() {
             headers: { Authorization: token },
           });
 
-          // destroyImg;
-          //deleteBook;
+          const execute = async () => {
+            await destroyImg;
+            await deleteBook;
+          };
+          execute();
           setCallback(!callback);
           setLoading(false);
 
@@ -55,26 +51,12 @@ function Books() {
           });
           window.location.reload(false);
         } else {
-          swal("terminate deletion");
+          swal("Terminate the deletion");
         }
       });
     } catch (err) {
       swal(err.response.data.msg);
     }
-  };
-
-  const checkAll = () => {
-    books.forEach((book) => {
-      book.checked = !isCheck;
-    });
-    setBooks([...books]);
-    setIsCheck(!isCheck);
-  };
-
-  const deleteAll = () => {
-    books.forEach((book) => {
-      if (book.checked) deleteBook(book._id, book.images.public_id);
-    });
   };
 
   if (loading)
@@ -87,14 +69,6 @@ function Books() {
     <>
       <Filters />
 
-      {isAdmin && (
-        <div className="delete-all">
-          <span>Select all</span>
-          <input type="checkbox" checked={isCheck} onChange={checkAll} />
-          <button onClick={deleteAll}>Delete ALL</button>
-        </div>
-      )}
-
       <div className="products">
         {books.map((book) => {
           return (
@@ -103,7 +77,6 @@ function Books() {
               book={book}
               isAdmin={isAdmin}
               deleteBook={deleteBook}
-              handleCheck={handleCheck}
             />
           );
         })}

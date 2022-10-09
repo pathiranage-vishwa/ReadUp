@@ -1,14 +1,12 @@
 const Books = require("../models/bookModel");
 
-// Filter, sorting and paginating
-
 class APIfeatures {
   constructor(query, queryString) {
     this.query = query;
     this.queryString = queryString;
   }
   filtering() {
-    const queryObj = { ...this.queryString }; //queryString = req.query
+    const queryObj = { ...this.queryString };
 
     const excludedFields = ["page", "sort", "limit"];
     excludedFields.forEach((el) => delete queryObj[el]);
@@ -19,10 +17,6 @@ class APIfeatures {
       (match) => "$" + match
     );
 
-    //    gte = greater than or equal
-    //    lte = lesser than or equal
-    //    lt = lesser than
-    //    gt = greater than
     this.query.find(JSON.parse(queryStr));
 
     return this;
@@ -82,12 +76,7 @@ const bookCtrl = {
       } = req.body;
       if (!images) return res.status(400).json({ msg: "No image upload" });
 
-      // const product = await Books.findOne({ _id });
-      // if (product)
-      //   return res.status(400).json({ msg: "This product already exists." });
-
       const newProduct = new Books({
-        // book_id,
         seller_id,
         title: title.toLowerCase(),
         author,
