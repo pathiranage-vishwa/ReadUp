@@ -3,15 +3,12 @@ import { GlobalState } from "../../../GlobalState";
 import BookItem from "../utils/bookItem/BookItem";
 import Loading from "../utils/loading/Loading";
 import axios from "axios";
-// import Filters from "./Filters";
-// import LoadMore from "./LoadMore";
 
 function Books() {
   const state = useContext(GlobalState);
   const [books, setBooks] = useState([]);
   const [isAdmin] = state.userAPI.isAdmin;
   const [token] = state.token;
-  //   const [callback, setCallback] = state.booksAPI.callback;
   const [loading, setLoading] = useState(false);
   const [isCheck, setIsCheck] = useState(false);
   const [userId] = state.userAPI.user;
@@ -51,26 +48,25 @@ function Books() {
 
       await destroyImg;
       await deleteBook;
-      //setCallback(!callback);
       setLoading(false);
     } catch (err) {
       alert(err.response.data.msg);
     }
   };
 
-  const checkAll = () => {
-    books.forEach((book) => {
-      book.checked = !isCheck;
-    });
-    setBooks([...books]);
-    setIsCheck(!isCheck);
-  };
+  // const checkAll = () => {
+  //   books.forEach((book) => {
+  //     book.checked = !isCheck;
+  //   });
+  //   setBooks([...books]);
+  //   setIsCheck(!isCheck);
+  // };
 
-  const deleteAll = () => {
-    books.forEach((book) => {
-      if (book.checked) deleteBook(book._id, book.images.public_id);
-    });
-  };
+  // const deleteAll = () => {
+  //   books.forEach((book) => {
+  //     if (book.checked) deleteBook(book._id, book.images.public_id);
+  //   });
+  // };
 
   if (loading)
     return (
@@ -80,14 +76,6 @@ function Books() {
     );
   return (
     <>
-      {/* <Filters /> */}
-      {/* {isAdmin && (
-        <div className="delete-all">
-          <span>Select all</span>
-          <input type="checkbox" checked={isCheck} onChange={checkAll} />
-          <button onClick={deleteAll}>Delete ALL</button>
-        </div>
-      )} */}
       <div className="products">
         {books.map((book) => {
           return (
@@ -102,8 +90,6 @@ function Books() {
         })}
       </div>
       Total ads : {adscount}
-      {/* <LoadMore /> */}
-      {/* {books.length === 0 && <Loading />} */}
     </>
   );
 }
