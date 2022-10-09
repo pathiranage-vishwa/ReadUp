@@ -28,6 +28,8 @@ import AddReview from "./Reviews/AddReview";
 import UpdateReview from "./Reviews/UpdateReview";
 import Reviews from "./Reviews/Reviews";
 import ManageReviews from "./Reviews/ManageReviews";
+import ManageOrders from "./manageOrders/manageOrders.js";
+import DisplayOrders from "./displayOrders/DispalyOrders";
 
 import { GlobalState } from "../../GlobalState";
 
@@ -126,9 +128,12 @@ function Pages() {
 
       <Route path="/myAds" exact component={MyAds} />
 
+      <Route path="/manageOrders" exact component={ManageOrders} />
+
       <Route path="/checkout" exact component={Checkout} />
       <Route path="/addPayment" exact component={AddPayment} />
       <Route path="/displayCard" exact component={DisplayCards} />
+      <Route path="/displayOrders" exact component={DisplayOrders} />
 
       <Route path="*" exact component={NotFound} />
     </Switch>
