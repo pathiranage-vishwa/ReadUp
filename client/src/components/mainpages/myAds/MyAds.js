@@ -78,7 +78,7 @@ function Books() {
   return (
     <>
       <div className="myads1">
-        <h2>My Ads</h2>
+        <h2>{userId.firstName}'s Ads</h2>
       </div>
       <div className="NumAds">
         <h3>Number Of Ads : {adscount} </h3>
