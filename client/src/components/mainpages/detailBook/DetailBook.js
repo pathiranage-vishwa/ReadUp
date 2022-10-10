@@ -20,6 +20,13 @@ function DetailBook() {
 
   if (detailBook.length === 0) return null;
 
+  //set to local storage
+  const setDetails = () => {
+    localStorage.setItem("bookDetails", JSON.stringify(detailBook));
+    //set image to local storage
+    localStorage.setItem("bookImage", JSON.stringify(detailBook.images.url));
+  };
+
   return (
     <>
       <center>
@@ -51,6 +58,13 @@ function DetailBook() {
             onClick={() => addCart(detailBook)}
           >
             Add to Cart
+          </Link>
+          <Link
+            to="/test"
+            className="btnDetail ms-3 "
+            onClick={() => setDetails(detailBook)}
+          >
+            reviews
           </Link>
         </div>
       </div>

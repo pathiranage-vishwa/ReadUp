@@ -30,6 +30,7 @@ import Reviews from "./Reviews/Reviews";
 import ManageReviews from "./Reviews/ManageReviews";
 import ManageOrders from "./manageOrders/ManageOrders.js";
 import DisplayOrders from "./displayOrders/DispalyOrders";
+import Test from "./Reviews/Test";
 
 import { GlobalState } from "../../GlobalState";
 
@@ -128,6 +129,7 @@ function Pages() {
       <Route path="/addPayment" exact component={AddPayment} />
       <Route path="/displayCard" exact component={DisplayCards} />
       <Route path="/displayOrders" exact component={DisplayOrders} />
+      <Route path="/test" exact component={Test} />
 
       <Route path="*" exact component={NotFound} />
     </Switch>
