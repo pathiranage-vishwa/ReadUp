@@ -3,6 +3,7 @@ import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
 import "./Styles/allCategory.css";
 import swal from "sweetalert";
+import { Link } from "react-router-dom";
 
 function Categories() {
   const state = useContext(GlobalState);
@@ -110,10 +111,12 @@ function Categories() {
           </div>
         </form>
       </div>
+
       <div className="col">
         <div className="DisplayMain">
           <label className="formTitleMark"> ALL CATEGORIES</label>
           <hr className="hr1" />
+
           <div>
             <table className="table" style={{ backgroundColor: "white" }}>
               <thead>
@@ -155,6 +158,9 @@ function Categories() {
             </table>
           </div>
         </div>
+        <Link to="/category" className="btn btn_edit1">
+          Add Category
+        </Link>
       </div>
     </div>
   );

@@ -112,3 +112,15 @@ body {
   margin-left: 10px;
   margin-right: 10px;
 }
+
+.btn_edit1 {
+  background: rgb(12, 9, 104);
+  font-size: 17px;
+  height: 40px;
+  color: #ffffff;
+  border-radius: 5px;
+  width: 140px;
+  margin-left: 72%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
