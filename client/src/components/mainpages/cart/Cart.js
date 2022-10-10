@@ -64,7 +64,7 @@ const Product = styled.div`
   display: flex;
   border: 0.5px solid lightgray;
   padding: 20px;
-  width: 1250px;
+  width: 1050px;
   border-radius: 10px;
   justify-content: space-between;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

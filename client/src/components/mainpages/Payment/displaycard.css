@@ -9,3 +9,14 @@
     margin-bottom: 4vh;
     margin-left: 0%;
   }
+
+  .savecard{
+    background-image: url("../Reservation/Style/savecard.png");
+  
+    background-size: 580px 490px;
+  
+    background-repeat: no-repeat;
+  
+    background-position: center;
+
+  }

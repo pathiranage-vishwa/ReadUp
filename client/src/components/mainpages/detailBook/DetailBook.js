@@ -16,6 +16,7 @@ function DetailBook() {
     localStorage.setItem("bookDetails", JSON.stringify(detailBook));
     //set image to local storage
     localStorage.setItem("bookImage", JSON.stringify(detailBook.images.url));
+    localStorage.setItem("bookID", detailBook._id);
   };
 
   useEffect(() => {
@@ -60,7 +61,11 @@ function DetailBook() {
           >
             Add to Cart
           </Link>
-          <Link
+
+        </div>
+      </div>
+      <div>
+      <Link
             to="#"
             className="btnDetailwishlist"
             onClick={() => addWishList(detailBook)}
@@ -69,15 +74,13 @@ function DetailBook() {
           </Link>
           <Link
               to="/review"
-              className="btnDetail ms-3 "
+              className="btnReviewDetail ms-3 "
               onClick={() => setDetails(detailBook)}
           >
              Reviews
           </Link>
-
-        </div>
       </div>
-
+<br/><br/><br/>
       <div>
         <h2>Related books</h2>
         <div className="books">

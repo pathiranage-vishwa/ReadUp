@@ -8,6 +8,7 @@ import OrderHistory from "./history/OrderHistory";
 import OrderDetails from "./history/OrderDetails";
 import Cart from "./cart/Cart";
 import NotFound from "./utils/not_found/NotFound";
+import Loading from "./utils/loading/Loading";
 import Categories from "./categories/Categories";
 import CreateBook from "./createBook/createBook";
 import RequestHome from "./requests/RequestHome";
@@ -24,7 +25,7 @@ import ResetPassword from "./auth/ResetPassword";
 import DisplayCards from "./Payment/DisplayCards";
 import Home from "../homepage/Home";
 import MyAds from "./myAds/MyAds";
-import UserProfile from "./auth/UserProfile";
+import UserProfile from "./auth/userProfile";
 import updateProfile from "./auth/UpdateUser";
 import Wishlist from "../mainpages/wishlist/Wishlist";
 import generateReport from "./auth/generateReport";
@@ -41,17 +42,18 @@ function Pages() {
   const state = useContext(GlobalState);
   const [isLogged] = state.userAPI.isLogged;
   const [isAdmin] = state.userAPI.isAdmin;
+  const [isSeller] = state.userAPI.isSeller;
 
   return (
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/books" exact component={Books} />
       <Route path="/detail/:id" exact component={DetailBook} />
-      <Route path="/login" exact component={isLogged ? NotFound : Login} />
+      <Route path="/login" exact component={isLogged ? Loading : Login} />
       <Route
         path="/register"
         exact
-        component={isLogged ? NotFound : Register}
+        component={isLogged ? Loading : Register}
       />
       <Route path="/forget_pw" exact component={ForgotPassword} />
       <Route path="/reset_pw/:token" exact component={ResetPassword} />
@@ -60,24 +62,24 @@ function Pages() {
       <Route
         path="/userProfile/:id"
         exact
-        component={isLogged ? UserProfile : NotFound}
+        component={isLogged ? UserProfile : Loading}
       />
 
       <Route
         path="/allusers"
         exact
-        component={isLogged ? AllUsers : NotFound}
+        component={isAdmin ? AllUsers : NotFound}
       />
       <Route
         path="/updateProfile/:id"
         exact
-        component={isLogged ? updateProfile : NotFound}
+        component={isLogged ? updateProfile : Loading}
       />
 
       <Route
         path="/category"
         exact
-        component={isAdmin ? Categories : NotFound}
+        component={isAdmin ? Categories : Loading}
       />
       <Route
         path="/allcategory"
@@ -86,61 +88,61 @@ function Pages() {
       />
 
         <Route path="/review"
-               exact component={isLogged ? Reviews : NotFound}
+               exact component={isLogged ? Reviews : Loading}
         />
         <Route path="/addreview"
-               exact component={isLogged ? AddReview : NotFound}
+               exact component={isLogged ? AddReview : Loading}
         />
-        <Route path="/updatereview"
-               exact component={isLogged ? UpdateReview : NotFound}
+        <Route path="/updatereview/:id"
+               exact component={isLogged ? UpdateReview : Loading}
         />
         <Route path="/managereviews"
-               exact component={isLogged ? ManageReviews : NotFound}
+               exact component={isLogged ? ManageReviews : Loading}
         />
 
       <Route path="/request"
-             exact component={isLogged ? Requests : NotFound}
+             exact component={isLogged ? Requests : Loading}
       />
       <Route
         path="/requestHome"
         exact
-        component={isLogged ? RequestHome : NotFound}
+        component={isLogged ? RequestHome : Loading}
       />
       <Route
         path="/allrequest"
         exact
-        component={isLogged ? Allrequests : NotFound}
+        component={isLogged ? Allrequests : Loading}
       />
       <Route
         path="/updaterequest/:id"
         exact
-        component={isLogged ? Updaterequest : NotFound}
+        component={isLogged ? Updaterequest : Loading}
       />
       <Route
         path="/managerequests"
         exact
-        component={isLogged ? Managerequests : NotFound}
+        component={isSeller ? Managerequests : NotFound}
       />
       <Route path="/create_book" exact component={CreateBook} />
       <Route
         path="/edit_product/:id"
         exact
-        component={isLogged ? CreateBook : NotFound}
+        component={isLogged ? CreateBook : Loading}
       />
       <Route
         path="/history"
         exact
-        component={isLogged ? OrderHistory : NotFound}
+        component={isLogged ? OrderHistory : Loading}
       />
       <Route
         path="/history/:id"
         exact
-        component={isLogged ? OrderDetails : NotFound}
+        component={isLogged ? OrderDetails : Loading}
       />
       <Route path="/cart" exact component={Cart} />
       <Route path="/wishlist" exact component={Wishlist} />
 
-      <Route path="/myAds" exact component={MyAds} />
+      <Route path="/myAds" exact component={isSeller? MyAds : NotFound } />
       <Route path="/manageOrders" exact component={ManageOrders} />
       <Route path="/checkout" exact component={Checkout} />
       <Route path="/addPayment" exact component={AddPayment} />
@@ -148,7 +150,7 @@ function Pages() {
 
       <Route path="/displayOrders" exact component={DisplayOrders} />
 
-      <Route path="*" exact component={NotFound} />
+      <Route path="*" exact component={Loading} />
     </Switch>
   );
 }

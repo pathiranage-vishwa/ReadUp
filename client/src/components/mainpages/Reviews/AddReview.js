@@ -1,4 +1,4 @@
-import React, {useState,useContext} from "react";
+import React, {useState,useContext, useEffect} from "react";
 import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
 import swal from "sweetalert";
@@ -10,8 +10,11 @@ function AddReview(){
     const history = useHistory();
     const state = useContext(GlobalState);
     const [token] = state.token;
+    const [user] = state.userAPI.user;
 
     const [review,setReview] = useState({
+        bookId: localStorage.getItem("bookID"),
+        userId: user._id,
         rate: "",
         date: "",
         CommentReview:""

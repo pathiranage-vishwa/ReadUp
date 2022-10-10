@@ -12,4 +12,6 @@ router
     .delete(reviewCtrl.deleteReview)
     .put(reviewCtrl.updateReview);
 
+router.route("/review/book/:id").get(reviewCtrl.getReviewByBookId);
+
 module.exports = router;

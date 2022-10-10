@@ -70,10 +70,11 @@
   letter-spacing: 2px;
 }
 
-.box-detail .btnDetailwishlist {
+.btnDetailwishlist {
   background: rgb(255, 255, 255);
   color: rgb(7, 12, 86);
   margin-top: 10px;
+  margin-left: 10%;
   border: 2px solid rgb(11, 4, 83);
   padding: 10px 10px;
   display: inline-block;
@@ -82,6 +83,23 @@
   border-radius: 5px;
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-size: 3vh;
+  font-weight: bold;
+}
+
+.btnReviewDetail {
+  background: rgb(255, 255, 255);
+  color: rgb(7, 12, 86);
+  border: 2px solid rgb(11, 4, 83);
+  padding: 10px 10px;
+  display: inline-block;
+  width: 143px;
+  height: 55px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 3vh;
+  font-weight: bold;
 }
 
 .bookDetails-heading {

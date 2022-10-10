@@ -3,8 +3,10 @@ import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
 import swal from "sweetalert";
 import UpdateReq from "../requests/Styles/UpdateReq.png";
+import { useHistory } from "react-router-dom";
 
 export default function UpdateReview(){
+    const history = useHistory();
     const state = useContext(GlobalState);
     const [token] = state.token;
 
@@ -12,6 +14,7 @@ export default function UpdateReview(){
     const [rate,setRate] = useState();
     const [date,setDate] = useState()
     const [CommentReview,setCommentReview] = useState();
+    const [user] = state.userAPI.user;
 
     useEffect(()=>{
         setId(localStorage.getItem("reid"));
@@ -24,6 +27,7 @@ export default function UpdateReview(){
         e.preventDefault();
         const newReview = {
             id,
+            userId: user._id,
             rate,
             date,
             CommentReview,
@@ -32,6 +36,7 @@ export default function UpdateReview(){
             .put(`/api/review/${id}`, newReview)
             .then(() =>{
                 swal("Done!", "Review Updated!!", "success");
+                history.push("/review");
             })
             .catch((err)=>{
                 alert(err);

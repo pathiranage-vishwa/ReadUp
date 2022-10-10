@@ -6,7 +6,7 @@ function Filters() {
   const [categories] = state.categoriesAPI.categories;
 
   const [category, setCategory] = state.booksAPI.category;
-  const [sort, setSort] = state.booksAPI.books;
+  const [sort, setSort] = state.booksAPI.sort;
   const [search, setSearch] = state.booksAPI.search;
 
   const handleCategory = (e) => {
@@ -40,11 +40,11 @@ function Filters() {
         />
       </div>
       <div className="row sort">
-        <span>Sort By: </span>
+        <span><b>Sort By </b></span>
         <select value={sort} onChange={(e) => setSort(e.target.value)}>
-          <option value="">Newest</option>
-          <option value="sort=-price">Price: Hight-Low</option>
-          <option value="sort=price">Price: Low-Hight</option>
+          <option value="">Recent</option>
+          <option value="sort=-price">Price(Hight to Low)</option>
+          <option value="sort=price">Price(Low to Hight)</option>
         </select>
       </div>
     </div>

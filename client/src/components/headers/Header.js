@@ -76,7 +76,7 @@ function Header() {
     return (
       <>
         <li>
-          <Link to="/create_book">Create Book</Link>
+          <Link to="/create_book">Add Book</Link>
         </li>
       </>
     );
@@ -86,10 +86,7 @@ function Header() {
     return (
       <>
         <li>
-          <Link to="/request">Request Books</Link>
-        </li>
-        <li>
-          <Link to="/history">History</Link>
+          <Link to="/managerequests">Manage Requests</Link>
         </li>
         <li>
           <Link to="/" onClick={logoutUser}>

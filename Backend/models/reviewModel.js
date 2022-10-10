@@ -2,6 +2,14 @@ const mongoose = require ("mongoose");
 
 const reviewSchema = new mongoose.Schema(
     {
+        bookId: {
+            type: String,
+            required: true,
+        },
+        userId: {
+            type: String,
+            required: true,
+        },
         rate:{
             type:String,
             required:true
