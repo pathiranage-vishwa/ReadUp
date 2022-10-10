@@ -245,6 +245,7 @@ const AddPayment = () => {
           <b>Payment</b>
         </h3>
       </center>
+      <hr className="disTopicHr" />
       <div className="addPayments">
         <React.Fragment>
           <form>
@@ -418,7 +419,7 @@ const AddPayment = () => {
         <div
           className="paypal form"
           class="card"
-          style={{marginTop: "30px" ,height: "30%",margin: "auto"}}
+          style={{marginTop: "15px" ,height: "30%"}}
         >
           <div class="amount">
             <div class="inner">
@@ -442,7 +443,9 @@ const AddPayment = () => {
                       <Typography variant="h6" gutterBottom>
                         <b> Cash On Delivery</b>
                       </Typography>
+                      
                     </Box>
+          <hr className="disTopicHr" />
           <div class="amount">
             <div class="inner">
               <span class="dollar"><b>TOTAL LKR.{transfer_amount}</b></span>

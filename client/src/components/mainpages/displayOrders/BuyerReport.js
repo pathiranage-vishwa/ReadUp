@@ -8,7 +8,7 @@ const BuyerReport = (order, buyer) => {
     buyer.charAt(0).toUpperCase() + buyer.slice(1).toLowerCase();
   const doc = new jsPDF();
 
-  const tableColumn = ["Orders", "Amount Paid", "Date", "Time"];
+  const tableColumn = ["Orders", "Amount Paid", "Date", "Time","Status"];
 
   const tableRows = [];
 
@@ -23,6 +23,7 @@ const BuyerReport = (order, buyer) => {
       `Total\t   :` +data.total,
       moment(data.createdAt).utc().format('YYYY-MM-DD'),
       moment(data.createdAt).utc().format('HH:MM:SS'),
+      data.orderstatus
     ]
     tableRows.push(buyerHistory);
     data.cart.forEach((item) => {
@@ -48,10 +49,18 @@ const BuyerReport = (order, buyer) => {
   });
 
   console.log(total);
-
+  doc.setFontSize(30);
+  doc.text(`General Buyer Report `, 60, 30).setDrawColor("blue");
+  doc.setFontSize(10);
+  doc.text(
+    `:This buyer report contain all the orders of ${buyerName}.`,
+    15,
+    70
+  ).setFontSize(5);
 
   // startY is basically margin-top
   doc.autoTable({
+
     head: [tableColumn],
     body: tableRows,
     headerStyles: {
@@ -70,14 +79,7 @@ const BuyerReport = (order, buyer) => {
 
   // Received items title. and margin-top + margin-left
  
-
-  doc.setFontSize(10);
-  doc.text(`General Buyer Report `, 15, 60);
-  doc.text(
-    `This buyer report contain all the orders ${buyerName}.`,
-    15,
-    66
-  );
+ 
 
   //we define the name of our PDF file.
   doc.save(`BuyerReport_.pdf`);

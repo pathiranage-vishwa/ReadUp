@@ -134,6 +134,7 @@ console.log(status);
             <div className="login d-flex align-items-center py-5">
               <div className="card-body p-md-5 text-black">
               <h3 className="category-heading mb-6">Save Cards Details</h3>
+              <hr className="disTopicHrCard" />
                   <div className="dis_card">
                     {cards.map((card,key) => {
                       return (

@@ -33,7 +33,7 @@ body {
     border-top: 1vh solid;
     width: 50%;
     margin-bottom: 4vh;
-    margin-left: 20%;
+    margin: auto;
   }
   
   .topicTop {
