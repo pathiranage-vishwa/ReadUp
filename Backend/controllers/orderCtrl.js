@@ -1,6 +1,7 @@
 const Orders = require("../models/orderModel");
 const Users = require("../models/userModel");
 const Products = require("../models/bookModel");
+const md5 = require('md5');
 
 const orderCtrl = {
   //get one user orders
@@ -34,7 +35,7 @@ const orderCtrl = {
         name,
         email,
         cart,
-        paymentID,
+        paymentID : md5(`${paymentID}`),
         address,
         country,
         postalCode,

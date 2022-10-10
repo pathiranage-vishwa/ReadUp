@@ -14,17 +14,18 @@ const BuyerReport = (order, buyer) => {
 
   var no = 0;
   var total = 0;
-
   order.forEach((data) => {
     ++no;
     console.log(data.cart);
-
+    //const [orderHistory,setOrderHistory] =[]
+    const buyerHistory = [
+      no,
+      data.total,
+      moment(data.createdAt).utc().format('YYYY-MM-DD'),
+      moment(data.createdAt).utc().format('HH:MM:SS'),
+    ]
     data.cart.forEach((item) => {
-      const buyerHistory = [
-        no,
-        data.total,
-        moment(data.createdAt).utc().format('YYYY-MM-DD'),
-        moment(data.createdAt).utc().format('HH:MM:SS'),
+      const orderHistory = [
         [
           `Book Title\t\t   :` +
             item.title +
@@ -36,10 +37,12 @@ const BuyerReport = (order, buyer) => {
             item.price * item.quantity,
         ],
         (total = total + item.price * item.quantity),
-      ];
 
-      tableRows.push(buyerHistory);
-    });
+      ]
+      
+    })
+    
+    tableRows.push(buyerHistory);
   });
 
   console.log(total);

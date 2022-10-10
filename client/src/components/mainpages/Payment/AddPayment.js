@@ -40,7 +40,7 @@ const AddPayment = () => {
 
   console.log(user);
 
-  const order_id = "4b054b40aa48e9922a6ee8cfaecc2ac2";
+  const order_id = Date().toLocaleString();
   const paymentID = "3 test";
   const Username = user.Username;
   const user_id = user._id;
@@ -55,7 +55,7 @@ const AddPayment = () => {
   const address = localStorage.getItem("Address");
   const country = localStorage.getItem("Country");
   const postalCode = localStorage.getItem("PCode");
-  const transfer_amount = localStorage.getItem("Total");
+  const [transfer_amount,setTransfer_amount] = useState(localStorage.getItem("Total"));
 
   // const addToCart = async (cart) =>{
   //     await axios.patch('/user/addcart', {cart}, {
@@ -150,6 +150,7 @@ const AddPayment = () => {
         // navigate("/ViewDetails")
         swal("successfully save card payment");
         orderPalce();
+        setTransfer_amount(0);
       } catch (error) {
         console.log(error);
         swal("card payment save failed");
@@ -179,13 +180,61 @@ const AddPayment = () => {
       axios.post("/api/order", reserDataAdd);
       // navigate("/ViewDetails")
       swal("successfully place the order");
-      history.push("/");
+      setTransfer_amount(0);
+      // history.push("/");
     } catch (error) {
       console.log(error);
       swal("reservaion save faild");
     }
     
   }
+
+  async function saveCardPayment() {
+    const data = {
+      saveCard,
+      transfer_amount
+  
+      // email
+    };
+    try {
+      await axios.post("http://localhost:7000/cardPay/saveCardPayment", data);
+      // navigate("/ViewDetails")
+      swal("successfully add card payment");
+      setStatus("1");
+
+      //    cart.forEach((item, index) => {
+      //     if(item._id === id){
+      //         cart.splice(index, 1)
+      //     }
+      // })
+      // setCart({})
+      // addToCart(cart);
+
+      const dataAdd = {
+        PaymentType,
+        Username,
+        cardNumber:saveCard,
+        order_id,
+        email,
+        transfer_amount,
+      };
+      try {
+        axios.post("http://localhost:7000/cardPay/payment", dataAdd);
+        // navigate("/ViewDetails")
+        swal("successfully save card payment");
+        orderPalce();
+        setTransfer_amount(0);
+      } catch (error) {
+        console.log(error);
+        swal("card payment save failed");
+      }
+    } catch (error) {
+      swal("card payment failed");
+      console.log(error);
+      setStatus("0");
+    }
+    
+  };
 
   // console.log(crrUser)
 
@@ -237,7 +286,7 @@ const AddPayment = () => {
                             Select Save Card
                           </MenuItem>
                           {cards.map((card,key)=>(
-                          <MenuItem value="mobile">{card.lastFourDigits}</MenuItem>
+                          <MenuItem value={card.cardNumber}>{card.lastFourDigits}</MenuItem>
                         ))}
                         </Select>
                       
@@ -341,31 +390,35 @@ const AddPayment = () => {
                     </button>
                   </div>
           ):null}{saveCard !== "notSaved" ?(
+                
                     <div className="d-flex justify-content-end pt-3">
                     <button
                       className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
-                      type="submit"
+                      type="button"
                       style={{
                         marginLeft: "330px",
                         marginTop: "10px",
                         height: "50px",
                         width: "100px",
                       }}
+                      onClick={saveCardPayment}
                     >
             
                       Pay
                     </button>
                   </div>
+            
           ):null}        
                 </form>
               </Form>
             </div>
           </form>
         </React.Fragment>
+        <div>
         <div
           className="paypal form"
           class="card"
-          style={{marginTop: "25px" ,height: "60%"}}
+          style={{marginTop: "30px" ,height: "30%",margin: "auto"}}
         >
           <div class="amount">
             <div class="inner">
@@ -374,14 +427,16 @@ const AddPayment = () => {
           </div>
           <div className="row" style={{ marginTop: "20px" }}>
             <center>
+             
               <Paypal 
               total={transfer_amount}/>
             </center>
           </div>
+          </div>
           <div
           className="cashOnForm"
           class="card"
-          style={{ width: "300px", height: "60%", marginTop: "auto" }}
+          style={{ width: "300px", height: "180px", marginTop: "30%" }}
         >
           <Box mb={2}>
                       <Typography variant="h6" gutterBottom>
@@ -410,8 +465,8 @@ const AddPayment = () => {
           </form>
           </div>
         </div>
-        </div>
         
+        </div>
       </div>
     </div>
   );
