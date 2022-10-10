@@ -6,6 +6,16 @@ import Rating from "./Rating";
 
 export default function Reviews(){
     const [reviews, setReview] = useState([]);
+    const [id,setId] = useState();
+    const [bookDetail, setBookDetail] = React.useState([]);
+    const [image, setImage] = React.useState("");
+
+    React.useEffect(() => {
+        const bookDetails = JSON.parse(localStorage.getItem("bookDetails"));
+        setBookDetail(bookDetails);
+        const bookImage = JSON.parse(localStorage.getItem("bookImage"));
+        setImage(bookImage);
+    }, []);
 
     useEffect(() => {
         axios
@@ -17,6 +27,8 @@ export default function Reviews(){
                 alert(err.message);
             });
     }, []);
+
+
 
     const setRData = (data) => {
         let { _id, rate, date,CommentReview } = data;
@@ -50,7 +62,16 @@ export default function Reviews(){
                         <div className="col-sm-6">
                             <div className="card">
                                 <div className="card-body">
-                                    <img className="card-img-top" src={reqBook}  alt="Card image cap"/>
+                                    <div className="detail">
+                                        <img src={image} alt="" />
+                                        <div className="box-detail">
+                                            <div className="row">
+                                                <center>
+                                                    <h2>{bookDetail.title}</h2>
+                                                </center>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <br/>  <br/>
                                     <center>
                                         <a className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5" href="/addreview" role="button" >Add Review</a>
