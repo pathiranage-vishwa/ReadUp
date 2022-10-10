@@ -8,6 +8,8 @@ const initialState = {
   success: "",
 };
 
+//forgetpw
+
 function ForgotPassword() {
   const [data, setData] = useState(initialState);
 
@@ -31,19 +33,37 @@ function ForgotPassword() {
   };
 
   return (
-    <div className="fg_pass">
-      <h2>Forgot Your Password?</h2>
+    <div className="regTop">
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className="container-fluid ps-md-0 ">
+        <div className="row g-0">
+          <div className="d-none d-md-flex col-md-4 col-lg-6 fg_passimage"></div>
+          <div className="col-md-8 col-lg-6">
+            <div className="login d-flex align-items-center py-5">
+              <div className="card-body p-md-5 text-black">
+                <div className="fg_pass">
+                  <h2>Forgot Your Password?</h2>
 
-      <div className="row">
-        <label htmlFor="email">Enter your email address</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          value={email}
-          onChange={handleChangeInput}
-        />
-        <button onClick={forgotPassword}>Verify your email</button>
+                  <div className="row">
+                    <label htmlFor="email">Enter your email address</label>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      value={email}
+                      onChange={handleChangeInput}
+                    />
+                    <button onClick={forgotPassword}>Verify your email address</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

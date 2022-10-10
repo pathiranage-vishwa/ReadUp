@@ -2,3 +2,10 @@
     width: 100%;
     position: relative;
   }
+  .disTopicHrCard {
+    color: rgb(255, 166, 1);
+    border-top: 1vh solid;
+    width: 50%;
+    margin-bottom: 4vh;
+    margin-left: 0%;
+  }

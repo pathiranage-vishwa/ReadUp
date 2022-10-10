@@ -1,21 +1,21 @@
 const Orders = require("../models/orderModel");
 const Users = require("../models/userModel");
 const Products = require("../models/bookModel");
+const md5 = require('md5');
 
 const orderCtrl = {
+  //get one user orders
   getOrders: async (req, res) => {
     try {
-      const Orders = await Orders.find();
-      res.json(Orders);
+      const orders = await Orders.find({"user_id":req.params.buyer_id});
+      res.json(orders);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
   },
   createOrder: async (req, res) => {
     try {
-      // const user = await Users.findById(req.user.id).select('name email')
-      // if(!user) return res.status(400).json({msg: "User does not exist."})
-
+      
       const {
         user_id,
         name,
@@ -35,7 +35,7 @@ const orderCtrl = {
         name,
         email,
         cart,
-        paymentID,
+        paymentID : md5(`${paymentID}`),
         address,
         country,
         postalCode,
@@ -43,9 +43,6 @@ const orderCtrl = {
         total: transfer_amount,
       });
 
-      // cart.filter(item => {
-      //     return sold(item._id, item.quantity, item.sold)
-      // })
 
       await newOrder.save();
       res.json({ msg: "Order Succes!" });
@@ -54,12 +51,53 @@ const orderCtrl = {
     }
   },
 
+// get orders for seller
   getOrderBySellerID: async (req, res) => {
     try {
-      const order = await Orders.find({
-        "cart.seller_id": { $in: req.params.seller_id },
-      });
+      const order = await Orders.aggregate([
+        { $match: { "cart.seller_id": req.params.seller_id } },
+        {
+          $project: {
+            _id: 1,
+            user_id: 1,
+            name: 1,
+            email: 1,
+            address: 1,
+            country: 1,
+            postalCode: 1,
+            phoneNumber: 1,
+            paymentID: 1,
+            orderstatus: 1,
+            total: 1,
+            cart: {
+              $filter: {
+                input: "$cart",
+                as: "cartItem",
+                cond: {
+                  $eq: ["$$cartItem.seller_id", req.params.seller_id],
+                },
+              },
+            },
+          },
+        },
+      ]);
+
       res.json(order);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  updateOrderStatus: async (req, res) => {
+    // orderId = req.params.id;
+
+    try {
+      const order = await Orders.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          orderstatus: req.body.orderstatus,
+        }
+      );
+      res.json({ msg: "Order Status Updated" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }

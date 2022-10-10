@@ -43,4 +43,24 @@ export const validatePaymentRequest = (req, res) => {
     else return req_details;
   };
 
+  // validate credit card deatils with provided details
+  export const matchSaveCardDetails = (card, req_details, res) => {
+  
+    var err_message = "";
+    if (!card)
+      err_message =
+        "There is no credit card associated with the card no provided";
+   
+    
+
+    else if (card.cardNumber != req_details.saveCard)
+      err_message = "Card number did not match";
+    else if (card.balance < req_details.transfer_amount)
+      err_message = "Card balance is not suffient";
+  
+    if (err_message.length > 0)
+      return res.status(422).json({ message: err_message });
+    else return req_details;
+  };
+
   

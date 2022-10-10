@@ -8,6 +8,7 @@ function BtnRender({ book, deleteBook }) {
   const [isSeller] = state.userAPI.isSeller;
   const [isBuyer] = state.userAPI.isBuyer;
   const addCart = state.userAPI.addCart;
+  const addWishList = state.userAPI.addWishList;
   const [user] = state.userAPI.user;
 
   return (
@@ -18,7 +19,6 @@ function BtnRender({ book, deleteBook }) {
             id="btn_buy"
             to="#!"
             onClick={() => deleteBook(book._id, book.images.public_id)}
-            // className="btn btn-lg text-uppercase  mb-5"
           >
             Delete
           </Link>
@@ -32,12 +32,7 @@ function BtnRender({ book, deleteBook }) {
         </>
       ) : (
         <>
-          <Link
-            id="btn_buy"
-            to="#!"
-            onClick={() => addCart(book)}
-            // className="btn btn-lg  text-uppercase  mb-5"
-          >
+          <Link id="btn_buy" to="#!" onClick={() => addCart(book)}>
             Buy
           </Link>
           <Link

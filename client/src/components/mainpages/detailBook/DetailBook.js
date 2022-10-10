@@ -8,7 +8,15 @@ function DetailBook() {
   const state = useContext(GlobalState);
   const [books] = state.booksAPI.books;
   const addCart = state.userAPI.addCart;
+  const addWishList = state.userAPI.addWishList;
   const [detailBook, setDetailBook] = useState([]);
+
+  //set to local storage
+  const setDetails = () => {
+    localStorage.setItem("bookDetails", JSON.stringify(detailBook));
+    //set image to local storage
+    localStorage.setItem("bookImage", JSON.stringify(detailBook.images.url));
+  };
 
   useEffect(() => {
     if (params.id) {
@@ -52,6 +60,21 @@ function DetailBook() {
           >
             Add to Cart
           </Link>
+          <Link
+            to="/wishlist"
+            className="btnDetail"
+            onClick={() => addWishList(detailBook)}
+          >
+            Add to Wishlist
+          </Link>
+          <Link
+              to="/review"
+              className="btnDetail ms-3 "
+              onClick={() => setDetails(detailBook)}
+          >
+             Reviews
+          </Link>
+
         </div>
       </div>
 

@@ -16,9 +16,11 @@ function Filters() {
   return (
     <div className="filter_menu">
       <div className="row">
-        <span>Filters: </span>
+        <span>
+          <b>Filter by Category </b>
+        </span>
         <select name="category" value={category} onChange={handleCategory}>
-          <option value="">All Products</option>
+          <option value="">All Books</option>
           {categories.map((category) => (
             <option value={"category=" + category._id} key={category._id}>
               {category.categoryName}
@@ -27,7 +29,9 @@ function Filters() {
         </select>
       </div>
       <div className="row">
-        <span>Search: </span>
+        <span>
+          <b>Search Your Favorite Book...</b>{" "}
+        </span>
         <input
           type="text"
           value={search}
@@ -39,8 +43,6 @@ function Filters() {
         <span>Sort By: </span>
         <select value={sort} onChange={(e) => setSort(e.target.value)}>
           <option value="">Newest</option>
-          <option value="sort=oldest">Oldest</option>
-          <option value="sort=-sold">Best sales</option>
           <option value="sort=-price">Price: Hight-Low</option>
           <option value="sort=price">Price: Low-Hight</option>
         </select>

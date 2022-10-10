@@ -18,9 +18,13 @@ router.get("/infor", auth, userCtrl.getUser);
 
 router.get("/allUsers", userCtrl.getAllUsers);
 
+router.put('/updateUsr/:id', userCtrl.updateAUser);
+
 router.delete("/delete/:id", userCtrl.deleteUser);
 
 router.patch("/addcart", auth, userCtrl.addCart);
+
+router.patch("/addWishList", auth, userCtrl.addWishList);
 
 router.get("/history", auth, userCtrl.history);
 

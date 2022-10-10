@@ -129,7 +129,7 @@ export default function Allrequests() {
               <td>
                 <a
                   className="btn btn-warning"
-                  href={`/updateuser/${data._id}`}
+                  href={`/updaterequest/${data._id}`}
                   onClick={() => setData(data)}
                 >
                   &nbsp;Update

@@ -13,7 +13,7 @@ const cardSchema = new Schema(
       type: String,
       required: true,
     },
-    firstFourDigits:{
+    lastFourDigits:{
       type: String,
       required: true,
     },
