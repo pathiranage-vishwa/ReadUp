@@ -60,7 +60,7 @@ function DetailBook() {
             Add to Cart
           </Link>
           <Link
-              to="/reviews"
+              to="/review"
               className="btnDetail ms-3 "
               onClick={() => setDetails(detailBook)}
           >
