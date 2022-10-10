@@ -56,7 +56,6 @@ export default function ManageReviews() {
                     <h1>DashBoard - Book Reviews </h1>
                 </center>
             </div>
-
             <br />
 
             <table className="customers">
