@@ -14,6 +14,15 @@
     box-shadow: 10px 10px 10px 0;
     text-align: left;
 }
+.cashOnForm{
+    width: 290px;
+    padding: 50px;
+    margin-left: 80%;
+    background:#f2f2f2;
+    border-radius: 15px;
+    box-shadow: 10px 10px 10px 0;
+    text-align: left;
+}
 .paymentImage {
 
     background-image: url("./cards.png");
