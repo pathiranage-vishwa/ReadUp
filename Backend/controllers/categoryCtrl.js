@@ -31,11 +31,11 @@ const categoryCtrl = {
       const products = await Products.findOne({ category: req.params.id });
       if (products)
         return res.status(400).json({
-          msg: "Please delete all products with a relationship.",
+          msg: "Please inform the customers before deleting this category.",
         });
 
       await Category.findByIdAndDelete(req.params.id);
-      res.json({ msg: "Deleted a Category" });
+      res.json({ msg: "Book Category successfully deleted!" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
@@ -45,7 +45,7 @@ const categoryCtrl = {
       const { categoryName } = req.body;
       await Category.findOneAndUpdate({ _id: req.params.id }, { categoryName });
 
-      res.json({ msg: "Updated a category" });
+      res.json({ msg: "Book category is successfully updated" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }

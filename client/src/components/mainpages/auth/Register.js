@@ -60,6 +60,7 @@ function Register() {
                         <input
                           type="text"
                           name="firstName"
+                          placeholder="First Name"
                           value={user.firstName}
                           className="form-control form-control-lg"
                           onChange={onChangeInput}
@@ -75,6 +76,7 @@ function Register() {
                         <input
                           type="text"
                           name="lastName"
+                          placeholder="Last Name"
                           value={user.lastName}
                           className="form-control form-control-lg"
                           onChange={onChangeInput}
@@ -93,6 +95,8 @@ function Register() {
                         <input
                           type="text"
                           name="username"
+                          placeholder="Username"
+                          autocomplete="off"
                           value={user.username}
                           className="form-control form-control-lg"
                           onChange={onChangeInput}
@@ -108,6 +112,8 @@ function Register() {
                         <input
                           type="password"
                           name="password"
+                          placeholder="Password"
+                          autocomplete="off"
                           value={user.password}
                           className="form-control form-control-lg"
                           onChange={onChangeInput}
@@ -125,6 +131,7 @@ function Register() {
                         </label>
                         <input
                           type="email"
+                          placeholder="Email Address"
                           name="email"
                           value={user.email}
                           onChange={onChangeInput}

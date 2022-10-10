@@ -5,7 +5,8 @@ import { Add, Remove, Delete } from "@material-ui/icons";
 import styled from "styled-components";
 import { useHistory } from "react-router";
 import { mobile } from "../../homepage/responsive";
-import StripeCheckout from "react-stripe-checkout";
+import swal from "sweetalert";
+import { useParams, Link } from "react-router-dom";
 
 const KEY = process.env.REACT_APP_STRIPE;
 
@@ -167,8 +168,11 @@ const Button = styled.button`
   font-size: 20px;
 `;
 
+//Cart
+
 function Cart() {
   const state = useContext(GlobalState);
+  const [wishList, setWishList] = state.userAPI.wishList;
   const [cart, setCart] = state.userAPI.cart;
   const [token] = state.token;
   const [total, setTotal] = useState(0);
@@ -218,16 +222,26 @@ function Cart() {
   };
 
   const removeProduct = (id) => {
-    if (window.confirm("Do you want to delete this product?")) {
-      cart.forEach((item, index) => {
-        if (item._id === id) {
-          cart.splice(index, 1);
-        }
-      });
+    swal({
+      title: "Are you sure?",
+      text: "The selected book will be deleted from the cart!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        cart.forEach((item, index) => {
+          if (item._id === id) {
+            cart.splice(index, 1);
+          }
+        });
 
-      setCart([...cart]);
-      addToCart(cart);
-    }
+        setCart([...cart]);
+        addToCart(cart);
+      } else {
+        swal("Selected Book is safe!");
+      }
+    });
   };
 
   const tranSuccess = async (payment) => {
@@ -263,8 +277,12 @@ function Cart() {
         <Top>
           <TopButton>CONTINUE SHOPPING</TopButton>
           <TopTexts>
-            <TopText>Shopping Cart({cart.length})</TopText>
-            <TopText>Your Wishlist (0)</TopText>
+            <Link to="/cart">
+            <TopButton>Shopping Cart({cart.length})</TopButton>
+            </Link>
+            <Link to="/wishlist">
+            <TopButton>Your Wishlist ({wishList.length})</TopButton>
+            </Link>
           </TopTexts>
           <TopButton>CHECKOUT NOW</TopButton>
         </Top>

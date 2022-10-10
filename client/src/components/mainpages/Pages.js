@@ -24,10 +24,16 @@ import ResetPassword from "./auth/ResetPassword";
 import DisplayCards from "./Payment/DisplayCards";
 import Home from "../homepage/Home";
 import MyAds from "./myAds/MyAds";
+import userProfile from "./auth/userProfile";
+import updateProfile from "./auth/UpdateUser";
+import Wishlist from "../mainpages/wishlist/Wishlist";
+import generateReport from "./auth/generateReport";
 import AddReview from "./Reviews/AddReview";
 import UpdateReview from "./Reviews/UpdateReview";
 import Reviews from "./Reviews/Reviews";
 import ManageReviews from "./Reviews/ManageReviews";
+import ManageOrders from "./manageOrders/ManageOrders.js";
+import DisplayOrders from "./displayOrders/DispalyOrders";
 
 import { GlobalState } from "../../GlobalState";
 
@@ -41,7 +47,6 @@ function Pages() {
       <Route path="/" exact component={Home} />
       <Route path="/books" exact component={Books} />
       <Route path="/detail/:id" exact component={DetailBook} />
-
       <Route path="/login" exact component={isLogged ? NotFound : Login} />
       <Route
         path="/register"
@@ -50,11 +55,23 @@ function Pages() {
       />
       <Route path="/forget_pw" exact component={ForgotPassword} />
       <Route path="/reset_pw" exact component={ResetPassword} />
+      <Route path="/report" exact component={generateReport} />
+
+      <Route
+        path="/userProfile/:id"
+        exact
+        component={isLogged ? userProfile : NotFound}
+      />
 
       <Route
         path="/allusers"
         exact
         component={isLogged ? AllUsers : NotFound}
+      />
+      <Route
+        path="/updateProfile/:id"
+        exact
+        component={isLogged ? updateProfile : NotFound}
       />
 
       <Route
@@ -95,7 +112,7 @@ function Pages() {
         component={isLogged ? Allrequests : NotFound}
       />
       <Route
-        path="/updateuser/:id"
+        path="/updaterequest/:id"
         exact
         component={isLogged ? Updaterequest : NotFound}
       />
@@ -110,7 +127,6 @@ function Pages() {
         exact
         component={isLogged ? CreateBook : NotFound}
       />
-
       <Route
         path="/history"
         exact
@@ -121,14 +137,16 @@ function Pages() {
         exact
         component={isLogged ? OrderDetails : NotFound}
       />
-
       <Route path="/cart" exact component={Cart} />
+      <Route path="/wishlist" exact component={Wishlist} />
 
       <Route path="/myAds" exact component={MyAds} />
-
+      <Route path="/manageOrders" exact component={ManageOrders} />
       <Route path="/checkout" exact component={Checkout} />
       <Route path="/addPayment" exact component={AddPayment} />
       <Route path="/displayCard" exact component={DisplayCards} />
+
+      <Route path="/displayOrders" exact component={DisplayOrders} />
 
       <Route path="*" exact component={NotFound} />
     </Switch>

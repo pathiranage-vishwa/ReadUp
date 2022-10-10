@@ -71,6 +71,7 @@ body {
 .table {
   width: 90%;
   column-gap: 2px;
+  margin-left: 10vh;
 }
 
 .DisplayMain {
