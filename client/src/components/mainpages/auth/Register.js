@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "./Styles/register.css";
 import Select from "react-select";
 import axios from "axios";
@@ -20,6 +19,7 @@ function Register() {
     setUser({ ...user, [name]: value });
   };
 
+  //API call for register user
   const registerSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -29,7 +29,7 @@ function Register() {
 
       window.location.href = "/";
     } catch (err) {
-      alert(err.response.data.msg);
+      swal("ERROR!", err.response.data.msg, "error");
     }
   };
 

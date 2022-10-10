@@ -14,7 +14,7 @@ code {
     monospace;
 }
 .App {
-  margin: 0 auto;
+margin-top: 8%;
   /* padding: 0 20px; */
   box-shadow: 0 0 35px #eee;
 }

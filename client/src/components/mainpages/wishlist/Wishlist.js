@@ -1,12 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
-import { Add, Remove, Delete } from "@material-ui/icons";
+import { Delete } from "@material-ui/icons";
 import styled from "styled-components";
-import { useHistory } from "react-router";
 import { mobile } from "../../homepage/responsive";
 import swal from "sweetalert";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 //Wishlist
 
@@ -178,6 +177,7 @@ function WishList() {
   const [token] = state.token;
   const [total, setTotal] = useState(0);
 
+  // set wishlist and update wishlist page when wishlist updated
   useEffect(() => {
     const getTotal = () => {
       const total = wishList.reduce((prev, item) => {
@@ -190,6 +190,7 @@ function WishList() {
     getTotal();
   }, [wishList]);
 
+  //Add book to wishlist
   const addToWishList = async (wishList) => {
     await axios.patch(
       "/user/addWishList",
@@ -200,29 +201,8 @@ function WishList() {
     );
   };
 
-  const increment = (id) => {
-    wishList.forEach((item) => {
-      if (item._id === id) {
-        item.quantity += 1;
-      }
-    });
-
-    setWishList([...wishList]);
-    addToWishList(wishList);
-  };
-
-  const decrement = (id) => {
-    wishList.forEach((item) => {
-      if (item._id === id) {
-        item.quantity === 1 ? (item.quantity = 1) : (item.quantity -= 1);
-      }
-    });
-
-    setWishList([...wishList]);
-    addToWishList(wishList);
-  };
-
-  const removeProduct = (id) => {
+  //remove book from wishlist
+  const removeBook = (id) => {
     swal({
       title: "Are you sure?",
       text: "The selected book will be deleted from the wishList!",
@@ -245,27 +225,6 @@ function WishList() {
     });
   };
 
-  const tranSuccess = async (payment) => {
-    const { paymentID, address } = payment;
-
-    await axios.post(
-      "/api/payment",
-      { wishList, paymentID, address },
-      {
-        headers: { Authorization: token },
-      }
-    );
-
-    setWishList([]);
-    addToWishList([]);
-    alert("You have successfully placed an order.");
-  };
-
-  const setProduct = () => {
-    localStorage.setItem("WishList", JSON.stringify(wishList));
-    localStorage.setItem("Total", total);
-  };
-
   if (wishList.length === 0)
     return (
       <h2 style={{ textAlign: "center", fontSize: "5rem" }}>WishList Empty</h2>
@@ -279,42 +238,39 @@ function WishList() {
           <TopButton>CONTINUE SHOPPING</TopButton>
           <TopTexts>
             <Link to="/cart">
-            <TopButton>Shopping Cart({cart.length})</TopButton>
+              <TopButton>Shopping Cart({cart.length})</TopButton>
             </Link>
             <Link to="/wishlist">
-            <TopButton>Your Wishlist ({wishList.length})</TopButton>
+              <TopButton>Your Wishlist ({wishList.length})</TopButton>
             </Link>
           </TopTexts>
           <TopButton>VISIT STORE</TopButton>
         </Top>
         <Bottom>
           {/* <Info> */}
-            {wishList.map((product) => (
-              <Product>
-                <ProductDetail>
-                  <Image src={product.images.url} />
-                  <Details>
-                    <ProductName>
-                      <b>Book:</b> {product.title}
-                    </ProductName>
-                    <ProductId>
-                      <b>Author:</b> {product.author}
-                    </ProductId>
-                    <ProductColor color={product.color} />
-                    <ProductSize>
-                      <b>description:</b> {product.description}
-                    </ProductSize>
-                  </Details>
-                </ProductDetail>
-                <div
-                  className="delete"
-                  onClick={() => removeProduct(product._id)}
-                >
-                  <Delete />
-                </div>
-              </Product>
-            ))}
-            <Hr />
+          {wishList.map((product) => (
+            <Product>
+              <ProductDetail>
+                <Image src={product.images.url} />
+                <Details>
+                  <ProductName>
+                    <b>Book:</b> {product.title}
+                  </ProductName>
+                  <ProductId>
+                    <b>Author:</b> {product.author}
+                  </ProductId>
+                  <ProductColor color={product.color} />
+                  <ProductSize>
+                    <b>description:</b> {product.description}
+                  </ProductSize>
+                </Details>
+              </ProductDetail>
+              <div className="delete" onClick={() => removeBook(product._id)}>
+                <Delete />
+              </div>
+            </Product>
+          ))}
+          <Hr />
           {/* </Info> */}
         </Bottom>
       </Wrapper>

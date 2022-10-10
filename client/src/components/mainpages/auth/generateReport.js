@@ -4,12 +4,9 @@ import axios from "axios";
 import "./Styles/reportgen.css";
 
 const GetReport = () => {
+  //Generate Report
 
-    //Generate Report
-   
-  
-    const[profile,setprofile] = useState([]);
-  
+  const [profile, setprofile] = useState([]);
 
   useEffect(() => {
     const getAllUsers = async () => {
@@ -22,8 +19,8 @@ const GetReport = () => {
     };
     getAllUsers();
   }, []);
-  
-return (
+
+  return (
     <div className="container-fluid ps-md-0">
       <div className="row g-0">
         <div className="d-none d-md-flex col-md-4 col-lg-6 reportimage"></div>
@@ -32,16 +29,18 @@ return (
             <div className="container">
               <div className="row">
                 <div className="col-md-9 col-lg-8 mx-auto">
-                  <h3 className="log-heading mb-4">Generate Monthly User Report</h3>
-                    <div className="d-grid">
-                      <button
-                        className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-2"
-                        onClick={() => generatePDF(profile)}
-                        style={{ height: "50px" }}
-                      >
-                        Generate Report
-                      </button>
-                    </div>
+                  <h3 className="log-heading mb-4">
+                    Generate Monthly User Report
+                  </h3>
+                  <div className="d-grid">
+                    <button
+                      className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-2"
+                      onClick={() => generatePDF(profile)}
+                      style={{ height: "50px" }}
+                    >
+                      Generate Report
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

@@ -177,6 +177,7 @@ function Cart() {
   const [token] = state.token;
   const [total, setTotal] = useState(0);
 
+  //update the cart page data when cart updated
   useEffect(() => {
     const getTotal = () => {
       const total = cart.reduce((prev, item) => {
@@ -189,6 +190,7 @@ function Cart() {
     getTotal();
   }, [cart]);
 
+  // Add to cart function
   const addToCart = async (cart) => {
     await axios.patch(
       "/user/addcart",
@@ -199,6 +201,7 @@ function Cart() {
     );
   };
 
+  // Increment item quantity function
   const increment = (id) => {
     cart.forEach((item) => {
       if (item._id === id) {
@@ -210,6 +213,7 @@ function Cart() {
     addToCart(cart);
   };
 
+  // decrement item quantity function
   const decrement = (id) => {
     cart.forEach((item) => {
       if (item._id === id) {
@@ -221,7 +225,8 @@ function Cart() {
     addToCart(cart);
   };
 
-  const removeProduct = (id) => {
+  // remove item from cart
+  const removeBook = (id) => {
     swal({
       title: "Are you sure?",
       text: "The selected book will be deleted from the cart!",
@@ -244,22 +249,6 @@ function Cart() {
     });
   };
 
-  const tranSuccess = async (payment) => {
-    const { paymentID, address } = payment;
-
-    await axios.post(
-      "/api/payment",
-      { cart, paymentID, address },
-      {
-        headers: { Authorization: token },
-      }
-    );
-
-    setCart([]);
-    addToCart([]);
-    alert("You have successfully placed an order.");
-  };
-
   const setProduct = () => {
     localStorage.setItem("Cart", JSON.stringify(cart));
     localStorage.setItem("Total", total);
@@ -278,10 +267,10 @@ function Cart() {
           <TopButton>CONTINUE SHOPPING</TopButton>
           <TopTexts>
             <Link to="/cart">
-            <TopButton>Shopping Cart({cart.length})</TopButton>
+              <TopButton>Shopping Cart({cart.length})</TopButton>
             </Link>
             <Link to="/wishlist">
-            <TopButton>Your Wishlist ({wishList.length})</TopButton>
+              <TopButton>Your Wishlist ({wishList.length})</TopButton>
             </Link>
           </TopTexts>
           <TopButton>CHECKOUT NOW</TopButton>
@@ -321,10 +310,7 @@ function Cart() {
                     LKR {product.price * product.quantity}
                   </ProductPrice>
                 </PriceDetail>
-                <div
-                  className="delete"
-                  onClick={() => removeProduct(product._id)}
-                >
+                <div className="delete" onClick={() => removeBook(product._id)}>
                   <Delete />
                 </div>
               </Product>

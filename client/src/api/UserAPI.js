@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import swal from "sweetalert";
 
 function UserAPI(token) {
   const [isLogged, setIsLogged] = useState(false);
@@ -55,8 +56,13 @@ function UserAPI(token) {
           headers: { Authorization: token },
         }
       );
+      swal("Book added to cart successfully!", {
+        icon: "success",
+      });
     } else {
-      alert("This book has been added to cart.");
+      swal("This book is already in the cart", {
+        icon: "warning",
+      });
     }
   };
 
@@ -77,8 +83,13 @@ function UserAPI(token) {
           headers: { Authorization: token },
         }
       );
+      swal("Book added to Wishlist successfully!", {
+        icon: "success",
+      });
     } else {
-      alert("This book has been added to WishList.");
+      swal("This book is already in the wishlist", {
+        icon: "warning",
+      });
     }
   };
 

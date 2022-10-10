@@ -54,8 +54,8 @@ function DetailBook() {
             Add to Cart
           </Link>
           <Link
-            to="/wishlist"
-            className="btnDetail"
+            to="#"
+            className="btnDetailwishlist"
             onClick={() => addWishList(detailBook)}
           >
             Add to Wishlist

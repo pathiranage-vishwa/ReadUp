@@ -70,6 +70,20 @@
   letter-spacing: 2px;
 }
 
+.box-detail .btnDetailwishlist {
+  background: rgb(255, 255, 255);
+  color: rgb(7, 12, 86);
+  margin-top: 10px;
+  border: 2px solid rgb(11, 4, 83);
+  padding: 10px 10px;
+  display: inline-block;
+  width: 250px;
+  height: 55px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 .bookDetails-heading {
   font-size: 5vh;
   margin-top: 15px;

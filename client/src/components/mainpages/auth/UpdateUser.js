@@ -3,11 +3,12 @@ import axios from 'axios'
 import './Styles/profile.css';
 import { GlobalState } from "../../../GlobalState";
 import swal from "sweetalert";
+import { useHistory } from "react-router-dom";
 
 //Update User
 
 function UpdateUser() {
-
+    const history = useHistory();
     const state = useContext(GlobalState);
     const [id,setId] = useState();
     const [firstName, setfirstName] = useState();
@@ -55,6 +56,8 @@ function UpdateUser() {
               swal("Poof! User account successfully updated!", {
                 icon: "success",
               });
+              history.push("/allusers");
+              window.location.reload(false);
             } else {
               swal("User account is safe!");
             }
@@ -212,9 +215,18 @@ function UpdateUser() {
                 <div className="col-md-6 mb-4">
                 <div className="form-outline">
                 <div className="form-group">
-                    <label htmlFor="regNumber">User Type</label>
-                    <input type="userType" name="userType" id="userType" defaultValue={userType}
-                    placeholder="userType" onChange={e=>{setUserType(e.target.value);}}/>
+                <label htmlFor="email">User type</label>
+                <select
+                          name="userType"
+                          class="form-select"
+                          aria-label="Default select example"
+                          onChange={(e) => {
+                            setUserType(e.target.value);
+                          }}
+                        >
+                          <option value="Buyer">Buyer</option>
+                          <option value="Seller">Seller</option>
+                        </select>
                 </div>
                 </div>
                 </div>

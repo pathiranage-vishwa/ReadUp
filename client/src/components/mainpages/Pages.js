@@ -24,7 +24,7 @@ import ResetPassword from "./auth/ResetPassword";
 import DisplayCards from "./Payment/DisplayCards";
 import Home from "../homepage/Home";
 import MyAds from "./myAds/MyAds";
-import userProfile from "./auth/userProfile";
+import UserProfile from "./auth/UserProfile";
 import updateProfile from "./auth/UpdateUser";
 import Wishlist from "../mainpages/wishlist/Wishlist";
 import generateReport from "./auth/generateReport";
@@ -34,7 +34,7 @@ import Reviews from "./Reviews/Reviews";
 import ManageReviews from "./Reviews/ManageReviews";
 import ManageOrders from "./manageOrders/ManageOrders.js";
 import DisplayOrders from "./displayOrders/DispalyOrders";
-
+import Header from "../headers/Header";
 import { GlobalState } from "../../GlobalState";
 
 function Pages() {
@@ -54,13 +54,13 @@ function Pages() {
         component={isLogged ? NotFound : Register}
       />
       <Route path="/forget_pw" exact component={ForgotPassword} />
-      <Route path="/reset_pw" exact component={ResetPassword} />
+      <Route path="/reset_pw/:token" exact component={ResetPassword} />
       <Route path="/report" exact component={generateReport} />
 
       <Route
         path="/userProfile/:id"
         exact
-        component={isLogged ? userProfile : NotFound}
+        component={isLogged ? UserProfile : NotFound}
       />
 
       <Route
