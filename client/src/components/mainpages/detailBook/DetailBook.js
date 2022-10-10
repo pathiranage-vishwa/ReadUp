@@ -10,6 +10,13 @@ function DetailBook() {
   const addCart = state.userAPI.addCart;
   const [detailBook, setDetailBook] = useState([]);
 
+  //set to local storage
+  const setDetails = () => {
+    localStorage.setItem("bookDetails", JSON.stringify(detailBook));
+    //set image to local storage
+    localStorage.setItem("bookImage", JSON.stringify(detailBook.images.url));
+  };
+
   useEffect(() => {
     if (params.id) {
       books.forEach((book) => {
@@ -52,6 +59,14 @@ function DetailBook() {
           >
             Add to Cart
           </Link>
+          <Link
+              to="/reviews"
+              className="btnDetail ms-3 "
+              onClick={() => setDetails(detailBook)}
+          >
+             Reviews
+          </Link>
+
         </div>
       </div>
 
