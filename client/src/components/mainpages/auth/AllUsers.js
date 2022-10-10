@@ -3,6 +3,7 @@ import axios from "axios";
 import ReactPaginate from "react-paginate";
 import "./Styles/paginate.css";
 import "./Styles/table.css";
+import swal from "sweetalert";
 
 const PER_PAGE = 10;
 
@@ -12,6 +13,7 @@ export default function AllUsers() {
   const [profile, setprofile] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
 
+  //Calls the API when the page renders
   useEffect(() => {
     axios
       .get("/user/allUsers")
@@ -23,19 +25,20 @@ export default function AllUsers() {
       });
   }, []);
 
-    const setData = (data) => {
-      let { _id, firstName, lastName, username, email, userType, image } =
-        data;
+  //set data to local storage
+  const setData = (data) => {
+    let { _id, firstName, lastName, username, email, userType, image } = data;
 
-      localStorage.setItem("uid", _id);
-      localStorage.setItem("FirstName", firstName);
-      localStorage.setItem("LastName", lastName);
-      localStorage.setItem("UserName", username);
-      localStorage.setItem("Email", email);
-      localStorage.setItem("UserType", userType);
-      localStorage.setItem("Image", image);
-    };
+    localStorage.setItem("uid", _id);
+    localStorage.setItem("FirstName", firstName);
+    localStorage.setItem("LastName", lastName);
+    localStorage.setItem("UserName", username);
+    localStorage.setItem("Email", email);
+    localStorage.setItem("UserType", userType);
+    localStorage.setItem("Image", image);
+  };
 
+  //pagination handling
   function handlePageClick({ selected: selectedPage }) {
     console.log("selectedPage", selectedPage);
     setCurrentPage(selectedPage);
@@ -43,23 +46,34 @@ export default function AllUsers() {
 
   const offset = currentPage * PER_PAGE;
 
-  // const currentPageData = profile
-  //   .slice(offset, offset + PER_PAGE)
-  //   .map((data, index) => <img key={index} {data.firstName + " " + data.lastName} />);
-
-  // console.log(currentPageData);
-
   const pageCount = Math.ceil(profile.length / PER_PAGE);
 
+  //API call for delete selected user
   const handleDelete = async (id) => {
-    try {
-      const res = await axios.delete(`/users/delete/${id}`);
-      alert(res.data.msg);
-    } catch (err) {
-      alert("ERR");
-    }
+    swal({
+      title: "Are you sure?",
+      text: "You are going to Delete the selected a user account!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          axios.delete(`/user/delete/${id}`);
+          swal("User account Deleted Successfully!", {
+            icon: "success",
+          });
+          window.location.reload(false);
+        } else {
+          swal("User account is safe!");
+        }
+      })
+      .catch((err) => {
+        alert(err);
+      });
   };
 
+  //Search option
   const filterData = (prof, searchkey) => {
     const result = prof.filter(
       (profile) =>
@@ -101,18 +115,18 @@ export default function AllUsers() {
           </div>
         </div>
       </div>
-
       <div className="addform1">
         <h1 className="tabl-heading mb-4">REGISTERED USERS </h1>
       </div>
-
-      <a className="btn-tbl" 
-                            type="button"
-                            href={`http://localhost:3000/report`}
-                            style={{textDecoration:'none'}}>
-                            <i></i>&nbsp;Generate Report
-                            </a>
-                            <br />      <br />
+      <a
+        className="btn-tbl"
+        type="button"
+        href={`http://localhost:3000/report`}
+        style={{ textDecoration: "none" }}
+      >
+        <i></i>&nbsp;Generate Report
+      </a>
+      <br /> <br />
       <table className="customers">
         <thead>
           <tr>
@@ -137,7 +151,7 @@ export default function AllUsers() {
                 <a
                   className="btn-tbl"
                   href={`/userProfile/${data._id}`}
-                    onClick={() => setData(data)}
+                  onClick={() => setData(data)}
                 >
                   &nbsp;Update
                 </a>
@@ -152,7 +166,6 @@ export default function AllUsers() {
       </table>
       <br />
       <br />
-
       <ReactPaginate
         previousLabel={"« previous"}
         nextLabel={"next »"}

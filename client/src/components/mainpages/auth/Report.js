@@ -1,43 +1,54 @@
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 
-
-//import { format } from "date-fns";
-
-
-// define a generatePDF function that accepts a tickets argument
-const generatePDF = profile => {
- 
+const generatePDF = (profile) => {
   const doc = new jsPDF();
 
-  // define the columns we want and their titles
-  const tableColumn = ["FullName", "Email", "UserName"];
-  // define an empty array of rows
+  // define the columns and Headers
+  const tableColumn = ["FullName", "Email", "UserName", "User Type"];
+  // define an array of rows
   const tableRows = [];
 
-  
-  profile.forEach(profile => {
+  profile.forEach((profile) => {
     const profileData = [
       profile.firstName + " " + profile.lastName,
       profile.email,
       profile.username,
-      // called date-fns to format the date on the profile
-     // format(new Date(profile.updated_at), "yyyy-MM-dd")
+      profile.userType,
     ];
-    // push each tickcet's info into a row
+    // push each users's info into a row
     tableRows.push(profileData);
     console.log(profileData);
   });
 
-
-  // startY is basically margin-top
-  doc.autoTable(tableColumn, tableRows, { startY: 20 });
-  //const date = Date().split(" ");
-  // we use a date string to generate our filename.
- // const dateStr = date[0] + date[1] + date[2] + date[3] + date[4];
-  // ticket title. and margin-top + margin-left
-  doc.text("Closed profile within the last one month.", 14, 15);
-  // we define the name of our PDF file.
+  var img = new Image();
+  img.src =
+    "https://res.cloudinary.com/dlprhahi4/image/upload/v1665404789/Bookstore/Group_4_cxmlgv_cb8p5s.jpg";
+  doc.addImage(img, "png", 14, 2, 181, 42);
+  doc.autoTable({
+    head: [tableColumn],
+    body: tableRows,
+    headerStyles: {
+      fillColor: [168, 168, 168],
+      lineWidth: 0.1,
+      lineColor: [0, 0, 0],
+    },
+    bodyStyles: {
+      fillColor: [255, 255, 255],
+      lineWidth: 0.1,
+      lineColor: [0, 0, 0],
+    },
+    startY: 47,
+  });
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(10);
+  doc.text(`General Sales Report `, 15, 350);
+  doc.text(
+    `This sales report contain all the orders that are complete buy the.`,
+    15,
+    356
+  );
+  // Define the name of our PDF file.
   doc.save(`profile_.pdf`);
 };
 

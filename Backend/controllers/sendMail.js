@@ -39,10 +39,10 @@ const sendEmail = (to, url, txt) => {
   const mailOptions = {
     from: SENDER_EMAIL_ADDRESS,
     to: to,
-    subject: "SLIIT Research Project Management Tool",
+    subject: "ReadUP Bookstore",
     html: `
             <div style="max-width: 700px; margin:auto; border: 10px solid #ddd; padding: 50px 20px; font-size: 110%;">
-            <h2 style="text-align: center; text-transform: uppercase;color: teal;">Welcome to SLIIT Research Project Management Tool.</h2>
+            <h2 style="text-align: center; text-transform: uppercase;color: teal;">ReadUP Bookstore.</h2>
             <p>
                 Just click the button below to validate your email address.
             </p>

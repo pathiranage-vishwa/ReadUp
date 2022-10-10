@@ -17,6 +17,7 @@ function Login() {
     setUser({ ...user, [name]: value });
   };
 
+  //API call to validate login user credentials
   const loginSubmit = async (e) => {
     e.preventDefault();
     try {

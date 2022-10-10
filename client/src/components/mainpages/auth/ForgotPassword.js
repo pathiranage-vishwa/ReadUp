@@ -8,7 +8,7 @@ const initialState = {
   success: "",
 };
 
-//forgetpw
+//forget password
 
 function ForgotPassword() {
   const [data, setData] = useState(initialState);
@@ -20,9 +20,10 @@ function ForgotPassword() {
     setData({ ...data, [name]: value, err: "", success: "" });
   };
 
+  // API call for send mail for relevant email
   const forgotPassword = async () => {
     try {
-      const res = await axios.post("http://localhost:8070/user/forgot", {
+      const res = await axios.post("http://localhost:5000/user/forgot", {
         email,
       });
 
@@ -57,7 +58,9 @@ function ForgotPassword() {
                       value={email}
                       onChange={handleChangeInput}
                     />
-                    <button onClick={forgotPassword}>Verify your email address</button>
+                    <button onClick={forgotPassword}>
+                      Verify your email address
+                    </button>
                   </div>
                 </div>
               </div>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { sliderItems } from "./data";
 import { mobile } from "./responsive";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -75,6 +76,7 @@ const Desc = styled.p`
 `;
 
 const Button = styled.button`
+  text-decoration: none;
   padding: 10px;
   font-size: 20px;
   background-color: transparent;
@@ -82,6 +84,8 @@ const Button = styled.button`
 `;
 
 const Slider = () => {
+  
+  const history = useHistory();
   const [slideIndex, setSlideIndex] = useState(0);
   const handleClick = (direction) => {
     if (direction === "left") {
@@ -90,6 +94,10 @@ const Slider = () => {
       setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
     }
   };
+
+  function handleOnClick() {
+    history.push("/books");
+  }
 
   return (
     <Container>
@@ -105,7 +113,7 @@ const Slider = () => {
             <InfoContainer>
               <Title>{item.title}</Title>
               <Desc>{item.desc}</Desc>
-              <Button>SHOW NOW</Button>
+              <Button onClick={handleOnClick}>SHOP NOW</Button>
             </InfoContainer>
           </Slide>
         ))}

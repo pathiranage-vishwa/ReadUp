@@ -39,8 +39,6 @@ function Header() {
 
   const showSidebar = () => setSidebar(!sidebar);
 
-  console.log(user.image);
-
   const logoutUser = async () => {
     await axios.get("/user/logout");
 
@@ -50,8 +48,7 @@ function Header() {
   };
 
   const setData = (user) => {
-    let { _id, firstName, lastName, username, email, userType, image } =
-    user;
+    let { _id, firstName, lastName, username, email, userType, image } = user;
 
     localStorage.setItem("uid", _id);
     localStorage.setItem("FirstName", firstName);
@@ -109,45 +106,46 @@ function Header() {
 
   return (
     <header className="logo">
-                <IconContext.Provider value={{ color: "#fff" }}>
-            <div className="navbar">
-              <Link to="#" className="menu-bars">
-                <FaIcons.FaBars onClick={showSidebar} />
+      <IconContext.Provider value={{ color: "#fff" }}>
+        <div className="navbar">
+          {isLogged?
+          <Link to="#" className="menu-bars">
+            <FaIcons.FaBars onClick={showSidebar} />
+          </Link>:null}
+        </div>
+        <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
+          <ul className="nav-menu-items" onClick={showSidebar}>
+            <li className="navbar-toggle">
+              <Link to="#" className="menu-close">
+                <AiIcons.AiOutlineClose />
               </Link>
-            </div>
-            <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-              <ul className="nav-menu-items" onClick={showSidebar}>
-                <li className="navbar-toggle">
-                  <Link to="#" className="menu-close">
-                    <AiIcons.AiOutlineClose />
-                  </Link>
-                </li>
-                <Avatar>
-            <div>
-            <a
-             href={`/userProfile/${user._id}`}
-              onClick={() => setData(user)}
-            >
-              <img src={user.image} alt="" />
-            </a>
-            </div>
-          </Avatar>
-          <br/>
-                {SidebarData.map((item, index) => {
-                  return (
-                    <div>
-                    <li key={index} className={item.cName}>
-                      <Link to={item.path}>
-                        {item.icon}
-                        <span>{item.title}</span>
-                      </Link>
-                    </li>
-                    </div>
-                  );
-                })}
-              </ul>
-            </nav>
-          </IconContext.Provider>
+            </li>
+            <Avatar>
+              <div>
+                <a
+                  href={`/userProfile/${user._id}`}
+                  onClick={() => setData(user)}
+                >
+                  <img src={user.image} alt="" />
+                </a>
+              </div>
+            </Avatar>
+            <br />
+            {SidebarData.map((item, index) => {
+              return (
+                <div>
+                  <li key={index} className={item.cName}>
+                    <Link to={item.path}>
+                      {item.icon}
+                      <span>{item.title}</span>
+                    </Link>
+                  </li>
+                </div>
+              );
+            })}
+          </ul>
+        </nav>
+      </IconContext.Provider>
       <div className="menu" onClick={() => setMenu(!menu)}>
         <img src={Menu} alt="" width="30" />
       </div>

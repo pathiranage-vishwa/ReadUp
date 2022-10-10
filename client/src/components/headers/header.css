@@ -8,6 +8,7 @@ header {
   align-items: center;
   border-bottom: 1px solid #ddd;
   background-color: #100360;
+  top:0;
 }
 .logo {
   background-image: url("./icon/logo1.png");
@@ -75,6 +76,7 @@ menu-close {
 .nav-menu.active {
   left: 0;
   transition: 350ms;
+  overflow-y: scroll;
 }
 
 .nav-text {

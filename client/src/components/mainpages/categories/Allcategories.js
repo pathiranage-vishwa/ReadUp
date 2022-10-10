@@ -3,6 +3,7 @@ import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
 import "./Styles/allCategory.css";
 import swal from "sweetalert";
+import {Link} from 'react-router-dom'
 
 function Categories() {
   const state = useContext(GlobalState);
@@ -155,6 +156,11 @@ function Categories() {
             </table>
           </div>
         </div>
+        <Link to="/category" className="btn btn_edit1">
+
+          Add Category
+
+        </Link>
       </div>
     </div>
   );

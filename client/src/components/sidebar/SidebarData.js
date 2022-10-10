@@ -1,6 +1,7 @@
 import React from "react";
 import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
+import * as GiIcons from "react-icons/gi";
+import * as BiIcons from "react-icons/bi";
 import * as IoIcons from "react-icons/io";
 import * as Boostrap from "react-icons/bs";
 
@@ -8,43 +9,43 @@ export const SidebarData = [
   {
     title: "Manage Users",
     path: "/allusers",
-    icon: <AiIcons.AiFillHome />,
+    icon: <FaIcons.FaRegUser />,
     cName: "nav-text",
   },
   {
     title: "Manage Categories",
-    path: "/viewMarking",
-    icon: <AiIcons.AiOutlineRead />,
+    path: "/allcategory",
+    icon: <BiIcons.BiCategory />,
     cName: "nav-text",
   },
   {
     title: "Manage Orders ",
-    path: "/displayRequests",
-    icon: <Boostrap.BsQuestionDiamondFill />,
+    path: "/manageOrders",
+    icon: <GiIcons.GiNotebook />,
     cName: "nav-text",
   },
   {
     title: "Manage Requests ",
-    path: "/displayRequests",
+    path: "/managerequests",
     icon: <Boostrap.BsQuestionDiamondFill />,
     cName: "nav-text",
   },
   {
     title: "My Orders",
-    path: "/groupList",
-    icon: <Boostrap.BsPeopleFill />,
+    path: "/displayOrders",
+    icon: <GiIcons.GiReceiveMoney />,
     cName: "nav-text",
   },
   {
     title: "My Ads",
-    path: "/messages",
+    path: "/myAds",
     icon: <FaIcons.FaEnvelopeOpenText />,
     cName: "nav-text",
   },
   {
     title: "My Cards",
-    path: "/support",
-    icon: <IoIcons.IoMdHelpCircle />,
+    path: "/displayCard",
+    icon: <FaIcons.FaCcMastercard />,
     cName: "nav-text",
   },
 ];
