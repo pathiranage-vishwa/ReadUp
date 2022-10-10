@@ -8,7 +8,7 @@ const BuyerReport = (order, buyer) => {
     buyer.charAt(0).toUpperCase() + buyer.slice(1).toLowerCase();
   const doc = new jsPDF();
 
-  const tableColumn = ["No", "Amount", "Date", "Time", "Order"];
+  const tableColumn = ["Orders", "Amount Paid", "Date", "Time"];
 
   const tableRows = [];
 
@@ -20,10 +20,11 @@ const BuyerReport = (order, buyer) => {
     //const [orderHistory,setOrderHistory] =[]
     const buyerHistory = [
       no,
-      data.total,
+      `Total\t   :` +data.total,
       moment(data.createdAt).utc().format('YYYY-MM-DD'),
       moment(data.createdAt).utc().format('HH:MM:SS'),
     ]
+    tableRows.push(buyerHistory);
     data.cart.forEach((item) => {
       const orderHistory = [
         [
@@ -39,10 +40,11 @@ const BuyerReport = (order, buyer) => {
         (total = total + item.price * item.quantity),
 
       ]
-      
+      total = 0;
+    tableRows.push(orderHistory);
     })
     
-    tableRows.push(buyerHistory);
+   
   });
 
   console.log(total);
