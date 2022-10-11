@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
-import axios from "axios";
+
 import { useHistory } from "react-router-dom";
-import { GlobalState } from "../../../GlobalState.js";
-//import styled from "styled-components";
+
 import "./Style/checkout.css";
 
 export default function Checkout() {

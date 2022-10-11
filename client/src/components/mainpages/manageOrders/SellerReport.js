@@ -1,6 +1,5 @@
 import jsPDF from "jspdf";
 import "jspdf-autotable";
-import { useState } from "react";
 
 const SellerReport = (order, seller) => {
   const sellerName =

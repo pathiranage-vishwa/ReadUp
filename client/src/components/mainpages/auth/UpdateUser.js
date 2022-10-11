@@ -54,7 +54,7 @@ function UpdateUser() {
           swal("Poof! User account successfully updated!", {
             icon: "success",
           });
-          history.push("/allusers");
+          history.push("/");
           window.location.reload(false);
         } else {
           swal("User account is safe!");

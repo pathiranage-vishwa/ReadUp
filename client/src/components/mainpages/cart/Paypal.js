@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 
 export default function Paypal(total) {
   // const [Total,setTotal]=useState(0);

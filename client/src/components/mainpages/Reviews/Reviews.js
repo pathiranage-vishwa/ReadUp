@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
-import reqBook from "../requests/Styles/reqBook.png";
 import "./Styles/reviewStyle.css";
 import Rating from "./Rating";
 import swal from "sweetalert";

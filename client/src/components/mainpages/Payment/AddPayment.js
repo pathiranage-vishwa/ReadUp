@@ -1,7 +1,7 @@
-import React, { useContext, useState, useId, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+
 import axios from "axios";
-import PhoneInput from "react-phone-number-input";
+
 import "react-phone-number-input/style.css";
 import swal from "sweetalert";
 import Typography from "@material-ui/core/Typography";
@@ -9,18 +9,9 @@ import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import { GlobalState } from "../../../GlobalState.js";
 import styled from "styled-components";
-import UserAPI from "../../../api/UserAPI.js";
-import uniqueRandom from "unique-random";
 import Paypal from "../cart/Paypal.js";
 import "./addPayment.css";
-import {
-  Box,
-  Button,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-} from "@material-ui/core";
+import { Box, MenuItem, Select } from "@material-ui/core";
 
 const AddPayment = () => {
   const state = useContext(GlobalState);

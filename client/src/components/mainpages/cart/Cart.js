@@ -3,10 +3,9 @@ import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
 import { Add, Remove, Delete } from "@material-ui/icons";
 import styled from "styled-components";
-import { useHistory } from "react-router";
 import { mobile } from "../../homepage/responsive";
 import swal from "sweetalert";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const KEY = process.env.REACT_APP_STRIPE;
 

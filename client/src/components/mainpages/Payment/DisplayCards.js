@@ -1,8 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { GlobalState } from "../../../GlobalState";
 import CardItem from "../utils/cardItem/CardItem";
-import { useHistory } from "react-router-dom";
-import Loading from "../utils/loading/Loading";
 import axios from "axios";
 import "./displaycard.css";
 import swal from "sweetalert";
@@ -13,7 +11,6 @@ function DisplayCards() {
 
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [isCheck, setIsCheck] = useState(false);
   const [status, setStatus] = useState(0);
 
   const id = user._id;

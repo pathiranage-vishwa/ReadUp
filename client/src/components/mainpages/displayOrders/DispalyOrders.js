@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
-import swal from "sweetalert";
 import "./displayOrders.css";
 import moment from "moment";
 import BuyerReport from "./BuyerReport";

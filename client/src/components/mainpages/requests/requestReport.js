@@ -1,22 +1,26 @@
 import jsPDF from "jspdf";
 import "jspdf-autotable";
-import { useState } from "react";
 
 const requestReport = (requests) => {
-
   const doc = new jsPDF();
 
-  const tableColumn = ["BookName", "Author", "Category", "ISBN Number", "Status"];
+  const tableColumn = [
+    "BookName",
+    "Author",
+    "Category",
+    "ISBN Number",
+    "Status",
+  ];
 
   const tableRows = [];
 
   requests.forEach((requests) => {
     const requestsData = [
-        requests.bookName,
-        requests.author,
-        requests.category,
-        requests.isbnNumber,
-        requests.status,
+      requests.bookName,
+      requests.author,
+      requests.category,
+      requests.isbnNumber,
+      requests.status,
     ];
     // push each users's info into a row
     tableRows.push(requestsData);

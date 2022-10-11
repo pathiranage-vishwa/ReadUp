@@ -6,8 +6,6 @@ import UpdateReq from "./Styles/UpdateReq.png";
 import swal from "sweetalert";
 
 function Requests() {
-  const state = useContext(GlobalState);
-
   const [id, setId] = useState();
   const [bookName, setBookName] = useState();
   const [category, setCategory] = useState();

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "./Styles/login.css";
 import axios from "axios";
 import swal from "sweetalert";
