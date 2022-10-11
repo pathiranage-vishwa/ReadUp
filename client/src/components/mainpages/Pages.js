@@ -99,11 +99,11 @@ function Pages() {
                exact component={isLogged ? UpdateReview : Loading}
         />
         <Route path="/managereviews"
-               exact component={isLogged ? ManageReviews : Loading}
+               exact component={isAdmin ? ManageReviews : Loading}
         />
 
         <Route path="/reviewReport"
-               exact component={isLogged ? ReviewReport : NotFound}
+               exact component={isAdmin ? ReviewReport : NotFound}
         />
 
       <Route path="/request"
