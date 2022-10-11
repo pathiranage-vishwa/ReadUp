@@ -84,10 +84,11 @@ export default function Checkout() {
                         Phone Number
                       </label>
                       <input
-                        type="number"
+                        type="tel"
                         name="pNumber"
                         value={pNumber}
                         className="form-control form-control-lg"
+                        pattern="[0-9]{10}"
                         onChange={(e) => setPNumber(e.target.value)}
                         required
                       />
