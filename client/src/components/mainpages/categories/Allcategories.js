@@ -3,7 +3,7 @@ import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
 import "./Styles/allCategory.css";
 import swal from "sweetalert";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 function Categories() {
   const state = useContext(GlobalState);
@@ -133,12 +133,7 @@ function Categories() {
                       <button
                         className="btn_edit"
                         onClick={() =>
-                          editCategory(
-                            category._id,
-                            category.categoryName,
-                            category.date,
-                            category.description
-                          )
+                          editCategory(category._id, category.categoryName)
                         }
                       >
                         Update
@@ -157,9 +152,7 @@ function Categories() {
           </div>
         </div>
         <Link to="/category" className="btn btn_edit1">
-
           Add Category
-
         </Link>
       </div>
     </div>
