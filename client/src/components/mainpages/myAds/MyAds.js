@@ -12,7 +12,6 @@ function Books() {
   const [isAdmin] = state.userAPI.isAdmin;
   const [token] = state.token;
   const [loading, setLoading] = useState(false);
-  const [isCheck, setIsCheck] = useState(false);
   const [userId] = state.userAPI.user;
   var adscount = 0;
 

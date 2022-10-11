@@ -5,10 +5,7 @@ import { GlobalState } from "../../../../GlobalState";
 function BtnRender({ book, deleteBook }) {
   const state = useContext(GlobalState);
   const [isAdmin] = state.userAPI.isAdmin;
-  const [isSeller] = state.userAPI.isSeller;
-  const [isBuyer] = state.userAPI.isBuyer;
   const addCart = state.userAPI.addCart;
-  const addWishList = state.userAPI.addWishList;
   const [user] = state.userAPI.user;
 
   return (

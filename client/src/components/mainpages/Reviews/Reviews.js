@@ -9,7 +9,6 @@ import { GlobalState } from "../../../GlobalState";
 export default function Reviews() {
   const state = useContext(GlobalState);
   const [reviews, setReview] = useState([]);
-  const [id, setId] = useState();
   const [bookDetail, setBookDetail] = React.useState([]);
   const [image, setImage] = React.useState("");
   const [user] = state.userAPI.user;

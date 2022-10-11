@@ -5,14 +5,8 @@ import { useHistory } from "react-router-dom";
 import { GlobalState } from "../../../GlobalState.js";
 //import styled from "styled-components";
 import "./Style/checkout.css";
-//import { Button,TextField } from '@material-ui/core';
 
 export default function Checkout() {
-  // const [movieId,setMovieID] = useState();
-  // const [theaters,setTheaters] = useState([]);
-  // const [request,setRequest] = useState([])
-
-  // const [theaterName,settheaterName] = useState("");
   const [email, setMail] = useState("");
   const [pNumber, setPNumber] = useState("");
   const [name, setName] = useState("");
@@ -21,22 +15,12 @@ export default function Checkout() {
   const [pCode, setPCode] = useState("");
   const [transfer_amount, setTransfer_amount] = useState("");
   const history = useHistory();
-  const state = useContext(GlobalState);
-  // //booking details
+
   const [cart, setCart] = useState([]);
-  //  const [date, setDate] = useState();
-  //  const [photo, setPhoto] = useState();
-  //  var [quantity, setQuantity] = useState(0);
-  //  //var [total, setTotal] = useState(0);
-  //  var total= ticketPrice * quantity
-  //setCart(localStorage.getItem('Cart'));
 
   useEffect(() => {
-    //let id =localStorage.getItem('ID');
     setCart(JSON.parse(localStorage.getItem("Cart")));
     setTransfer_amount(localStorage.getItem("Total"));
-    //setDate(localStorage.getItem('date'));
-    //setQuantity(localStorage.getItem('quantity'));
   }, []);
 
   const checkout = async (e) => {
@@ -155,12 +139,15 @@ export default function Checkout() {
                     </div>
                   </div>
                   <div class="amount">
-                      <div class="inner">
-                        <span class="dollar"><b><h2>Total LKR.{transfer_amount}</h2></b></span>
-                      </div>
+                    <div class="inner">
+                      <span class="dollar">
+                        <b>
+                          <h2>Total LKR.{transfer_amount}</h2>
+                        </b>
+                      </span>
                     </div>
+                  </div>
                   <div className="d-flex justify-content-end pt-3">
-                    
                     <button
                       className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
                       type="submit"
@@ -178,34 +165,3 @@ export default function Checkout() {
     </div>
   );
 }
-
-// const Description = styled.div`
-//  line-height: 1.4;
-//  font-size: 25px;
-//  padding: 16px 0px;
-//  color: #00004d;
-//   margin-left: 30px;
-// font-weight: thicker;
-//  @media (max-width: 768px) {
-//    font-size: 14px;
-//  }
-// `;
-
-// const Des = styled.div`
-//  line-height: 1.4;
-//  font-size: 20px;
-//  padding: 16px 0px;
-//  color: #00004d;
-// font-weight: thicker;
-//  @media (max-width: 768px) {
-//    font-size: 14px;
-//  }
-// `;
-
-// const Controls = styled.div`
-//  align-items: center;
-//  display: flex;
-//  flex-flow: row nowrap;
-//  margin: 24px 0px;
-//  min-height: 56px;
-// `;

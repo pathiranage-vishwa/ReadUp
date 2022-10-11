@@ -3,7 +3,7 @@ import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
 import "./Styles/allCategory.css";
 import swal from "sweetalert";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 function Categories() {
   const state = useContext(GlobalState);
@@ -75,36 +75,6 @@ function Categories() {
               />
             </div>
           </div>
-          {/* <div className="col-md-6 mb-4">
-            <div className="form-outline">
-              <label className="form-label" for="form3Example1m">
-                Date
-              </label>
-              <input
-                type="date"
-                name="date"
-                value={date}
-                className="form-control form-control-lg"
-                onChange={(e) => setDate(e.target.value)}
-                required
-              />
-            </div>
-          </div> */}
-          {/* <div className="col-md-6 mb-4">
-            <div className="form-outline">
-              <label className="form-label" for="form3Example1m">
-                Description
-              </label>
-              <input
-                type="text"
-                name="description"
-                value={description}
-                className="form-control form-control-lg"
-                onChange={(e) => setDescription(e.target.value)}
-                required
-              />
-            </div>
-          </div> */}
 
           <div>
             <button type="submit">Save</button>
@@ -133,12 +103,7 @@ function Categories() {
                       <button
                         className="btn_edit"
                         onClick={() =>
-                          editCategory(
-                            category._id,
-                            category.categoryName,
-                            category.date,
-                            category.description
-                          )
+                          editCategory(category._id, category.categoryName)
                         }
                       >
                         Update
@@ -157,9 +122,7 @@ function Categories() {
           </div>
         </div>
         <Link to="/category" className="btn btn_edit1">
-
           Add Category
-
         </Link>
       </div>
     </div>
