@@ -50,7 +50,7 @@ const BuyerReport = (order, buyer) => {
 
   console.log(total);
   doc.setFontSize(30);
-  doc.text(`General Buyer Report `, 60, 30).setDrawColor("blue");
+  doc.text(`General Buyer Report `, 60, 30);
   doc.setFontSize(10);
   doc.text(
     `:This buyer report contain all the orders of ${buyerName}.`,

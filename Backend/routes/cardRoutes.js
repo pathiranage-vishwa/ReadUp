@@ -38,7 +38,6 @@ cardRouter.route("/").get((req, res) => {
   Card.find()
     .then((cards) => {
       res.json(cards);
-      existingReqRouter: Card;
     })
     .catch((err) => {
       console.log(err);
@@ -49,7 +48,6 @@ cardRouter.get("/getMyCard/:id", (req, res) => {
   let crdid = req.params.id;
   Card.find({ uid: crdid }) .then((cards) => {
     res.json(cards);
-    existingReqRouter: Card;
   })
   .catch((err) => {
     console.log(err);
