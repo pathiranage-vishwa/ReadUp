@@ -9,7 +9,7 @@ Welcome Page
 ![screencapture-localhost-3000-2022-10-12-00_14_22](https://user-images.githubusercontent.com/87310474/195175884-30e21de0-945a-4c50-8e0e-11a3813b7c69.png)
 
 <center><b>Home Page</b></center>
-![screencapture-localhost-3000-books-2022-10-12-00_28_54](https://user-images.githubusercontent.com/87310474/195176547-3d04aed4-f100-46b4-85ad-226acb1fd9ef.png)
+![screencapture-localhost-3000-books-2022-10-12-00_28_54](https://user-images.githubusercontent.com/87310474/195178155-d6817ddd-1ec2-4cd2-90fd-016d4e95b0a9.png)
 
 
 Group Details
