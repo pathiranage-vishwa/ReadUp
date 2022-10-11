@@ -36,6 +36,8 @@ import ManageReviews from "./Reviews/ManageReviews";
 import ManageOrders from "./manageOrders/ManageOrders.js";
 import DisplayOrders from "./displayOrders/DispalyOrders";
 import Header from "../headers/Header";
+import ReviewReport from "./Reviews/ReviewReport";
+
 import { GlobalState } from "../../GlobalState";
 
 function Pages() {
@@ -98,6 +100,10 @@ function Pages() {
         />
         <Route path="/managereviews"
                exact component={isLogged ? ManageReviews : Loading}
+        />
+
+        <Route path="/reviewReport"
+               exact component={isLogged ? ReviewReport : NotFound}
         />
 
       <Route path="/request"
