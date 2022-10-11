@@ -26,7 +26,6 @@ function CreateBook() {
   const [isSeller] = state.userAPI.isSeller;
   const [token] = state.token;
 
-  const history = useHistory();
   const param = useParams();
 
   const [books] = state.booksAPI.books;

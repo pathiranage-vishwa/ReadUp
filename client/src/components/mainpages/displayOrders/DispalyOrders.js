@@ -21,36 +21,11 @@ export default function DisplayOrders() {
     getOrders();
   }, [crrUser]);
 
-  console.log(orders);
-
-  const setData = (id, orderstatus) => {
-    const value = {
-      orderstatus,
-    };
-
-    axios.put(`http://localhost:5000/api/order/${id}`, value).then((res) => {
-      window.location.reload(false);
-      swal({
-        title: ` Order is ${orderstatus}`,
-        icon: "success",
-        button: "OK",
-      }).catch((err) => {
-        swal({
-          title: "Error",
-          text: err.response.data.msg,
-          icon: "error",
-          button: "OK",
-        });
-      });
-    });
-  };
-  
-
   const filterData = (orders, searchkey) => {
     const result = orders.filter(
       (orders) =>
-        orders.total.includes(searchkey)||
-        orders.orderstatus.includes(searchkey)||
+        orders.total.includes(searchkey) ||
+        orders.orderstatus.includes(searchkey) ||
         orders.createdAt.includes(searchkey)
     );
     setOrders(result);
@@ -61,7 +36,7 @@ export default function DisplayOrders() {
 
     // axios.get(`http://localhost:5000/api/orderGet/${crrUser._id}`).then((res) => {
     //   if (res.data.success) {
-        filterData(orders, searchkey);
+    filterData(orders, searchkey);
     //   }
     // });
   }
@@ -70,20 +45,19 @@ export default function DisplayOrders() {
     <div>
       <div className="dIsTopicNam">My Orders</div>
       <hr className="disTopicHr" />
-      <div className="row" style={{"width":"20%"}}>
-          <h4> Search here </h4>
-          <div className="col-lg-12  mt-2 mb-2" style={{"marginLeft":"5%"}} >
-            
-            <input
-              className="form-control"
-              type="search"
-              placeholder="search...(Date,time,total,status)"
-              name="search"
-              onChange={hancdleSearchArea}
-            ></input>
-          </div>
+      <div className="row" style={{ width: "20%" }}>
+        <h4> Search here </h4>
+        <div className="col-lg-12  mt-2 mb-2" style={{ marginLeft: "5%" }}>
+          <input
+            className="form-control"
+            type="search"
+            placeholder="search...(Date,time,total,status)"
+            name="search"
+            onChange={hancdleSearchArea}
+          ></input>
         </div>
-        <div className="buyerReport">
+      </div>
+      <div className="buyerReport">
         <button
           className="btn btn_report_buyer  ms-3"
           onClick={() => BuyerReport(orders, crrUser.firstName)}
@@ -120,8 +94,8 @@ export default function DisplayOrders() {
                 ))}
               </td>
               <td>Rs.{data.total}</td>
-              <td>{moment(data.createdAt).utc().format('YYYY-MM-DD')}</td>
-              <td>{moment(data.createdAt).utc().format('HH:MM:SS')}</td>
+              <td>{moment(data.createdAt).utc().format("YYYY-MM-DD")}</td>
+              <td>{moment(data.createdAt).utc().format("HH:MM:SS")}</td>
               <td className="DisStat">{data.orderstatus}</td>
             </tr>
           ))}

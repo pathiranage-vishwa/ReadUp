@@ -75,36 +75,6 @@ function Categories() {
               />
             </div>
           </div>
-          {/* <div className="col-md-6 mb-4">
-            <div className="form-outline">
-              <label className="form-label" for="form3Example1m">
-                Date
-              </label>
-              <input
-                type="date"
-                name="date"
-                value={date}
-                className="form-control form-control-lg"
-                onChange={(e) => setDate(e.target.value)}
-                required
-              />
-            </div>
-          </div> */}
-          {/* <div className="col-md-6 mb-4">
-            <div className="form-outline">
-              <label className="form-label" for="form3Example1m">
-                Description
-              </label>
-              <input
-                type="text"
-                name="description"
-                value={description}
-                className="form-control form-control-lg"
-                onChange={(e) => setDescription(e.target.value)}
-                required
-              />
-            </div>
-          </div> */}
 
           <div>
             <button type="submit">Save</button>

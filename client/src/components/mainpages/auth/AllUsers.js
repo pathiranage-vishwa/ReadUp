@@ -91,7 +91,7 @@ export default function AllUsers() {
   async function hancdleSearchArea(e) {
     const searchkey = e.currentTarget.value;
 
-    const res = await axios.get("/user/allUsers").then((res) => {
+    await axios.get("/user/allUsers").then((res) => {
       if (res.data.success) {
         filterData(res.data.existingUsers, searchkey);
       }
