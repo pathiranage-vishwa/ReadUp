@@ -200,17 +200,6 @@ function UpdateUser() {
                 </div>
                 </div>
                 </div>
-                
-                <div className="row">
-                <div className="col-md-6 mb-4">
-                <div className="form-outline">
-                <div className="form-group">
-                    <label htmlFor="email">Address</label>
-                    <input type="address" name="address" id="address"
-                    placeholder="Address"/>
-                </div>
-                </div>
-                </div>
 
                 <div className="col-md-6 mb-4">
                 <div className="form-outline">
@@ -227,7 +216,6 @@ function UpdateUser() {
                           <option value="Buyer">Buyer</option>
                           <option value="Seller">Seller</option>
                         </select>
-                </div>
                 </div>
                 </div>
                 </div>
@@ -271,6 +259,7 @@ function UpdateUser() {
             </div>
         </div>
         </div>
+        <br/><br/><br/><br/><br/><br/><br/>
         </>
     )
 }
