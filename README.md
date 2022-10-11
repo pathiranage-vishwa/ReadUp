@@ -9,9 +9,18 @@ Welcome Page
 ![screencapture-localhost-3000-2022-10-12-00_14_22](https://user-images.githubusercontent.com/87310474/195175884-30e21de0-945a-4c50-8e0e-11a3813b7c69.png)
 
 <center><b>Home Page</b></center>
+![screencapture-localhost-3000-books-2022-10-12-00_28_54](https://user-images.githubusercontent.com/87310474/195176547-3d04aed4-f100-46b4-85ad-226acb1fd9ef.png)
+
 
 Group Details
-IT20260910 - Vishwa J.W.P
-IT20260460 - Piumika Saranga H.A.
-IT20236014 - Ravindu Yasith T.K.
-IT20232838 - Devsrini Savidya A.S.
+<ul>
+  <li>IT20260910 - Vishwa J.W.P</li>
+  <li>IT20260460 - Piumika Saranga H.A.</li>
+  <li>IT20236014 - Ravindu Yasith T.K.</li>
+  <li>IT20232838 - Devsrini Savidya A.S.</li>
+</ul>
+
+
+
+
+
