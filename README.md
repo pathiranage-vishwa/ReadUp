@@ -8,8 +8,9 @@ In the below, There is some screen shots of our UI's
 Welcome Page
 ![screencapture-localhost-3000-2022-10-12-00_14_22](https://user-images.githubusercontent.com/87310474/195175884-30e21de0-945a-4c50-8e0e-11a3813b7c69.png)
 
-<center><b>Home Page</b></center>
 
+<center><b>Home Page</b></center><br/>
+![screencapture-localhost-3000-books-2022-10-12-00_41_20](https://user-images.githubusercontent.com/87310474/195178814-76715a1b-5305-40da-9267-1c6584a18190.png)
 
 
 Group Details
