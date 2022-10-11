@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import requestReport from "./requestReport"
 
 export default function Allrequests() {
   const [requests, setRequests] = useState([]);
@@ -90,13 +91,13 @@ export default function Allrequests() {
         </div>
       </div>
 
-      {/* <a className="btn btn-warning" 
+      <a className="btn btn-warning" 
                             type="button"
-                            href={`http://localhost:3000/report`}
+                            onClick={() => requestReport(requests)}
                             style={{textDecoration:'none'}}>
                             <i></i>&nbsp;Generate Report
-                            </a> */}
-
+                            </a>
+      <br/>      <br/>
       <table className="customers">
         <thead>
           <tr>

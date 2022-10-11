@@ -1,15 +1,9 @@
 import React, {useState, useEffect, useContext} from "react";
 import axios from "axios";
-import { GlobalState } from "../../../GlobalState.js";
 import swal from "sweetalert";
-import ReviewReport from "./ReviewReport";
-import SellerReport from "../manageOrders/SellerReport";
 
 export default function ManageReviews() {
     const [reviews, setReview] = useState([]);
-    // const state = useContext(GlobalState);
-    // const [user] = state.userAPI.user;
-    // const username = user.username;
 
     useEffect(() => {
         axios
@@ -58,18 +52,7 @@ export default function ManageReviews() {
                     <h1>DashBoard - Book Reviews </h1>
                 </center>
             </div>
-            <a className="btn-tbl"
-               type="button"
-               href={`http://localhost:3000/reviewReport`}
-               style={{textDecoration:'none'}}>
-                <i></i>&nbsp;Generate Report
-            </a>
-            <button
-                className="btn btn_report  ms-3"
-                onClick={() => SellerReport(reviews, )}
-            >
-                Sales Report
-            </button>
+
             <br />      <br />
             <br />
 
