@@ -36,7 +36,6 @@ router.route("/add").post((req,res)=>{
 router.route("/").get((req,res)=>{
     Card.find().then((cards)=>{
         res.json(cards)
-        existingReqRouter: Card
     }).catch((err)=>{
         console.log(err)
     })
