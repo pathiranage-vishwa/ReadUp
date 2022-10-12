@@ -10,7 +10,7 @@ export const saveDetails  = async (req,res)=>{
     const email =req.body.email;
     const amount = req.body.transfer_amount;
     var reCardNo = req.body.cardNumber;
-    if(toString(reCardNo).length==16){
+    if(reCardNo.toString().length==16){
        const cardNo = md5(`${req.body.cardNumber}`);
        const Paymentdetails = new Payment ({PaymentType,Username,payment_ID,nameOnCard,email,amount,cardNo})
        try {
