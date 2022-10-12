@@ -14,10 +14,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 dotenv.config();
 
-//Movie Routes
+//Payment Routes
 app.use("/cardPay",paymentRoutes);
 
-//const frmRouter = require("./routes/addcard");
+
+//Card Routes
 app.use("/cards",cardRouter);
 
 

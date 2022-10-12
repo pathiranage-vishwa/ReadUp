@@ -16,11 +16,6 @@ const Payment = mongoose.Schema({
         require:false
     },
     
-    MobileNumber:{
-        type:String,
-        require:false
-    },
-    
     payment_ID:{
         type:String,
         require:true

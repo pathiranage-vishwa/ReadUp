@@ -1,4 +1,4 @@
-// validate payment request boduy
+// validate payment request body
 import md5 from 'md5';
 export const validatePaymentRequest = (req, res) => {
     var message = "";

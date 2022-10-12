@@ -1,6 +1,6 @@
 import Payment from '../models/paymentmodel.js';
 import md5 from 'md5';
-import nodemailer from 'nodemailer';
+
 
 export const saveDetails  = async (req,res)=>{
     const PaymentType = req.body.PaymentType;
