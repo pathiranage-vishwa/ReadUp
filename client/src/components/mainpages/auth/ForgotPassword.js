@@ -13,7 +13,7 @@ const initialState = {
 function ForgotPassword() {
   const [data, setData] = useState(initialState);
 
-  const { email, err, success } = data;
+  const { email } = data;
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -23,7 +23,7 @@ function ForgotPassword() {
   // API call for send mail for relevant email
   const forgotPassword = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/user/forgot", {
+      await axios.post("http://localhost:5000/user/forgot", {
         email,
       });
 

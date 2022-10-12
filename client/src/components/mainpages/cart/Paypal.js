@@ -1,14 +1,12 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 
 export default function Paypal(total) {
+  // const [Total,setTotal]=useState(0);
 
-  const [Total,setTotal]=useState(0);
-  
-  
   const paypal = useRef();
 
   useEffect(() => {
-    setTotal(total);
+    //setTotal(total);
     window.paypal
       .Buttons({
         createOrder: (data, actions, err) => {
@@ -35,7 +33,7 @@ export default function Paypal(total) {
       })
       .render(paypal.current);
   }, []);
-  console.log(Object.values(total))
+  console.log(Object.values(total));
   return (
     <div>
       <div ref={paypal}></div>

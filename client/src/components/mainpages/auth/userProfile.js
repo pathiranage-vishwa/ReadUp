@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Styles/updateUser.css";
 import swal from "sweetalert";
@@ -32,12 +32,12 @@ function UserProfile() {
       //confirm alert not swal
       const confirm = window.confirm("Are you sure?");
       if (confirm) {
-        await axios.delete(`/user/delete/${id}`).then(()=>{
+        await axios.delete(`/user/delete/${id}`).then(() => {
           swal("User account deleted successfully!", {
             icon: "success",
-          }).catch((err)=>{
-                  alert(err)
-                });
+          }).catch((err) => {
+            alert(err);
+          });
         });
       }
       history.push("/");
@@ -142,27 +142,6 @@ function UserProfile() {
                     </div>
                     <div className="col-md-6 mb-4">
                       <div className="form-outline">
-                        <label className="form-label" for="form3Example1m1">
-                          Address
-                        </label>
-                        <input
-                          type="address"
-                          name="address"
-                          placeholder="Home Address"
-                          autoComplete="off"
-                          // defaultValue={address}
-                          disabled={true}
-                          className="form-control form-control-lg"
-                          // onChange={e=>{setName(e.target.value);}}
-                          required
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="row">
-                    <div className="col-md-6 mb-4">
-                      <div className="form-outline">
                         <label className="form-label" for="form3Example1m">
                           Email
                         </label>
@@ -180,6 +159,9 @@ function UserProfile() {
                         />
                       </div>
                     </div>
+                  </div>
+
+                  <div className="row">
                     <div className="col-md-6 mb-4">
                       <div>
                         <label className="form-label" for="form3Example1m1">
@@ -204,8 +186,8 @@ function UserProfile() {
                   <div className="d-flex justify-content-end pt-3">
                     <Link to={`/updateProfile/${id}`}>
                       <button
-                        className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
-                        style={{ height: "50px" }}
+                        className="btn btn-lg btn-success btn-profupdate text-uppercase fw-bold mb-5"
+                        style={{ height: "50px", width: "150px" }}
                       >
                         Update
                       </button>
@@ -222,7 +204,7 @@ function UserProfile() {
                   <button
                     className="btn btn-lg btn-success btn-Delprof text-uppercase fw-bold mb-5"
                     onClick={() => handleDelete(id)}
-                    style={{ height: "50px" }}
+                    style={{ height: "50px", width: "120px" }}
                   >
                     Delete
                   </button>

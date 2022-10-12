@@ -1,40 +1,52 @@
-.addPayments{
-    max-width: 1000px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 2px auto;
+.addPayments {
+  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 2px auto;
 }
-.paypal form{
-    width: 290px;
-    padding: 50px;
-    margin: 10px auto;
-    background:#f2f2f2;
-    border-radius: 15px;
-    box-shadow: 10px 10px 10px 0;
-    text-align: left;
+.paypal form {
+  width: 290px;
+  padding: 50px;
+  margin: 10px auto;
+  background: #f2f2f2;
+  border-radius: 15px;
+  box-shadow: 10px 10px 10px 0;
+  text-align: left;
 }
-.cashOnForm{
-    width: 290px;
-    padding: 50px;
-    margin-left: 80%;
-    background:#f2f2f2;
-    border-radius: 15px;
-    box-shadow: 10px 10px 10px 0;
-    text-align: left;
+.cashOnForm {
+  width: 290px;
+  padding: 50px;
+  margin-left: 80%;
+  background: #f2f2f2;
+  border-radius: 15px;
+  box-shadow: 10px 10px 10px 0;
+  text-align: left;
 }
 .paymentImage {
+  background-image: url("./cards.png");
 
-    background-image: url("./cards.png");
-  
-    background-size: 580px 580px;
-  
-    background-repeat: no-repeat;
-  
-    background-position: center;
-  
-    z-index: 2;
-  
-  }
-  
-  
+  background-size: 580px 580px;
+
+  background-repeat: no-repeat;
+
+  background-position: center;
+
+  z-index: 2;
+}
+
+.disTopicHr1 {
+  color: rgb(255, 166, 1);
+  border-top: 1vh solid;
+  width: 60%;
+  margin-bottom: 4vh;
+  margin-left: 20%;
+}
+
+.disTopicHr2 {
+  color: rgb(255, 166, 1);
+  border-top: 1vh solid;
+  width: 40%;
+  margin-top: -5%;
+  margin-left: 20%;
+}

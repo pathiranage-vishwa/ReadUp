@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Styles/register.css";
-import Select from "react-select";
 import axios from "axios";
 import swal from "sweetalert";
 

@@ -14,7 +14,6 @@ function Books() {
   const [token] = state.token;
   const [callback, setCallback] = state.booksAPI.callback;
   const [loading, setLoading] = useState(false);
-  const [isCheck, setIsCheck] = useState(false);
 
   const deleteBook = async (id, public_id) => {
     try {

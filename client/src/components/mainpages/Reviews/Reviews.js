@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
-import reqBook from "../requests/Styles/reqBook.png";
 import "./Styles/reviewStyle.css";
 import Rating from "./Rating";
 import swal from "sweetalert";
@@ -9,7 +8,6 @@ import { GlobalState } from "../../../GlobalState";
 export default function Reviews() {
   const state = useContext(GlobalState);
   const [reviews, setReview] = useState([]);
-  const [id, setId] = useState();
   const [bookDetail, setBookDetail] = React.useState([]);
   const [image, setImage] = React.useState("");
   const [user] = state.userAPI.user;

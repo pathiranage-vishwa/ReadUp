@@ -10,7 +10,7 @@ function CategoriesAPI() {
       const res = await axios.get("/api/category");
       setCategories(res.data);
     };
-    getCategories(categories);
+    getCategories();
   }, [callback]);
   return {
     categories: [categories, setCategories],

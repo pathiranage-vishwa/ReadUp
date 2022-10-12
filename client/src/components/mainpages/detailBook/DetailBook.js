@@ -12,7 +12,7 @@ function DetailBook() {
   const [detailBook, setDetailBook] = useState([]);
 
   //set to local storage
-  const setDetails = () => {
+  const setDetails = (detailBook) => {
     localStorage.setItem("bookDetails", JSON.stringify(detailBook));
     //set image to local storage
     localStorage.setItem("bookImage", JSON.stringify(detailBook.images.url));
@@ -61,26 +61,27 @@ function DetailBook() {
           >
             Add to Cart
           </Link>
-
         </div>
       </div>
       <div>
-      <Link
-            to="#"
-            className="btnDetailwishlist"
-            onClick={() => addWishList(detailBook)}
-          >
-            Add to Wishlist
-          </Link>
-          <Link
-              to="/review"
-              className="btnReviewDetail ms-3 "
-              onClick={() => setDetails(detailBook)}
-          >
-             Reviews
-          </Link>
+        <Link
+          to="#"
+          className="btnDetailwishlist"
+          onClick={() => addWishList(detailBook)}
+        >
+          Add to Wishlist
+        </Link>
+        <Link
+          to="/review"
+          className="btnReviewDetail ms-3 "
+          onClick={() => setDetails(detailBook)}
+        >
+          Reviews
+        </Link>
       </div>
-<br/><br/><br/>
+      <br />
+      <br />
+      <br />
       <div>
         <h2>Related books</h2>
         <div className="books">

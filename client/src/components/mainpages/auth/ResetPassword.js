@@ -24,7 +24,7 @@ function ResetPassword() {
   //Validate the request and API call for reset password
   const handleResetPass = async () => {
     try {
-      const res = await axios.post(
+      await axios.post(
         "http://localhost:5000/user/reset",
         { password },
         {

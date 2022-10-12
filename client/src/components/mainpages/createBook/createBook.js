@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { GlobalState } from "../../../GlobalState";
 import Loading from "../utils/loading/Loading";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import swal from "sweetalert";
 
 const initialState = {
@@ -26,7 +26,6 @@ function CreateBook() {
   const [isSeller] = state.userAPI.isSeller;
   const [token] = state.token;
 
-  const history = useHistory();
   const param = useParams();
 
   const [books] = state.booksAPI.books;

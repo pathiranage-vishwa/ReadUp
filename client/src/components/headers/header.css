@@ -8,7 +8,7 @@ header {
   align-items: center;
   border-bottom: 1px solid #ddd;
   background-color: #100360;
-  top:0;
+  top: 0;
 }
 .logo {
   background-image: url("./icon/logo1.png");
@@ -49,16 +49,10 @@ header ul li:hover {
 }
 
 .menu-bars {
-  margin-left: -610px;  
+  margin-left: -610px;
   font-size: 2.1rem;
   background: none;
   margin-top: -60px;
-}
-
-menu-close {
-  margin-left: -3rem;  
-  font-size: 3.5rem;
-  background: none;
 }
 
 .nav-menu {

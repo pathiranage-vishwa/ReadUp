@@ -7,7 +7,6 @@ import { useHistory } from "react-router-dom";
 
 function Categories() {
   const state = useContext(GlobalState);
-  const [categories] = state.categoriesAPI.categories;
   const [token] = state.token;
   const [callback, setCallback] = state.categoriesAPI.callback;
   const history = useHistory();
@@ -41,7 +40,7 @@ function Categories() {
       setCallback(!callback);
       history.push("/");
     } catch (err) {
-      alert(err.response.data.msg);
+      swal(err.response.data.msg);
     }
   };
 
