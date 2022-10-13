@@ -152,11 +152,7 @@ function Header() {
       <div className="menu" onClick={() => setMenu(!menu)}>
         <img src={Menu} alt="" width="30" />
       </div>
-
-      {/* <div className="logo">
-        <Link to="/">{isAdmin ? "Admin" : "DevAT Shop"}</Link>
-      </div> */}
-      <div style={{"marginLeft":"40%"}}>
+      <div style={{"marginLeft":"30%"}}>
       <ul style={styleMenu}>
       <li>
           <Link to="/"><FaIcons.FaHome />&nbsp;Home</Link>
