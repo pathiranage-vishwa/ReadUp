@@ -4,6 +4,7 @@ import ReactPaginate from "react-paginate";
 import "./Styles/paginate.css";
 import "./Styles/table.css";
 import swal from "sweetalert";
+import * as FaIcons from "react-icons/fa";
 
 const PER_PAGE = 10;
 
@@ -124,7 +125,9 @@ export default function AllUsers() {
         href={`http://localhost:3000/report`}
         style={{ textDecoration: "none" }}
       >
-        <i></i>&nbsp;Generate Report
+        <i></i>
+        <FaIcons.FaFilePdf />
+        &nbsp;&nbsp;Generate Report
       </a>
       <br /> <br />
       <table className="customers">

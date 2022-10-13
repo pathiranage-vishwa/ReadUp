@@ -49,10 +49,11 @@ header ul li:hover {
 }
 
 .menu-bars {
-  margin-left: -610px;
+  margin-left: -2100%;
   font-size: 2.1rem;
   background: none;
   margin-top: -60px;
+  justify-content: space-between;
 }
 
 .nav-menu {
@@ -94,9 +95,11 @@ header ul li:hover {
   border-radius: 4px;
 }
 
-/* .nav-text a:hover {
+.header-btn{
   background-color: rgb(136, 135, 135);
-} */
+  opacity: 0.6;
+  transition: 0.5s;
+}
 
 .nav-menu-items {
   width: 100%;

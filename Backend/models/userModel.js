@@ -40,8 +40,9 @@ const userSchema = new mongoose.Schema(
     },
     image: {
       type: String,
-      default: "https://res.cloudinary.com/dlprhahi4/image/upload/v1663887060/pngwing.com_ar5lyy.png"
-  }
+      default:
+        "https://res.cloudinary.com/dlprhahi4/image/upload/v1665683554/610-6104451_image-placeholder-png-user-profile-placeholder-image-png_dy0qvb.jpg",
+    },
   },
   {
     timestamps: true,

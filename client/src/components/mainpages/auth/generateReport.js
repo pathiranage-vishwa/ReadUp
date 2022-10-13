@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import generatePDF from "./Report";
 import axios from "axios";
 import "./Styles/reportgen.css";
+import * as FaIcons from "react-icons/fa";
 
 const GetReport = () => {
   //Generate Report
@@ -38,7 +39,8 @@ const GetReport = () => {
                       onClick={() => generatePDF(profile)}
                       style={{ height: "50px" }}
                     >
-                      Generate Report
+                      <FaIcons.FaFilePdf />
+                      &nbsp;&nbsp; Generate Report
                     </button>
                   </div>
                 </div>

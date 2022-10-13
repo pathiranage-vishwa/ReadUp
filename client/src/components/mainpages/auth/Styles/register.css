@@ -42,3 +42,11 @@
 .overflow-hidden {
   overflow: hidden;
 }
+
+.btn-register {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.55rem 1rem;
+  background-color: #112083;
+  margin-left: 220px;
+}

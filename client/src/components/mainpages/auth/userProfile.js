@@ -4,6 +4,7 @@ import "./Styles/updateUser.css";
 import swal from "sweetalert";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import * as FaIcons from "react-icons/fa";
 
 //userprofile
 
@@ -45,15 +46,6 @@ function UserProfile() {
       alert(err.message);
     }
   };
-  //     const res = await axios.delete(`/user/delete/${id}`).then(()=>{
-  //       alert("res.data.msg")
-  //     }).catch((err)=>{
-  //       alert(err)
-  //     });
-  //   } catch (err) {
-  //     alert(err)
-  //   }
-  // };
 
   return (
     <div className="updateTop">
@@ -64,7 +56,24 @@ function UserProfile() {
       <br />
       <div className="container-fluid ps-md-0 ">
         <div className="row g-0">
-          <div className="d-none d-md-flex col-md-4 col-lg-6 updateimage"></div>
+          <div className="d-none d-md-flex col-md-4 col-lg-6 updateimage">
+            <label
+              className="register-heading mb-6 del-label"
+              for="form3Example1m1"
+            >
+              Delete Account ?
+            </label>
+            <br />
+
+            <button
+              className="btn btn-lg btn-success btn-Delprof text-uppercase fw-bold mb-5"
+              onClick={() => handleDelete(id)}
+              style={{ height: "50px", width: "120px" }}
+            >
+              <FaIcons.FaTrash />
+              &nbsp; Delete
+            </button>
+          </div>
           <div className="col-md-8 col-lg-6">
             <div className="login d-flex align-items-center py-5">
               <div className="card-body p-md-5 text-black">
@@ -189,25 +198,11 @@ function UserProfile() {
                         className="btn btn-lg btn-success btn-profupdate text-uppercase fw-bold mb-5"
                         style={{ height: "50px", width: "150px" }}
                       >
-                        Update
+                        <FaIcons.FaPencilAlt />
+                        &nbsp; Update
                       </button>
                     </Link>
                   </div>
-                  <label
-                    className="register-heading mb-6"
-                    for="form3Example1m1"
-                  >
-                    Delete Account ?
-                  </label>
-                  <br />
-
-                  <button
-                    className="btn btn-lg btn-success btn-Delprof text-uppercase fw-bold mb-5"
-                    onClick={() => handleDelete(id)}
-                    style={{ height: "50px", width: "120px" }}
-                  >
-                    Delete
-                  </button>
                 </form>
               </div>
             </div>

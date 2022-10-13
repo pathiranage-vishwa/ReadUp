@@ -94,33 +94,31 @@ function UpdateUser() {
     }
   };
 
-  function resetPassword(e) {
-    e.preventDefault();
-    const newPassword = {
-      newpassword,
-      confNewPassword,
-    };
-    swal({
-      title: "Are you sure?",
-      text: "You are reset your account password!",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-      .then((willDelete) => {
-        if (willDelete) {
-          axios.put(`/user/updateUsr/${id}`, newPassword);
-          swal("Poof! User password updated successfully!", {
-            icon: "success",
-          });
-        } else {
-          swal("Password is safe!");
+  const updatePassword = () => {
+    if (newpassword.length < 6)
+      return swal(
+        "Warning!",
+        "Password must be at least 6 characters.",
+        "warning"
+      );
+
+    if (newpassword !== confNewPassword)
+      return swal("ERROR!", "Password did not match.", "error");
+
+    try {
+      axios.post(
+        "/user/reset",
+        { newpassword },
+        {
+          headers: { Authorization: token },
         }
-      })
-      .catch((err) => {
-        alert(err);
-      });
-  }
+      );
+
+      swal("Done!", "Password updated successfully!", "success");
+    } catch (err) {
+      return swal("ERROR!", "Updated Failed!", "error");
+    }
+  };
 
   return (
     <>
@@ -245,14 +243,17 @@ function UpdateUser() {
                   </div>
                 </div>
 
-                <button className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5">
+                <button
+                  className="btn btn-lg btn-success btn-updateacc text-uppercase fw-bold mb-5"
+                  style={{ height: "50px" }}
+                >
                   Update
                 </button>
               </div>
             </form>
           </div>
           <div className="col-right">
-            <form className="form" onSubmit={resetPassword}>
+            <form className="form">
               <div className="card2">
                 <h2>Reset Password</h2>
                 <br />
@@ -262,7 +263,7 @@ function UpdateUser() {
                       <div className="form-group">
                         <label htmlFor="name">New Password</label>
                         <input
-                          type="text"
+                          type="password"
                           name="newpassword"
                           id="newpassword"
                           placeholder="new password"
@@ -280,7 +281,7 @@ function UpdateUser() {
                       <div className="form-group">
                         <label htmlFor="regNumber">Confirm Password</label>
                         <input
-                          type="text"
+                          type="password"
                           name="confNewPassword"
                           id="confNewPassword"
                           placeholder="confirm New Password"
@@ -292,7 +293,11 @@ function UpdateUser() {
                     </div>
                   </div>
                 </div>
-                <button className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5">
+                <button
+                  className="btn btn-lg btn-success btn-updatepw fw-bold mb-5"
+                  style={{ height: "50px" }}
+                  onClick={updatePassword}
+                >
                   Update Password
                 </button>
               </div>

@@ -24,6 +24,7 @@ const Avatar = styled.div`
   img {
     display: block;
     width: 100%;
+    margin-top: -3px;
   }
 `;
 
@@ -63,10 +64,10 @@ function Header() {
     return (
       <>
         <li>
-          <Link to="/create_book">Create Book</Link>
+          <Link to="/create_book"><FaIcons.FaPlusCircle />&nbsp;Create Book</Link>
         </li>
         <li>
-          <Link to="/category">Categories</Link>
+          <Link to="/category"><FaIcons.FaCubes />&nbsp;Categories</Link>
         </li>
       </>
     );
@@ -76,7 +77,7 @@ function Header() {
     return (
       <>
         <li>
-          <Link to="/create_book">Add Book</Link>
+          <Link to="/create_book"><FaIcons.FaBook />&nbsp;Add Book</Link>
         </li>
       </>
     );
@@ -86,11 +87,11 @@ function Header() {
     return (
       <>
         <li>
-          <Link to="/managerequests">Manage Requests</Link>
+          <Link to="/managerequests"><FaIcons.FaPaperPlane />&nbsp;Manage Requests</Link>
         </li>
         <li>
           <Link to="/" onClick={logoutUser}>
-            Logout
+          <FaIcons.FaSignOutAlt />&nbsp;Logout
           </Link>
         </li>
       </>
@@ -147,13 +148,12 @@ function Header() {
         <img src={Menu} alt="" width="30" />
       </div>
 
-      {/* <div className="logo">
-        <Link to="/">{isAdmin ? "Admin" : "DevAT Shop"}</Link>
-      </div> */}
-
       <ul style={styleMenu}>
+      <li>
+          <Link to="/"><FaIcons.FaHome />&nbsp;Home</Link>
+        </li>
         <li>
-          <Link to="/books">{isAdmin ? "Books" : "Store"}</Link>
+          <Link to="/books"><FaIcons.FaStore />&nbsp;{isAdmin ? "Books" : "Store"}</Link>
         </li>
 
         {isAdmin && adminRouter()}
@@ -164,8 +164,8 @@ function Header() {
           loggedRouter()
         ) : (
           <li>
-            <Link to="/login">Login</Link>&nbsp
-            <Link to="/register">Register</Link>
+            <Link to="/login"><FaIcons.FaSignInAlt />&nbsp;Login</Link>&nbsp;&nbsp;&nbsp;&emsp;&emsp;
+            <Link to="/register"><FaIcons.FaUserPlus />&nbsp;Register</Link>
           </li>
         )}
         <li onClick={() => setMenu(!menu)}>

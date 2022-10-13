@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Styles/register.css";
 import axios from "axios";
 import swal from "sweetalert";
+import * as FaIcons from "react-icons/fa";
 
 function Register() {
   const [user, setUser] = useState({
@@ -159,15 +160,14 @@ function Register() {
                     </div>
                   </div>
 
-                  <div className="d-flex justify-content-end pt-3">
-                    <button
-                      className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-5"
-                      type="submit"
-                      style={{ height: "50px" }}
-                    >
-                      Sign Up
-                    </button>
-                  </div>
+                  <button
+                    className="btn btn-lg btn-success btn-register text-uppercase fw-bold mb-5"
+                    type="submit"
+                    style={{ height: "50px", width: "30%" }}
+                  >
+                    <FaIcons.FaSignInAlt />
+                    &nbsp;&emsp; Sign Up
+                  </button>
                 </form>
               </div>
             </div>

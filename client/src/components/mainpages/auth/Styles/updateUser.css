@@ -89,11 +89,16 @@
 }
 
 .btn-Delprof {
-  margin-left: 360px;
-  margin-top: -55px;
+  margin-left: 60px;
+  margin-top: 755px;
   font-size: 0.9rem;
   letter-spacing: 0.05rem;
   padding: 0.55rem 1rem;
   background-color: #112083;
+}
+
+.del-label{
+  margin-left: 160px;
+  margin-top: 755px;
 }
   
