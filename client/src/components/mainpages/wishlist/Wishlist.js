@@ -52,7 +52,7 @@ const TopText = styled.span`
 const Bottom = styled.div`
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fill, minmax(780px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(700px, 1fr));
   grid-gap: 50px;
   margin: 20px 0;
   ${mobile({ flexDirection: "column" })}
@@ -65,8 +65,8 @@ const Info = styled.div`
 const Product = styled.div`
   display: flex;
   border: 0.5px solid lightgray;
-  padding: 20px;
-  width: 850px;
+  padding: 10px;
+  width: 720px;
   border-radius: 10px;
   justify-content: space-between;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

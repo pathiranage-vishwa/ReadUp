@@ -123,9 +123,9 @@ const userCtrl = {
   },
   resetPassword: async (req, res) => {
     try {
-      const { password } = req.body;
-      console.log(password);
-      const passwordHash = await bcrypt.hash(password, 12);
+      const { newpassword } = req.body;
+      console.log(newpassword);
+      const passwordHash = await bcrypt.hash(newpassword, 12);
 
       await Users.findOneAndUpdate(
         { _id: req.user.id },
@@ -166,27 +166,27 @@ const userCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
-  updateAUser: async (req,res) => {
-    try{
-        Users.findByIdAndUpdate(
-            req.params.id,
-            {
-              $set:req.body
-            },
-            (err,users)=>{
-              if(err){
-                return res.status(400).json({error:err});
-              }
-        
-              return res.status(200).json({
-                success:"updated successfully"
-              });
-            }
-          );
-    }catch{
-        return res.status(500).json({msg: err.message})
+  updateAUser: async (req, res) => {
+    try {
+      Users.findByIdAndUpdate(
+        req.params.id,
+        {
+          $set: req.body,
+        },
+        (err, users) => {
+          if (err) {
+            return res.status(400).json({ error: err });
+          }
+
+          return res.status(200).json({
+            success: "updated successfully",
+          });
+        }
+      );
+    } catch {
+      return res.status(500).json({ msg: err.message });
     }
-},
+  },
   deleteUser: async (req, res) => {
     try {
       await Users.findByIdAndDelete(req.params.id);

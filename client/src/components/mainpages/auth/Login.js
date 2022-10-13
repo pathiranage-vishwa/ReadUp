@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Styles/login.css";
 import axios from "axios";
 import swal from "sweetalert";
+import * as FaIcons from "react-icons/fa";
 
 //Login
 
@@ -82,14 +83,16 @@ function Login() {
                         className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-2"
                         style={{ height: "50px" }}
                       >
-                        Sign in
+                        <FaIcons.FaSignInAlt />
+                        &nbsp; Sign in
                       </button>
                       <a
                         className="btn btn-lg btn-success btn-signup text-uppercase fw-bold mb-2"
                         href={"/register"}
                         style={{ height: "50px" }}
                       >
-                        Sign Up
+                        <FaIcons.FaUserPlus />
+                        &nbsp; Sign Up
                       </a>
                     </div>
                   </form>

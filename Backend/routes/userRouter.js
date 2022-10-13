@@ -18,7 +18,7 @@ router.get("/infor", auth, userCtrl.getUser);
 
 router.get("/allUsers", userCtrl.getAllUsers);
 
-router.put('/updateUsr/:id', userCtrl.updateAUser);
+router.put("/updateUsr/:id", userCtrl.updateAUser);
 
 router.delete("/delete/:id", userCtrl.deleteUser);
 

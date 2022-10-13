@@ -53,6 +53,7 @@
   font-size: 2.1rem;
   background: none;
   margin-top: -60px;
+  justify-content: space-between;
 }
 
 .nav-menu {
@@ -95,9 +96,11 @@
   border-radius: 4px;
 }
 
-/* .nav-text a:hover {
+.header-btn{
   background-color: rgb(136, 135, 135);
-} */
+  opacity: 0.6;
+  transition: 0.5s;
+}
 
 .nav-menu-items {
   width: 100%;

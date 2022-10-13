@@ -122,7 +122,7 @@ function Pages() {
       <Route
         path="/managerequests"
         exact
-        component={isSeller ? Managerequests : NotFound}
+        component={isLogged ? Managerequests : NotFound}
       />
       <Route path="/create_book" exact component={CreateBook} />
       <Route

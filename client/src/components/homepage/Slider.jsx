@@ -18,7 +18,7 @@ const Container = styled.div`
 const Arrow = styled.div`
   width: 50px;
   height: 50px;
-  background-color: #fff7f7;
+  background-color: #808080;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -50,7 +50,6 @@ const Slide = styled.div`
 `;
 
 const ImgContainer = styled.div`
-  margin-top: 13%;
   height: 100%;
   flex: 1;
 `;

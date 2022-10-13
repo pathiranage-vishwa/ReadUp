@@ -28,7 +28,7 @@
     padding: 30 50px;
     margin: auto;
     margin-left: 50px;
-    margin-top: 200px;
+    margin-top: 120px;
 }
 
 .profile_page .col-left .avatar{
@@ -237,4 +237,18 @@ div.card1 {
     background-color: #112083;
     margin-top: -100px;
     margin-left: -200px;
+}
+
+btn-updateacc{
+    font-size: 1.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.55rem 1rem;
+    background-color: #112083;
+}
+
+btn-updatepw{
+    font-size: 1.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.55rem 1rem;
+    background-color: #112083;
 }

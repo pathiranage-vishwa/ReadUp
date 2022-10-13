@@ -1,8 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext,useState, useEffect } from "react";
 import axios from "axios";
 import requestReport from "./requestReport"
+import { GlobalState } from "../../../GlobalState";
 
 export default function Allrequests() {
+  const state = useContext(GlobalState);
+  const [isLogged] = state.userAPI.isLogged;
+  const [isAdmin] = state.userAPI.isAdmin;
+  const [isSeller] = state.userAPI.isSeller;
   const [requests, setRequests] = useState([]);
 
   useEffect(() => {
@@ -119,20 +124,21 @@ export default function Allrequests() {
               <td>{data.category}</td>
               <td>{data.isbnNumber}</td>
               <td>{data.status}</td>
-              <td>
+              <td>{isSeller ?
                 <a
                   className="btn btn-warning"
                   onClick={() => setData(data._id)}
                 >
                   &nbsp;Accept
-                </a>
+                </a>:"NOT ALLOWED"}
                 &nbsp;
+                {isSeller ?
                 <a
                   className="btn btn-danger"
                   onClick={() => handleDelete(data._id)}
                 >
                   &nbsp;Decline
-                </a>
+                </a>:""}
               </td>
             </tr>
           ))}
