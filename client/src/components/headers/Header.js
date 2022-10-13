@@ -102,7 +102,12 @@ function Header() {
   };
 
   return (
-    <header className="logo">
+    <div className="header">
+    <main>
+      <a href={"/"}>
+      <div className="logo"></div>
+      </a>
+      </main>
       <IconContext.Provider value={{ color: "#fff" }}>
         <div className="navbar">
           {isLogged?
@@ -150,7 +155,7 @@ function Header() {
       {/* <div className="logo">
         <Link to="/">{isAdmin ? "Admin" : "DevAT Shop"}</Link>
       </div> */}
-
+      <div style={{"marginLeft":"40%"}}>
       <ul style={styleMenu}>
         <li>
           <Link to="/books">{isAdmin ? "Books" : "Store"}</Link>
@@ -172,6 +177,7 @@ function Header() {
           <img src={Close} alt="" width="30" className="menu" />
         </li>
       </ul>
+      </div>
 
       {isAdmin ? (
         ""
@@ -183,7 +189,7 @@ function Header() {
           </Link>
         </div>
       )}
-    </header>
+    </div>
   );
 }
 
