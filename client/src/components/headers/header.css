@@ -12,11 +12,11 @@
 }
 .logo {
   background: url("./icon/logo1.png");
-  width: 200px;
-  height: 100px;
+  width: 120px;
+  height: 60px;
   background-size: cover;
   z-index: 1;
-  margin-left: 10%;
+  margin-left: 20%;
 }
 .header a {
   text-transform: uppercase;
@@ -52,7 +52,7 @@
   margin-left: 10%;
   font-size: 2.1rem;
   background: none;
-  margin-top: -60px;
+  margin-top: -10px;
   justify-content: space-between;
 }
 
@@ -103,19 +103,31 @@
 }
 
 .nav-menu-items {
-  width: 100%;
+  width: 200%;
+  margin-left: -10%;
 }
 
 .navbar-toggle {
   width: 100%;
+  font-size: 2.1rem;
   height: 80px;
   display: flex;
   justify-content: start;
   align-items: center;
-  margin-left: 49px;
+  margin-left: 80%;
 }
 
 span {
   margin-left: 16px;
+}
+
+.sliderbtn{
+  text-decoration: none;
+  font-weight: 700;
+  padding: 10px;
+  font-size: 20px;
+  background-color: transparent;
+  color: #000000;
+  cursor: pointer;
 }
 

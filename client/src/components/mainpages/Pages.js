@@ -7,7 +7,6 @@ import Register from "./auth/Register";
 import OrderHistory from "./history/OrderHistory";
 import OrderDetails from "./history/OrderDetails";
 import Cart from "./cart/Cart";
-import NotFound from "./utils/not_found/NotFound";
 import Loading from "./utils/loading/Loading";
 import Categories from "./categories/Categories";
 import CreateBook from "./createBook/createBook";
@@ -69,7 +68,7 @@ function Pages() {
       <Route
         path="/allusers"
         exact
-        component={isAdmin ? AllUsers : NotFound}
+        component={isAdmin ? AllUsers : Loading}
       />
       <Route
         path="/updateProfile/:id"
@@ -85,7 +84,7 @@ function Pages() {
       <Route
         path="/allcategory"
         exact
-        component={isAdmin ? Allcategories : NotFound}
+        component={isAdmin ? Allcategories : Loading}
       />
 
         <Route path="/review"
@@ -122,7 +121,7 @@ function Pages() {
       <Route
         path="/managerequests"
         exact
-        component={isLogged ? Managerequests : NotFound}
+        component={isLogged ? Managerequests : Loading}
       />
       <Route path="/create_book" exact component={CreateBook} />
       <Route
@@ -143,7 +142,7 @@ function Pages() {
       <Route path="/cart" exact component={Cart} />
       <Route path="/wishlist" exact component={Wishlist} />
 
-      <Route path="/myAds" exact component={isSeller? MyAds : NotFound } />
+      <Route path="/myAds" exact component={isSeller? MyAds : Loading } />
       <Route path="/manageOrders" exact component={ManageOrders} />
       <Route path="/checkout" exact component={Checkout} />
       <Route path="/addPayment" exact component={AddPayment} />

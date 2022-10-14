@@ -70,6 +70,11 @@ export default function Allrequests() {
     });
   }
 
+  if (requests.length === 0)
+  return (
+    <h2 style={{ textAlign: "center", fontSize: "5rem" }}>No Requests</h2>
+  );
+
   return (
     <div className="container " style={{ width: "100%" }}>
       <br/>
@@ -112,7 +117,9 @@ export default function Allrequests() {
             <th scope="col">Category</th>
             <th scope="col">ISBN Number</th>
             <th scope="col">Status</th>
+            {isSeller ?
             <th scope="col">Action</th>
+            :null}
           </tr>
         </thead>
         <tbody>
@@ -124,22 +131,23 @@ export default function Allrequests() {
               <td>{data.category}</td>
               <td>{data.isbnNumber}</td>
               <td>{data.status}</td>
-              <td>{isSeller ?
+              {isSeller ?
+              <td>
                 <a
                   className="btn btn-warning"
                   onClick={() => setData(data._id)}
                 >
                   &nbsp;Accept
-                </a>:"NOT ALLOWED"}
+                </a>
                 &nbsp;
-                {isSeller ?
                 <a
                   className="btn btn-danger"
                   onClick={() => handleDelete(data._id)}
                 >
                   &nbsp;Decline
-                </a>:""}
+                </a>
               </td>
+              :null}
             </tr>
           ))}
         </tbody>

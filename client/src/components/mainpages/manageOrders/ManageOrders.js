@@ -44,6 +44,11 @@ export default function ManageOrders() {
     });
   };
 
+  if (orders.length === 0)
+  return (
+    <h2 style={{ textAlign: "center", fontSize: "5rem" }}>No Orders Placed</h2>
+  );
+
   return (
     <div>
       <div className="topicNam">Customer Orders</div>

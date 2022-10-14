@@ -6,7 +6,7 @@ const SellerReport = (order, seller) => {
     seller.charAt(0).toUpperCase() + seller.slice(1).toLowerCase();
   const doc = new jsPDF();
 
-  const tableColumn = ["No", "Name", "Address", "Phone Number", "Order"];
+  const tableColumn = ["No", "Name", "Address", "Order"];
 
   const tableRows = [];
 
@@ -23,7 +23,6 @@ const SellerReport = (order, seller) => {
         no,
         data.name,
         data.address,
-        data.phoneNumber,
         [
           `Book Title\t\t   :` +
             item.title +

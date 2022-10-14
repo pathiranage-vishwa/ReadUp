@@ -67,7 +67,7 @@ function Header() {
           <Link to="/create_book"><FaIcons.FaPlusCircle />&nbsp;Create Book</Link>
         </li>
         <li>
-          <Link to="/category"><FaIcons.FaCubes />&nbsp;Categories</Link>
+          <Link to="/category"><FaIcons.FaCubes />&nbsp;Create Category</Link>
         </li>
       </>
     );
@@ -86,9 +86,6 @@ function Header() {
   const loggedRouter = () => {
     return (
       <>
-        <li>
-          <Link to="/managerequests"><FaIcons.FaPaperPlane />&nbsp;Manage Requests</Link>
-        </li>
         <li>
           <Link to="/" onClick={logoutUser}>
           <FaIcons.FaSignOutAlt />&nbsp;Logout
@@ -133,16 +130,18 @@ function Header() {
                 </a>
               </div>
             </Avatar>
-            <br />
+            <br />            <br />            <br />
             {SidebarData.map((item, index) => {
               return (
                 <div>
+                  {item.user === user.userType ?
                   <li key={index} className={item.cName}>
                     <Link to={item.path}>
                       {item.icon}
                       <span>{item.title}</span>
                     </Link>
                   </li>
+                  :null}
                 </div>
               );
             })}

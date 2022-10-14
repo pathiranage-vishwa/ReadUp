@@ -112,7 +112,7 @@ const Slider = () => {
             <InfoContainer>
               <Title>{item.title}</Title>
               <Desc>{item.desc}</Desc>
-              <Button onClick={handleOnClick}>SHOP NOW</Button>
+              <a className="sliderbtn" onClick={handleOnClick}>SHOP NOW</a>
             </InfoContainer>
           </Slide>
         ))}
