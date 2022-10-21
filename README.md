@@ -23,17 +23,16 @@ Editor - VSCode
 ## How to get started with your app
 
 ### Prerequisites
-1.
-2.
-3.
+1.Frist install the nodeJs your machine 
+2.Then you need to VSCode editer to run this aplication
 
 ### Procedure of setting up prerequisites and run the project
 
-1.
-2.
-3.
+1.First type npm install command in Backend,backend_card_payment, and client  
+2.Then run the services one by one using npm start command
+3.first run the Backend then run backend_card_payment after run the client
+4.Then automaticaly start the aplication in http://localhost:3000 port
 
-Include all the steps to run the app as a new user 
 
 
 
