@@ -23,7 +23,7 @@ Editor - VSCode
 ## How to get started with your app
 
 ### Prerequisites
-1.Frist install the nodeJs your machine 
+1.Frist install the nodeJs your machine
 2.Then you need to VSCode editer to run this aplication
 
 ### Procedure of setting up prerequisites and run the project
