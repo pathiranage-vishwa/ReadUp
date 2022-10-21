@@ -1,6 +1,6 @@
 
 # SER-53
-## ReadUp 
+## ReadUp - Online Book Selling Platform 
 ## Group Details
 
 
@@ -23,25 +23,15 @@ Editor - VSCode
 ## How to get started with your app
 
 ### Prerequisites
-1.Frist install the nodeJs your machine
+1.Frist install the nodeJs your machine </br>
 2.Then you need to VSCode editer to run this aplication
 
 ### Procedure of setting up prerequisites and run the project
 
-1.First type npm install command in Backend,backend_card_payment, and client  
-2.Then run the services one by one using npm start command
-3.first run the Backend then run backend_card_payment after run the client
-4.Then automaticaly start the aplication in http://localhost:3000 port
-
-
-
-
-
-
-
-# ReadUp
-## Online Books Store
-
+1.First type npm install command in Backend,backend_card_payment, and client  </br>
+2.Then run the services one by one using npm start command </br>
+3.first run the Backend then run backend_card_payment after run the client </br>
+4.Then automaticaly start the aplication in http://localhost:3000 port  </br>
 
 
 In the below, There is some screen shots of our UI's
@@ -52,14 +42,6 @@ In the below, There is some screen shots of our UI's
 ### Home Page
 ![home](https://user-images.githubusercontent.com/87310474/195198004-030b2be8-0571-426f-8a7e-38cb6287a5c5.png)
 
-
-Group Details
-<ul>
-  <li>IT20260910 - Vishwa J.W.P</li>
-  <li>IT20260460 - Piumika Saranga H.A.</li>
-  <li>IT20236014 - Ravindu Yasith T.K.</li>
-  <li>IT20232838 - Devsrini Savidya A.S.</li>
-</ul>
 
 
 
